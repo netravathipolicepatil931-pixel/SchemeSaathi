@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7f8f5">
-  <meta name="description" content="Understand government schemes, check what may fit your situation, and find the official next steps—all in a language you know.">
-  <title>AccessBridge AI — benefits made easier to reach</title>
+  <meta name="description" content="SchemeSaathi — Understand government schemes, check eligibility, get personalized document checklists, and access verified official guidance in your language.">
+  <title>SchemeSaathi — Benefits Made Accessible</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,11 +14,11 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;font-size:14px;-webkit-font-smoothing:antialiased}
-    button,input,select{font:inherit}
+    button,input,select,textarea{font:inherit}
     button,a{-webkit-tap-highlight-color:transparent}
     a{color:inherit}
-    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #8bb99c;outline-offset:3px}
-    .topbar{position:sticky;top:0;z-index:10;border-bottom:1px solid #e9ede8cc;background:#ffffffed;backdrop-filter:blur(16px)}
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #8bb99c;outline-offset:3px}
+    .topbar{position:sticky;top:0;z-index:20;border-bottom:1px solid #e9ede8cc;background:#ffffffed;backdrop-filter:blur(16px)}
     .topbar-inner{max-width:1140px;min-height:68px;margin:auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
     .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:Manrope,sans-serif;font-size:16px;font-weight:800;letter-spacing:-.55px}
     .brand-mark{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--green);color:white}
@@ -27,6 +27,8 @@
     .nav a{color:#647169;text-decoration:none;font-size:12px;font-weight:600}
     .nav a:hover{color:var(--green)}
     .header-actions{display:flex;align-items:center;gap:11px}
+    .api-status{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:#356e4c;background:#edf5ee;padding:4px 8px;border-radius:12px;border:1px solid #dbead9}
+    .api-status-dot{width:6px;height:6px;border-radius:50%;background:#38a169}
     .lang-wrap{position:relative}
     .lang-select{border:1px solid var(--line);border-radius:8px;padding:8px 27px 8px 10px;background:white;color:var(--ink);font-size:11px;font-weight:700;cursor:pointer}
     .lang-wrap:after{content:"⌄";position:absolute;right:9px;top:6px;color:#637168;pointer-events:none}
@@ -41,10 +43,12 @@
     h1,h2,h3,p{margin-top:0}
     h1{max-width:520px;margin:14px 0 12px;font-family:Manrope,sans-serif;font-size:clamp(30px,4vw,43px);font-weight:800;line-height:1.13;letter-spacing:-1.8px}
     .hero-copy>p{max-width:438px;margin:0;color:#66746a;font-size:13px;line-height:1.75}
-    .hero-cta{position:relative;z-index:1;flex-shrink:0;margin-right:15px}
+    .hero-cta{position:relative;z-index:1;flex-shrink:0;margin-right:15px;display:flex;flex-direction:column;gap:9px}
     .button-primary{min-height:43px;border:0;border-radius:8px;padding:0 16px;background:var(--green);color:white;display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-size:12px;font-weight:700;cursor:pointer;transition:background .18s,transform .18s}
     .button-primary:hover{background:var(--green-dark);transform:translateY(-1px)}
     .button-primary svg{width:16px;height:16px}
+    .button-secondary{min-height:38px;border:1px solid #ccd8cf;border-radius:8px;padding:0 14px;background:white;color:var(--green-dark);display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:11px;font-weight:700;cursor:pointer;transition:all .18s}
+    .button-secondary:hover{background:#f3f7f4;border-color:#b4ccbc}
     .trust-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:22px}
     .trust-item{display:flex;align-items:center;gap:7px;color:#596b5e;font-size:10px;font-weight:600}
     .trust-item svg{width:14px;height:14px;color:var(--green)}
@@ -80,13 +84,32 @@
     .search-input{width:160px;height:32px;border:1px solid var(--line);border-radius:7px;padding:0 9px 0 29px;background:#fff;font-size:10px}
     .filter-select{height:32px;max-width:130px;border:1px solid var(--line);border-radius:7px;padding:0 25px 0 9px;background:#fff;color:#536157;font-size:10px;cursor:pointer}
     .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .scheme-card{display:flex;min-height:190px;flex-direction:column;padding:16px;transition:transform .18s,box-shadow .18s}
+    .scheme-card{display:flex;min-height:200px;flex-direction:column;padding:16px;transition:transform .18s,box-shadow .18s}
     .scheme-card:hover{transform:translateY(-2px);box-shadow:0 14px 35px #1b342211}
     .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:9px}
     .scheme-icon{width:35px;height:35px;flex-shrink:0;border-radius:11px;display:grid;place-items:center}
     .scheme-icon svg{width:19px;height:19px}
+    .match-badge{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:800;padding:3px 8px;border-radius:12px;margin-right:auto;margin-left:8px}
+    .match-high{background:#e7f5eb;color:#1e6c3f;border:1px solid #c2e6cb}
+    .match-likely{background:#edf4fc;color:#23589c;border:1px solid #cbdef5}
+    .match-check{background:#fdf6e7;color:#916812;border:1px solid #fae8be}
     .save-button{width:30px;height:30px;border:1px solid var(--line);border-radius:8px;background:white;color:#87938b;display:grid;place-items:center;cursor:pointer}
-    .save-button:hover,.save-button.saved{border-color:#c9dfcf;background:#f1f7f0;color:var(--green)}
+    .save-button:hover {
+  border-color: #267452;
+  background: #eaf3ec;
+  color: #267452;
+}
+
+.save-button.saved {
+  background: #267452;
+  border-color: #267452;
+  color: white;
+}
+
+.save-button.saved svg {
+  fill: white;
+  stroke: white;
+}
     .save-button svg{width:15px;height:15px}
     .card-category{margin:13px 0 4px;color:var(--green);font-size:8px;font-weight:800;letter-spacing:.8px;text-transform:uppercase}
     .card-name{margin:0;font-family:Manrope,sans-serif;font-size:14px;font-weight:800;line-height:1.35;letter-spacing:-.2px}
@@ -112,9 +135,11 @@
     .step p{margin:0;color:var(--muted);font-size:9px;line-height:1.6}
     footer{max-width:1140px;margin:auto;border-top:1px solid var(--line);padding:17px 28px 24px;display:flex;justify-content:space-between;gap:15px;color:#879188;font-size:9px;line-height:1.65}
     .footer-brand{color:#526156;font-weight:700}
-    .modal-backdrop{position:fixed;inset:0;z-index:30;overflow-y:auto;background:#18251f77;display:grid;place-items:center;padding:20px}
-    .modal{position:relative;width:min(510px,100%);max-height:min(720px,90vh);overflow-y:auto;border:1px solid #e7ece6;border-radius:16px;background:white;box-shadow:0 24px 80px #101b1666}
-    .modal-head{position:sticky;top:0;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:19px 22px 15px;background:#fff}
+    
+    /* Modals & Drawers */
+    .modal-backdrop{position:fixed;inset:0;z-index:40;overflow-y:auto;background:#18251f77;display:grid;place-items:center;padding:20px}
+    .modal{position:relative;width:min(530px,100%);max-height:min(740px,90vh);overflow-y:auto;border:1px solid #e7ece6;border-radius:16px;background:white;box-shadow:0 24px 80px #101b1666}
+    .modal-head{position:sticky;top:0;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:19px 22px 15px;background:#fff}
     .modal-head .card-category{margin-top:0}
     .modal-head h2{margin:5px 0 0;font-family:Manrope,sans-serif;font-size:19px;line-height:1.3;letter-spacing:-.5px}
     .close-button{width:31px;height:31px;flex-shrink:0;border:1px solid var(--line);border-radius:8px;background:#fff;color:#627066;display:grid;place-items:center;font-size:18px;cursor:pointer}
@@ -134,26 +159,68 @@
     .modal-footer{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
     .source-link{display:inline-flex;align-items:center;gap:5px;color:var(--green-dark);text-decoration:none;font-size:10px;font-weight:700}
     .source-link svg{width:13px;height:13px}
-    .toast{position:fixed;right:21px;bottom:21px;z-index:40;border:1px solid #d8e6da;border-radius:10px;padding:12px 15px;background:white;color:var(--green-dark);box-shadow:var(--shadow);font-size:11px;font-weight:700}
+    .toast{position:fixed;right:21px;bottom:21px;z-index:50;border:1px solid #d8e6da;border-radius:10px;padding:12px 15px;background:white;color:var(--green-dark);box-shadow:var(--shadow);font-size:11px;font-weight:700}
+
+    /* Floating AI Assistant */
+    .ai-fab{position:fixed;bottom:26px;right:26px;z-index:35;background:linear-gradient(135deg,var(--green),var(--green-dark));color:white;border:0;border-radius:30px;padding:12px 18px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;box-shadow:0 8px 28px rgba(38,116,82,0.35);cursor:pointer;transition:transform .2s,box-shadow .2s}
+    .ai-fab:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(38,116,82,0.45)}
+    .ai-drawer{position:fixed;bottom:80px;right:26px;z-index:35;width:370px;max-width:calc(100vw - 32px);height:500px;max-height:calc(100vh - 110px);border:1px solid #d9e4da;border-radius:18px;background:white;box-shadow:0 20px 60px rgba(24,37,31,0.2);display:flex;flex-direction:column;overflow:hidden;animation:popIn .2s cubic-bezier(0.16,1,0.3,1)}
+    @keyframes popIn{from{opacity:0;transform:scale(0.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    .ai-header{padding:14px 16px;background:#f3f7f2;border-bottom:1px solid #e5ece3;display:flex;align-items:center;justify-content:space-between}
+    .ai-title{display:flex;align-items:center;gap:8px;font-weight:800;font-size:13px;color:var(--green-dark)}
+    .ai-close{background:transparent;border:0;font-size:18px;cursor:pointer;color:#6b7870;padding:2px 6px;border-radius:6px}
+    .ai-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+    .ai-msg{max-width:86%;padding:10px 13px;border-radius:13px;font-size:11px;line-height:1.6}
+    .ai-msg-assistant{align-self:flex-start;background:#f2f6f3;color:#28362d;border-bottom-left-radius:3px}
+    .ai-msg-user{align-self:flex-end;background:var(--green);color:white;border-bottom-right-radius:3px}
+    .ai-quick-pills{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;background:#fafbfa;border-top:1px solid #f0f3ef}
+    .ai-pill{background:#edf4ee;border:1px solid #d7e4d8;border-radius:12px;padding:4px 9px;font-size:9px;font-weight:600;color:var(--green-dark);cursor:pointer;transition:background .15s}
+    .ai-pill:hover{background:#dfeee1}
+    .ai-input-bar{display:flex;gap:6px;padding:10px 12px;background:white;border-top:1px solid #eaeaea}
+    .ai-input{flex:1;height:34px;border:1px solid var(--line);border-radius:8px;padding:0 10px;font-size:11px}
+    .ai-send{height:34px;padding:0 14px;border:0;border-radius:8px;background:var(--green);color:white;font-weight:700;font-size:11px;cursor:pointer}
+    .ai-send:disabled{opacity:0.6}
     [hidden]{display:none!important}
     @media(max-width:760px){.topbar-inner{min-height:61px;padding:0 17px}.nav{gap:15px}.nav a{font-size:10px}.header-link span{display:none}main{padding:24px 17px 44px}.hero{min-height:235px;padding:28px}.hero-cta{margin-right:0}.hero:after{right:20px}.layout{grid-template-columns:1fr;gap:14px}.profile-card{position:static}.profile-head,.profile-form{padding-right:14px;padding-left:14px}.profile-form{display:block}.results-toolbar{align-items:flex-start;flex-direction:column}.toolbar-right{width:100%}.search-wrap{flex:1}.search-input{width:100%}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.scheme-card{min-height:0}.steps{gap:9px}.step{padding:12px 10px}}
-    @media(max-width:560px){.nav{display:none}.topbar-inner{min-height:58px}.brand{font-size:14px}.hero{min-height:0;align-items:flex-start;flex-direction:column;gap:16px;padding:24px 21px}.hero:after{right:-64px;top:-175px}.hero-copy{max-width:100%}h1{max-width:400px;font-size:33px}.hero-copy>p{font-size:12px}.trust-row{gap:10px 13px;margin-top:16px}.hero-cta{width:100%}.hero-cta .button-primary{width:100%}.layout{grid-template-columns:1fr;margin-top:16px}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.step{padding:12px}.how-header h2{font-size:20px}footer{padding-right:17px;padding-left:17px;flex-direction:column;gap:7px}.modal-backdrop{padding:12px}.modal{max-height:93vh}}
+    @media(max-width:560px){.nav{display:none}.topbar-inner{min-height:58px}.brand{font-size:14px}.hero{min-height:0;align-items:flex-start;flex-direction:column;gap:16px;padding:24px 21px}.hero:after{right:-64px;top:-175px}.hero-copy{max-width:100%}h1{max-width:400px;font-size:33px}.hero-copy>p{font-size:12px}.trust-row{gap:10px 13px;margin-top:16px}.hero-cta{width:100%}.hero-cta .button-primary{width:100%}.layout{grid-template-columns:1fr;margin-top:16px}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.step{padding:12px}.how-header h2{font-size:20px}footer{padding-right:17px;padding-left:17px;flex-direction:column;gap:7px}.modal-backdrop{padding:12px}.modal{max-height:93vh}.ai-drawer{right:16px;left:16px;width:auto;bottom:75px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+    /* Bookmark saved state */
+button.save-button.saved {
+    background-color: #267452 !important;
+    border: 2px solid #267452 !important;
+    color: #ffffff !important;
+}
+
+button.save-button.saved svg {
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
+button.save-button:not(.saved) {
+    background-color: #ffffff;
+    color: #87938b;
+}
+
+button.save-button:not(.saved) svg {
+    fill: none;
+}
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="#" aria-label="AccessBridge AI home">
+      <a class="brand" href="#" aria-label="SchemeSaathi home">
         <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h12m-5-5 5 5-5 5m3-12h2.2A3.8 3.8 0 0 1 20 8.8v6.4a3.8 3.8 0 0 1-3.8 3.8H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="5" cy="12" r="1.5" fill="#f2d28b"/></svg></span>
-        <span>AccessBridge <span style="color:#558269">AI</span></span>
+        <span>SchemeSaathi <span style="color:#558269;font-size:13px;font-weight:700">AI</span></span>
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="#" data-i18n="navHome">Home</a>
         <a href="#discover" data-i18n="navExplore">Explore schemes</a>
         <a href="#how-it-works" data-i18n="navHow">How it works</a>
+        <a href="/docs" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700">API Docs</a>
       </nav>
       <div class="header-actions">
+        <span class="api-status" id="api-status"><span class="api-status-dot"></span><span>API Connected</span></span>
         <div class="lang-wrap">
           <select class="lang-select" id="language" aria-label="Choose language">
             <option value="en">English</option><option value="kn">ಕನ್ನಡ</option><option value="hi">हिन्दी</option>
@@ -168,14 +235,17 @@
       <div class="hero-copy">
         <span class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="eyebrow">A clearer path to the support you deserve</span></span>
         <h1 id="hero-title" data-i18n="heroTitle">Benefits are closer than you think.</h1>
-        <p data-i18n="heroDescription">Find government schemes that may fit your life. Understand the next steps. All in a language that feels like yours.</p>
+        <p data-i18n="heroDescription">Find government schemes that fit your life. Understand eligibility, get document checklists, and proceed with confidence in your language.</p>
         <div class="trust-row">
           <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="trustOne">Plain-language guidance</span></span>
           <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="trustTwo">Official links, always</span></span>
           <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="trustThree">Your details stay with you</span></span>
         </div>
       </div>
-      <div class="hero-cta"><a class="button-primary" href="#discover"><span data-i18n="heroCta">Find schemes for me</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="hero-cta">
+        <a class="button-primary" href="#discover"><span data-i18n="heroCta">Find schemes for me</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <button class="button-secondary" id="open-assistant-hero" type="button"><span>Ask AI Assistant</span> 💬</button>
+      </div>
     </section>
 
     <section class="layout" id="discover" aria-label="Scheme discovery">
@@ -211,21 +281,21 @@
             <label for="income" data-i18n="incomeLabel">Approx. annual household income</label>
             <select id="income" name="income"><option value="" data-option="income-private">Prefer not to say</option><option value="below-1" data-option="income-below-1">Under ₹1 lakh</option><option value="1-2.5" data-option="income-1-2.5">₹1–2.5 lakh</option><option value="2.5-5" data-option="income-2.5-5">₹2.5–5 lakh</option><option value="above-5" data-option="income-above-5">Above ₹5 lakh</option></select>
           </div>
-          <button class="button-primary form-submit" type="submit"><span data-i18n="submitProfile">Show relevant schemes</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="button-primary form-submit" type="submit" id="submit-btn"><span data-i18n="submitProfile">Show relevant schemes</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <p class="privacy-note"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 1 1 8 0v3m-4 5v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span data-i18n="privacyNote">Your answers stay in this browser. Nothing is sent or saved.</span></p>
         </form>
       </aside>
 
       <div class="content">
         <div class="section-bar">
-          <div><h2 class="section-title" data-i18n="welcomeTitle">Your next step starts here</h2><p class="section-caption" data-i18n="welcomeCaption">Explore a few popular schemes, or share your details for a more relevant starting point.</p></div>
+          <div><h2 class="section-title" data-i18n="welcomeTitle">Your next step starts here</h2><p class="section-caption" data-i18n="welcomeCaption">Explore verified schemes, or share your details for a tailored starting point.</p></div>
           <span class="result-count"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6l-7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="verifiedBadge">Official sources</span></span>
         </div>
         <div class="results-toolbar">
           <div><h2 class="results-title" id="results-heading" data-i18n="schemesHeading">Schemes to explore</h2><p class="section-caption" id="results-caption" data-i18n="schemesCaption">A helpful place to begin—not a decision on your eligibility.</p></div>
           <div class="toolbar-right">
             <label class="search-wrap"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input class="search-input" type="search" id="search" data-i18n-placeholder="searchPlaceholder" placeholder="Search schemes…" aria-label="Search schemes"></label>
-            <select class="filter-select" id="category-filter" aria-label="Filter by category"><option value="all" data-i18n="allCategories">All categories</option><option value="farmer" data-i18n="farmCategory">Agriculture</option><option value="housing" data-i18n="housingCategory">Housing</option><option value="health" data-i18n="healthCategory">Health</option><option value="women" data-i18n="womenCategory">Women &amp; families</option><option value="education" data-i18n="educationCategory">Education</option></select>
+            <select class="filter-select" id="category-filter" aria-label="Filter by category"><option value="all" data-i18n="allCategories">All categories</option><option value="farmer" data-i18n="farmCategory">Agriculture</option><option value="housing" data-i18n="housingCategory">Housing</option><option value="health" data-i18n="healthCategory">Health</option><option value="women" data-i18n="womenCategory">Women &amp; families</option><option value="education" data-i18n="educationCategory">Education</option><option value="worker" data-i18n="workerCategory">Workers &amp; Livelihood</option><option value="self-employed" data-i18n="selfEmployedCategory">Business Loans</option></select>
           </div>
         </div>
         <div class="cards" id="scheme-list" aria-live="polite"></div>
@@ -241,7 +311,10 @@
       </div>
     </section>
   </main>
-  <footer><span><span class="footer-brand">AccessBridge AI</span> · <span data-i18n="footerTag">A clearer path to public benefits.</span></span><span data-i18n="footerDisclaimer">A guide, not a government service. Always confirm current eligibility and requirements on the official scheme website.</span></footer>
+
+  <footer><span><span class="footer-brand">SchemeSaathi</span> · <span data-i18n="footerTag">A clearer path to public benefits.</span></span><span data-i18n="footerDisclaimer">A guide, not a government service. Always confirm current eligibility and requirements on the official scheme website.</span></footer>
+
+  <!-- Scheme Detail Modal -->
   <div class="modal-backdrop" id="modal-backdrop" hidden>
     <section class="modal" id="scheme-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
       <div class="modal-head"><div><p class="card-category" id="modal-category"></p><h2 id="modal-title"></h2></div><button class="close-button" id="modal-close" type="button" aria-label="Close dialog">&times;</button></div>
@@ -257,27 +330,82 @@
       </div>
     </section>
   </div>
+
+  <!-- AI Citizen Assistant Floating Button & Drawer -->
+  <button class="ai-fab" id="ai-fab-btn" type="button" aria-label="Open AI Assistant">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Zm7 11 .9 2.1L22 17l-2.1.9L19 20l-.9-2.1L16 17l2.1-.9L19 14Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <span>SchemeSaathi AI</span>
+  </button>
+
+  <aside class="ai-drawer" id="ai-drawer" hidden>
+    <div class="ai-header">
+      <div class="ai-title">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span data-i18n="aiAssistantTitle">SchemeSaathi AI Assistant</span>
+      </div>
+      <button class="ai-close" id="ai-close" type="button" aria-label="Close Assistant">&times;</button>
+    </div>
+    <div class="ai-messages" id="ai-messages">
+      <div class="ai-msg ai-msg-assistant" id="ai-welcome-msg">
+        Namaste! I am your SchemeSaathi guide. Ask me about government benefits, eligibility, or required documents in English, Kannada, or Hindi.
+      </div>
+    </div>
+    <div class="ai-quick-pills" id="ai-quick-pills">
+      <button class="ai-pill" type="button" data-prompt="Schemes for farmers">🌾 Farmers</button>
+      <button class="ai-pill" type="button" data-prompt="How to get Ayushman health card?">🏥 Ayushman Bharat</button>
+      <button class="ai-pill" type="button" data-prompt="Schemes for women">👩 Women</button>
+      <button class="ai-pill" type="button" data-prompt="Loans for small street vendors">🛍️ PM SVANidhi</button>
+    </div>
+    <form class="ai-input-bar" id="ai-form">
+      <input class="ai-input" id="ai-input" type="text" placeholder="Ask a question..." autocomplete="off">
+      <button class="ai-send" type="submit" id="ai-send-btn">Send</button>
+    </form>
+  </aside>
+
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
   <script>
+    const API_BASE = "http://127.0.0.1:8000";
+
     const translations={
-      en:{navHome:"Home",navExplore:"Explore schemes",navHow:"How it works",verified:"Official sources",eyebrow:"A clearer path to the support you deserve",heroTitle:"Benefits are closer than you think.",heroDescription:"Find government schemes that may fit your life. Understand the next steps. All in a language that feels like yours.",trustOne:"Plain-language guidance",trustTwo:"Official links, always",trustThree:"Your details stay with you",heroCta:"Find schemes for me",profileTitle:"A little about you",profileSubtitle:"Share only what you feel comfortable sharing.",stateLabel:"Your state",ageLabel:"Your age",genderLabel:"Gender",locationLabel:"Where do you live?",occupationLabel:"What best describes you?",incomeLabel:"Approx. annual household income",submitProfile:"Show relevant schemes",privacyNote:"Your answers stay in this browser. Nothing is sent or saved.",welcomeTitle:"Your next step starts here",welcomeCaption:"Explore a few popular schemes, or share your details for a more relevant starting point.",verifiedBadge:"Official sources",schemesHeading:"Schemes to explore",schemesCaption:"A helpful place to begin—not a decision on your eligibility.",searchPlaceholder:"Search schemes…",allCategories:"All categories",farmCategory:"Agriculture",housingCategory:"Housing",healthCategory:"Health",womenCategory:"Women & families",educationCategory:"Education",howEyebrow:"No guesswork. Just a clearer next step.",howTitle:"From questions to a way forward.",howCaption:"You stay in control at every step.",stepOneTitle:"Tell us a little",stepOneText:"A few optional details help us point you toward schemes worth exploring.",stepTwoTitle:"Understand what matters",stepTwoText:"See plain-language requirements, example documents, and questions to check.",stepThreeTitle:"Choose your next step",stepThreeText:"Continue to an official government source when you’re ready.",footerTag:"A clearer path to public benefits.",footerDisclaimer:"A guide, not a government service. Always confirm current eligibility and requirements on the official scheme website.",checklistTitle:"A checklist to get started",stepsTitle:"A simple way to proceed",officialApply:"Visit the official scheme site",checkSource:"Check the official source",allMatches:"Potentially relevant starting points",matchCaption:"Based on the details you shared. Confirm eligibility with the official scheme.",saved:"Saved schemes",savedCaption:"Your saved schemes on this device.",details:"Understand this scheme",source:"Official site",official:"Official scheme website",empty:"No schemes match your search yet. Try a different word or category.",privacyToast:"Saved on this device. Your details aren’t sent anywhere.",saveToast:"Saved to this device.",removeToast:"Removed from saved schemes.",eligibleFarmer:"Farmer selected in your profile. Check landholding, eligibility rules and exclusions on the official site.",eligibleRural:"You selected a rural area. Check the official housing survey list and programme rules.",eligibleWoman:"Women applicants may be eligible. Household LPG connection and scheme conditions apply.",eligibleHealth:"Check the official beneficiary database. Eligibility cannot be determined by income alone.",eligibleStudent:"Students can check current scholarships and eligibility on the National Scholarship Portal.",eligibleDefault:"This scheme may be worth exploring. Check the current criteria on the official scheme site.",couldMatch:"May be worth exploring",notEligibility:"This is a starting point—not an eligibility decision.",checked:"checked",of:"of",schemePlural:"schemes",foundFor:"Here are a few schemes to explore",noProfileResults:"No schemes found for those filters. Try clearing your search or category.",dialogClosed:"Scheme details closed."},
-      kn:{navHome:"ಮುಖಪುಟ",navExplore:"ಯೋಜನೆಗಳನ್ನು ನೋಡಿ",navHow:"ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ",verified:"ಅಧಿಕೃತ ಮೂಲಗಳು",eyebrow:"ನಿಮಗೆ ಬೇಕಾದ ನೆರವು ಪಡೆಯಲು ಸರಳ ದಾರಿ",heroTitle:"ನಿಮಗೆ ಬೇಕಾದ ನೆರವು ಹತ್ತಿರದಲ್ಲೇ ಇದೆ.",heroDescription:"ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿಗೆ ಹೊಂದುವ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ. ಮುಂದಿನ ಹಂತಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ. ನಿಮಗೆ ತಿಳಿದ ಭಾಷೆಯಲ್ಲಿ.",trustOne:"ಸರಳ ಭಾಷೆಯಲ್ಲಿ ಮಾರ್ಗದರ್ಶನ",trustTwo:"ಅಧಿಕೃತ ಲಿಂಕ್‌ಗಳು",trustThree:"ನಿಮ್ಮ ವಿವರಗಳು ನಿಮ್ಮಲ್ಲೇ",heroCta:"ನನಗಾಗಿ ಯೋಜನೆ ಹುಡುಕಿ",profileTitle:"ನಿಮ್ಮ ಬಗ್ಗೆ ಸ್ವಲ್ಪ ತಿಳಿಸಿ",profileSubtitle:"ನೀವು ಹಂಚಿಕೊಳ್ಳಲು ಬಯಸುವ ಮಾಹಿತಿಯನ್ನು ಮಾತ್ರ ನೀಡಿ.",stateLabel:"ನಿಮ್ಮ ರಾಜ್ಯ",ageLabel:"ನಿಮ್ಮ ವಯಸ್ಸು",genderLabel:"ಲಿಂಗ",locationLabel:"ನೀವು ಎಲ್ಲಿ ವಾಸಿಸುತ್ತೀರಿ?",occupationLabel:"ನಿಮಗೆ ಯಾವುದು ಅನ್ವಯಿಸುತ್ತದೆ?",incomeLabel:"ಕುಟುಂಬದ ಅಂದಾಜು ವಾರ್ಷಿಕ ಆದಾಯ",submitProfile:"ಸಂಬಂಧಿತ ಯೋಜನೆಗಳನ್ನು ತೋರಿಸಿ",privacyNote:"ನಿಮ್ಮ ಉತ್ತರಗಳು ಈ ಬ್ರೌಸರ್‌ನಲ್ಲೇ ಇರುತ್ತವೆ. ಕಳುಹಿಸುವುದಿಲ್ಲ ಅಥವಾ ಉಳಿಸುವುದಿಲ್ಲ.",welcomeTitle:"ನಿಮ್ಮ ಮುಂದಿನ ಹೆಜ್ಜೆ ಇಲ್ಲಿಂದ",welcomeCaption:"ಜನಪ್ರಿಯ ಯೋಜನೆಗಳನ್ನು ನೋಡಿ ಅಥವಾ ನಿಮಗೆ ಸೂಕ್ತವಾದ ಆರಂಭಕ್ಕಾಗಿ ನಿಮ್ಮ ವಿವರ ಹಂಚಿಕೊಳ್ಳಿ.",verifiedBadge:"ಅಧಿಕೃತ ಮೂಲಗಳು",schemesHeading:"ಪರಿಶೀಲಿಸಬಹುದಾದ ಯೋಜನೆಗಳು",schemesCaption:"ಆರಂಭಿಸಲು ಸಹಾಯಕ ಮಾಹಿತಿ; ಅರ್ಹತೆಯ ನಿರ್ಧಾರವಲ್ಲ.",searchPlaceholder:"ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ…",allCategories:"ಎಲ್ಲಾ ವಿಭಾಗಗಳು",farmCategory:"ಕೃಷಿ",housingCategory:"ವಸತಿ",healthCategory:"ಆರೋಗ್ಯ",womenCategory:"ಮಹಿಳೆ ಮತ್ತು ಕುಟುಂಬ",educationCategory:"ಶಿಕ್ಷಣ",howEyebrow:"ಊಹೆ ಬೇಡ. ಸರಳ ಮುಂದಿನ ಹೆಜ್ಜೆ.",howTitle:"ಪ್ರಶ್ನೆಗಳಿಂದ ಮುಂದಿನ ದಾರಿಯವರೆಗೆ.",howCaption:"ಪ್ರತಿ ಹಂತದಲ್ಲೂ ನಿರ್ಧಾರ ನಿಮ್ಮದೇ.",stepOneTitle:"ಸ್ವಲ್ಪ ಮಾಹಿತಿ ನೀಡಿ",stepOneText:"ಐಚ್ಛಿಕ ವಿವರಗಳು ನಿಮಗೆ ಸೂಕ್ತವಾದ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಲು ನೆರವಾಗುತ್ತವೆ.",stepTwoTitle:"ಮುಖ್ಯವಾದುದನ್ನು ತಿಳಿಯಿರಿ",stepTwoText:"ಸರಳ ಅರ್ಹತಾ ಮಾಹಿತಿ, ಉದಾಹರಣೆಯ ದಾಖಲೆಗಳು ಮತ್ತು ಪರಿಶೀಲಿಸಬೇಕಾದ ಅಂಶಗಳನ್ನು ನೋಡಿ.",stepThreeTitle:"ಮುಂದಿನ ಹೆಜ್ಜೆ ಆರಿಸಿ",stepThreeText:"ಸಿದ್ಧರಾದಾಗ ಅಧಿಕೃತ ಸರ್ಕಾರಿ ಮೂಲಕ್ಕೆ ಮುಂದುವರಿಯಿರಿ.",footerTag:"ಸಾರ್ವಜನಿಕ ಸೌಲಭ್ಯಗಳಿಗೆ ಸರಳ ದಾರಿ.",footerDisclaimer:"ಇದು ಮಾರ್ಗದರ್ಶಿ; ಸರ್ಕಾರಿ ಸೇವೆಯಲ್ಲ. ಅರ್ಹತೆ ಮತ್ತು ಅವಶ್ಯಕತೆಗಳನ್ನು ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.",checklistTitle:"ಸಿದ್ಧತೆಗಾಗಿ ದಾಖಲೆಗಳ ಪಟ್ಟಿ",stepsTitle:"ಮುಂದುವರಿಯಲು ಸರಳ ಹಂತಗಳು",officialApply:"ಅಧಿಕೃತ ಯೋಜನೆ ತೆರೆಯಿರಿ",checkSource:"ಅಧಿಕೃತ ಮೂಲ ನೋಡಿ",allMatches:"ನಿಮಗೆ ಹೊಂದಬಹುದಾದ ಯೋಜನೆಗಳು",matchCaption:"ನೀವು ನೀಡಿದ ವಿವರಗಳ ಆಧಾರದಲ್ಲಿ. ಅರ್ಹತೆಯನ್ನು ಅಧಿಕೃತ ಮೂಲದಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.",saved:"ಉಳಿಸಿದ ಯೋಜನೆಗಳು",savedCaption:"ಈ ಸಾಧನದಲ್ಲಿ ನೀವು ಉಳಿಸಿದ ಯೋಜನೆಗಳು.",details:"ಯೋಜನೆಯ ವಿವರ ತಿಳಿಯಿರಿ",source:"ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್",official:"ಅಧಿಕೃತ ಯೋಜನೆ ವೆಬ್‌ಸೈಟ್",empty:"ಹುಡುಕಾಟಕ್ಕೆ ಹೊಂದುವ ಯೋಜನೆ ಸಿಗಲಿಲ್ಲ. ಬೇರೆ ಪದ ಅಥವಾ ವಿಭಾಗ ಪ್ರಯತ್ನಿಸಿ.",privacyToast:"ಈ ಸಾಧನದಲ್ಲಿ ಉಳಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ವಿವರಗಳನ್ನು ಕಳುಹಿಸುವುದಿಲ್ಲ.",saveToast:"ಈ ಸಾಧನದಲ್ಲಿ ಉಳಿಸಲಾಗಿದೆ.",removeToast:"ಉಳಿಸಿದ ಯೋಜನೆಗಳಿಂದ ತೆಗೆದುಹಾಕಲಾಗಿದೆ.",eligibleFarmer:"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿ ರೈತ ಎಂದು ಆಯ್ಕೆಮಾಡಿದ್ದೀರಿ. ಭೂ ಮಾಲೀಕತ್ವ, ಅರ್ಹತೆ ಮತ್ತು ವಿನಾಯಿತಿಗಳನ್ನು ಅಧಿಕೃತ ತಾಣದಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.",eligibleRural:"ನೀವು ಗ್ರಾಮೀಣ ಪ್ರದೇಶ ಆಯ್ಕೆಮಾಡಿದ್ದೀರಿ. ಅಧಿಕೃತ ವಸತಿ ಸಮೀಕ್ಷೆ ಪಟ್ಟಿ ಮತ್ತು ಯೋಜನೆ ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",eligibleWoman:"ಮಹಿಳಾ ಅರ್ಜಿದಾರರು ಅರ್ಹರಾಗಿರಬಹುದು. ಕುಟುಂಬದ LPG ಸಂಪರ್ಕ ಮತ್ತು ಯೋಜನೆ ಷರತ್ತುಗಳು ಅನ್ವಯಿಸುತ್ತವೆ.",eligibleHealth:"ಅಧಿಕೃತ ಫಲಾನುಭವಿ ಪಟ್ಟಿಯಲ್ಲಿ ಪರಿಶೀಲಿಸಿ. ಆದಾಯದಿಂದ ಮಾತ್ರ ಅರ್ಹತೆಯನ್ನು ನಿರ್ಧರಿಸಲಾಗುವುದಿಲ್ಲ.",eligibleStudent:"ಪ್ರಸ್ತುತ ವಿದ್ಯಾರ್ಥಿವೇತನ ಮತ್ತು ಅರ್ಹತೆಗಾಗಿ ರಾಷ್ಟ್ರೀಯ ವಿದ್ಯಾರ್ಥಿವೇತನ ಪೋರ್ಟಲ್ ನೋಡಿ.",eligibleDefault:"ಈ ಯೋಜನೆ ಪರಿಶೀಲಿಸಲು ಯೋಗ್ಯವಾಗಿರಬಹುದು. ಪ್ರಸ್ತುತ ಅರ್ಹತಾ ನಿಯಮಗಳನ್ನು ಅಧಿಕೃತ ಮೂಲದಲ್ಲಿ ನೋಡಿ.",couldMatch:"ಪರಿಶೀಲಿಸಲು ಯೋಗ್ಯವಾಗಿರಬಹುದು",notEligibility:"ಇದು ಆರಂಭಿಕ ಮಾಹಿತಿ ಮಾತ್ರ; ಅರ್ಹತೆಯ ನಿರ್ಧಾರವಲ್ಲ.",checked:"ಪರಿಶೀಲಿಸಲಾಗಿದೆ",of:"ರಲ್ಲಿ",schemePlural:"ಯೋಜನೆಗಳು",foundFor:"ಪರಿಶೀಲಿಸಬಹುದಾದ ಕೆಲವು ಯೋಜನೆಗಳು",noProfileResults:"ಆಯ್ಕೆಗಳಿಗೆ ಯೋಜನೆ ಸಿಗಲಿಲ್ಲ. ಹುಡುಕಾಟ ಅಥವಾ ವಿಭಾಗ ಬದಲಿಸಿ.",dialogClosed:"ಯೋಜನೆಯ ವಿವರ ಮುಚ್ಚಲಾಗಿದೆ."},
-      hi:{navHome:"होम",navExplore:"योजनाएँ देखें",navHow:"यह कैसे काम करता है",verified:"आधिकारिक स्रोत",eyebrow:"आपके लिए मदद पाने का एक आसान रास्ता",heroTitle:"लाभ आपकी सोच से ज़्यादा करीब हैं।",heroDescription:"अपनी परिस्थिति से मेल खा सकने वाली सरकारी योजनाएँ खोजें। अगले कदम समझें—अपनी भाषा में।",trustOne:"आसान भाषा में जानकारी",trustTwo:"हमेशा आधिकारिक लिंक",trustThree:"आपकी जानकारी आपके पास",heroCta:"मेरे लिए योजनाएँ खोजें",profileTitle:"अपने बारे में थोड़ा बताएँ",profileSubtitle:"सिर्फ़ उतनी जानकारी दें जितनी साझा करने में आप सहज हैं।",stateLabel:"आपका राज्य",ageLabel:"आपकी उम्र",genderLabel:"लिंग",locationLabel:"आप कहाँ रहते हैं?",occupationLabel:"आप पर सबसे ज़्यादा क्या लागू होता है?",incomeLabel:"परिवार की अनुमानित सालाना आय",submitProfile:"संबंधित योजनाएँ दिखाएँ",privacyNote:"आपके जवाब इसी ब्राउज़र में रहते हैं। न भेजे जाते हैं, न सहेजे जाते हैं।",welcomeTitle:"आपका अगला कदम यहीं से",welcomeCaption:"कुछ लोकप्रिय योजनाएँ देखें या बेहतर शुरुआत के लिए अपनी जानकारी साझा करें।",verifiedBadge:"आधिकारिक स्रोत",schemesHeading:"देखने लायक योजनाएँ",schemesCaption:"शुरुआत के लिए जानकारी—पात्रता का फ़ैसला नहीं।",searchPlaceholder:"योजनाएँ खोजें…",allCategories:"सभी श्रेणियाँ",farmCategory:"कृषि",housingCategory:"आवास",healthCategory:"स्वास्थ्य",womenCategory:"महिलाएँ और परिवार",educationCategory:"शिक्षा",howEyebrow:"अंदाज़ा नहीं। अगला कदम साफ़।",howTitle:"सवालों से आगे के रास्ते तक।",howCaption:"हर कदम पर फ़ैसला आपका।",stepOneTitle:"थोड़ी जानकारी दें",stepOneText:"कुछ वैकल्पिक जानकारियाँ आपके लिए देखने लायक योजनाएँ ढूँढ़ने में मदद करती हैं।",stepTwoTitle:"ज़रूरी बातें समझें",stepTwoText:"आसान भाषा में ज़रूरतें, दस्तावेज़ों के उदाहरण और जाँचने योग्य बातें देखें।",stepThreeTitle:"अपना अगला कदम चुनें",stepThreeText:"तैयार हों तो आधिकारिक सरकारी स्रोत पर जाएँ।",footerTag:"सार्वजनिक लाभों तक पहुँचने का आसान रास्ता।",footerDisclaimer:"यह एक मार्गदर्शिका है, सरकारी सेवा नहीं। पात्रता और ज़रूरतें आधिकारिक वेबसाइट पर ज़रूर जाँचें।",checklistTitle:"शुरुआत के लिए दस्तावेज़",stepsTitle:"आगे बढ़ने के आसान कदम",officialApply:"आधिकारिक योजना की साइट खोलें",checkSource:"आधिकारिक स्रोत देखें",allMatches:"आपके लिए संभावित योजनाएँ",matchCaption:"आपकी दी जानकारी के आधार पर। पात्रता आधिकारिक स्रोत पर जाँचें।",saved:"सहेजी गई योजनाएँ",savedCaption:"इस डिवाइस पर आपकी सहेजी योजनाएँ।",details:"योजना के बारे में जानें",source:"आधिकारिक साइट",official:"आधिकारिक योजना वेबसाइट",empty:"इस खोज से मेल खाती योजना नहीं मिली। दूसरा शब्द या श्रेणी आज़माएँ।",privacyToast:"इस डिवाइस पर सहेजा गया। आपकी जानकारी कहीं नहीं भेजी जाती।",saveToast:"इस डिवाइस पर सहेजा गया।",removeToast:"सहेजी गई योजनाओं से हटाया गया।",eligibleFarmer:"आपने अपनी प्रोफ़ाइल में किसान चुना। ज़मीन, पात्रता के नियम और अपवाद आधिकारिक साइट पर जाँचें।",eligibleRural:"आपने ग्रामीण इलाक़ा चुना। आधिकारिक आवास सर्वे सूची और योजना के नियम जाँचें।",eligibleWoman:"महिला आवेदक पात्र हो सकती हैं। परिवार के LPG कनेक्शन और योजना की शर्तें लागू होती हैं।",eligibleHealth:"आधिकारिक लाभार्थी डेटाबेस में जाँचें। सिर्फ़ आय से पात्रता तय नहीं होती।",eligibleStudent:"मौजूदा छात्रवृत्ति और पात्रता के लिए राष्ट्रीय छात्रवृत्ति पोर्टल देखें।",eligibleDefault:"यह योजना देखने लायक हो सकती है। मौजूदा शर्तें आधिकारिक साइट पर जाँचें।",couldMatch:"देखने लायक हो सकती है",notEligibility:"यह सिर्फ़ शुरुआत है—पात्रता का फ़ैसला नहीं।",checked:"जाँचे",of:"में से",schemePlural:"योजनाएँ",foundFor:"देखने लायक कुछ योजनाएँ",noProfileResults:"इन विकल्पों से मेल खाती योजना नहीं मिली। खोज या श्रेणी बदलें।",dialogClosed:"योजना की जानकारी बंद की गई।"}
+      en:{navHome:"Home",navExplore:"Explore schemes",navHow:"How it works",verified:"Official sources",eyebrow:"A clearer path to the support you deserve",heroTitle:"Benefits are closer than you think.",heroDescription:"Find government schemes that fit your life. Understand eligibility, get document checklists, and proceed with confidence in your language.",trustOne:"Plain-language guidance",trustTwo:"Official links, always",trustThree:"Your details stay with you",heroCta:"Find schemes for me",profileTitle:"A little about you",profileSubtitle:"Share only what you feel comfortable sharing.",stateLabel:"Your state",ageLabel:"Your age",genderLabel:"Gender",locationLabel:"Where do you live?",occupationLabel:"What best describes you?",incomeLabel:"Approx. annual household income",submitProfile:"Show relevant schemes",privacyNote:"Your answers stay in this browser. Nothing is sent or saved.",welcomeTitle:"Your next step starts here",welcomeCaption:"Explore verified schemes, or share your details for a tailored starting point.",verifiedBadge:"Official sources",schemesHeading:"Schemes to explore",schemesCaption:"A helpful place to begin—not a decision on your eligibility.",searchPlaceholder:"Search schemes…",allCategories:"All categories",farmCategory:"Agriculture",housingCategory:"Housing",healthCategory:"Health",womenCategory:"Women & families",educationCategory:"Education",workerCategory:"Workers & Livelihood",selfEmployedCategory:"Business Loans",howEyebrow:"No guesswork. Just a clearer next step.",howTitle:"From questions to a way forward.",howCaption:"You stay in control at every step.",stepOneTitle:"Tell us a little",stepOneText:"A few optional details help us point you toward schemes worth exploring.",stepTwoTitle:"Understand what matters",stepTwoText:"See plain-language requirements, example documents, and questions to check.",stepThreeTitle:"Choose your next step",stepThreeText:"Continue to an official government source when you’re ready.",footerTag:"A clearer path to public benefits.",footerDisclaimer:"A guide, not a government service. Always confirm current eligibility and requirements on the official scheme website.",checklistTitle:"A checklist to get started",stepsTitle:"A simple way to proceed",officialApply:"Visit the official scheme site",checkSource:"Check the official source",allMatches:"Potentially relevant starting points",matchCaption:"Based on the details you shared. Confirm eligibility with the official scheme.",saved:"Saved schemes",savedCaption:"Your saved schemes on this device.",details:"Understand this scheme",source:"Official site",official:"Official scheme website",empty:"No schemes match your search yet. Try a different word or category.",privacyToast:"Saved on this device. Your details aren’t sent anywhere.",saveToast:"Saved to this device.",removeToast:"Removed from saved schemes.",eligibleFarmer:"Farmer selected in your profile. Check landholding, eligibility rules and exclusions on the official site.",eligibleRural:"You selected a rural area. Check the official housing survey list and programme rules.",eligibleWoman:"Women applicants may be eligible. Household LPG connection and scheme conditions apply.",eligibleHealth:"Check the official beneficiary database. Eligibility cannot be determined by income alone.",eligibleStudent:"Students can check current scholarships and eligibility on the National Scholarship Portal.",eligibleDefault:"This scheme may be worth exploring. Check the current criteria on the official scheme site.",couldMatch:"May be worth exploring",notEligibility:"This is a starting point—not an eligibility decision.",checked:"checked",of:"of",schemePlural:"documents",foundFor:"Here are a few schemes to explore",noProfileResults:"No schemes found for those filters. Try clearing your search or category.",dialogClosed:"Scheme details closed.",aiAssistantTitle:"SchemeSaathi AI Assistant",askAssistant:"Ask a question about government schemes...",askButton:"Ask Assistant"},
+      kn:{navHome:"ಮುಖಪುಟ",navExplore:"ಯೋಜನೆಗಳನ್ನು ನೋಡಿ",navHow:"ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ",verified:"ಅಧಿಕೃತ ಮೂಲಗಳು",eyebrow:"ನಿಮಗೆ ಬೇಕಾದ ನೆರವು ಪಡೆಯಲು ಸರಳ ದಾರಿ",heroTitle:"ನಿಮಗೆ ಬೇಕಾದ ನೆರವು ಹತ್ತಿರದಲ್ಲೇ ಇದೆ.",heroDescription:"ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿಗೆ ಹೊಂದುವ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ. ಮುಂದಿನ ಹಂತಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ. ನಿಮಗೆ ತಿಳಿದ ಭಾಷೆಯಲ್ಲಿ.",trustOne:"ಸರಳ ಭಾಷೆಯಲ್ಲಿ ಮಾರ್ಗದರ್ಶನ",trustTwo:"ಅಧಿಕೃತ ಲಿಂಕ್‌ಗಳು",trustThree:"ನಿಮ್ಮ ವಿವರಗಳು ನಿಮ್ಮಲ್ಲೇ",heroCta:"ನನಗಾಗಿ ಯೋಜನೆ ಹುಡುಕಿ",profileTitle:"ನಿಮ್ಮ ಬಗ್ಗೆ ಸ್ವಲ್ಪ ತಿಳಿಸಿ",profileSubtitle:"ನೀವು ಹಂಚಿಕೊಳ್ಳಲು ಬಯಸುವ ಮಾಹಿತಿಯನ್ನು ಮಾತ್ರ ನೀಡಿ.",stateLabel:"ನಿಮ್ಮ ರಾಜ್ಯ",ageLabel:"ನಿಮ್ಮ ವಯಸ್ಸು",genderLabel:"ಲಿಂಗ",locationLabel:"ನೀವು ಎಲ್ಲಿ ವಾಸಿಸುತ್ತೀರಿ?",occupationLabel:"ನಿಮಗೆ ಯಾವುದು ಅನ್ವಯಿಸುತ್ತದೆ?",incomeLabel:"ಕುಟುಂಬದ ಅಂದಾಜು ವಾರ್ಷಿಕ ಆದಾಯ",submitProfile:"ಸಂಬಂಧಿತ ಯೋಜನೆಗಳನ್ನು ತೋರಿಸಿ",privacyNote:"ನಿಮ್ಮ ಉತ್ತರಗಳು ಈ ಬ್ರೌಸರ್‌ನಲ್ಲೇ ಇರುತ್ತವೆ. ಕಳುಹಿಸುವುದಿಲ್ಲ ಅಥವಾ ಉಳಿಸುವುದಿಲ್ಲ.",welcomeTitle:"ನಿಮ್ಮ ಮುಂದಿನ ಹೆಜ್ಜೆ ಇಲ್ಲಿಂದ",welcomeCaption:"ಜನಪ್ರಿಯ ಯೋಜನೆಗಳನ್ನು ನೋಡಿ ಅಥವಾ ನಿಮಗೆ ಸೂಕ್ತವಾದ ಆರಂಭಕ್ಕಾಗಿ ನಿಮ್ಮ ವಿವರ ಹಂಚಿಕೊಳ್ಳಿ.",verifiedBadge:"ಅಧಿಕೃತ ಮೂಲಗಳು",schemesHeading:"ಪರಿಶೀಲಿಸಬಹುದಾದ ಯೋಜನೆಗಳು",schemesCaption:"ಆರಂಭಿಸಲು ಸಹಾಯಕ ಮಾಹಿತಿ; ಅರ್ಹತೆಯ ನಿರ್ಧಾರವಲ್ಲ.",searchPlaceholder:"ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ…",allCategories:"ಎಲ್ಲಾ ವಿಭಾಗಗಳು",farmCategory:"ಕೃಷಿ",housingCategory:"ವಸತಿ",healthCategory:"ಆರೋಗ್ಯ",womenCategory:"ಮಹಿಳೆ ಮತ್ತು ಕುಟುಂಬ",educationCategory:"ಶಿಕ್ಷಣ",workerCategory:"ಕಾರ್ಮಿಕರು & ಜೀವನೋಪಾಯ",selfEmployedCategory:"ವ್ಯಾಪಾರ ಸಾಲ",howEyebrow:"ಊಹೆ ಬೇಡ. ಸರಳ ಮುಂದಿನ ಹೆಜ್ಜೆ.",howTitle:"ಪ್ರಶ್ನೆಗಳಿಂದ ಮುಂದಿನ ದಾರಿಯವರೆಗೆ.",howCaption:"ಪ್ರತಿ ಹಂತದಲ್ಲೂ ನಿರ್ಧಾರ ನಿಮ್ಮದೇ.",stepOneTitle:"ಸ್ವಲ್ಪ ಮಾಹಿತಿ ನೀಡಿ",stepOneText:"ಐಚ್ಛಿಕ ವಿವರಗಳು ನಿಮಗೆ ಸೂಕ್ತವಾದ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಲು ನೆರವಾಗುತ್ತವೆ.",stepTwoTitle:"ಮುಖ್ಯವಾದುದನ್ನು ತಿಳಿಯಿರಿ",stepTwoText:"ಸರಳ ಅರ್ಹತಾ ಮಾಹಿತಿ, ಉದಾಹರಣೆಯ ದಾಖಲೆಗಳು ಮತ್ತು ಪರಿಶೀಲಿಸಬೇಕಾದ ಅಂಶಗಳನ್ನು ನೋಡಿ.",stepThreeTitle:"ಮುಂದಿನ ಹೆಜ್ಜೆ ಆರಿಸಿ",stepThreeText:"ಸಿದ್ಧರಾದಾಗ ಅಧಿಕೃತ ಸರ್ಕಾರಿ ಮೂಲಕ್ಕೆ ಮುಂದುವರಿಯಿರಿ.",footerTag:"ಸಾರ್ವಜನಿಕ ಸೌಲಭ್ಯಗಳಿಗೆ ಸರಳ ದಾರಿ.",footerDisclaimer:"ಇದು ಮಾರ್ಗದರ್ಶಿ; ಸರ್ಕಾರಿ ಸೇವೆಯಲ್ಲ. ಅರ್ಹತೆ ಮತ್ತು ಅವಶ್ಯಕತೆಗಳನ್ನು ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.",checklistTitle:"ಸಿದ್ಧತೆಗಾಗಿ ದಾಖಲೆಗಳ ಪಟ್ಟಿ",stepsTitle:"ಮುಂದುವರಿಯಲು ಸರಳ ಹಂತಗಳು",officialApply:"ಅಧಿಕೃತ ಯೋಜನೆ ತೆರೆಯಿರಿ",checkSource:"ಅಧಿಕೃತ ಮೂಲ ನೋಡಿ",allMatches:"ನಿಮಗೆ ಹೊಂದಬಹುದಾದ ಯೋಜನೆಗಳು",matchCaption:"ನೀವು ನೀಡಿದ ವಿವರಗಳ ಆಧಾರದಲ್ಲಿ. ಅರ್ಹತೆಯನ್ನು ಅಧಿಕೃತ ಮೂಲದಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.",saved:"ಉಳಿಸಿದ ಯೋಜನೆಗಳು",savedCaption:"ಈ ಸಾಧನದಲ್ಲಿ ನೀವು ಉಳಿಸಿದ ಯೋಜನೆಗಳು.",details:"ಯೋಜನೆಯ ವಿವರ ತಿಳಿಯಿರಿ",source:"ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್",official:"ಅಧಿಕೃತ ಯೋಜನೆ ವೆಬ್‌ಸೈಟ್",empty:"ಹುಡುಕಾಟಕ್ಕೆ ಹೊಂದುವ ಯೋಜನೆ ಸಿಗಲಿಲ್ಲ. ಬೇರೆ ಪದ ಅಥವಾ ವಿಭಾಗ ಪ್ರಯತ್ನಿಸಿ.",privacyToast:"ಈ ಸಾಧನದಲ್ಲಿ ಉಳಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ವಿವರಗಳನ್ನು ಕಳುಹಿಸುವುದಿಲ್ಲ.",saveToast:"ಈ ಸಾಧನದಲ್ಲಿ ಉಳಿಸಲಾಗಿದೆ.",removeToast:"ಉಳಿಸಿದ ಯೋಜನೆಗಳಿಂದ ತೆಗೆದುಹಾಕಲಾಗಿದೆ.",eligibleFarmer:"ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿ ರೈತ ಎಂದು ಆಯ್ಕೆಮಾಡಿದ್ದೀರಿ. ಭೂ ಮಾಲೀಕತ್ವ, ಅರ್ಹತೆ ಮತ್ತು ವಿನಾಯಿತಿಗಳನ್ನು ಅಧಿಕೃತ ತಾಣದಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.",eligibleRural:"ನೀವು ಗ್ರಾಮೀಣ ಪ್ರದೇಶ ಆಯ್ಕೆಮಾಡಿದ್ದೀರಿ. ಅಧಿಕೃತ ವಸತಿ ಸಮೀಕ್ಷೆ ಪಟ್ಟಿ ಮತ್ತು ಯೋಜನೆ ನಿಯಮಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",eligibleWoman:"ಮಹಿಳಾ ಅರ್ಜಿದಾರರು ಅರ್ಹರಾಗಿರಬಹುದು. ಕುಟುಂಬದ LPG ಸಂಪರ್ಕ ಮತ್ತು ಯೋಜನೆ ಷರತ್ತುಗಳು ಅನ್ವಯಿಸುತ್ತವೆ.",eligibleHealth:"ಅಧಿಕೃತ ಫಲಾನುಭವಿ ಪಟ್ಟಿಯಲ್ಲಿ ಪರಿಶೀಲಿಸಿ. ಆದಾಯದಿಂದ ಮಾತ್ರ ಅರ್ಹತೆಯನ್ನು ನಿರ್ಧರಿಸಲಾಗುವುದಿಲ್ಲ.",eligibleStudent:"ಪ್ರಸ್ತುತ ವಿದ್ಯಾರ್ಥಿವೇತನ ಮತ್ತು ಅರ್ಹತೆಗಾಗಿ ರಾಷ್ಟ್ರೀಯ ವಿದ್ಯಾರ್ಥಿವೇತನ ಪೋರ್ಟಲ್ ನೋಡಿ.",eligibleDefault:"ಈ ಯೋಜನೆ ಪರಿಶೀಲಿಸಲು ಯೋಗ್ಯವಾಗಿರಬಹುದು. ಪ್ರಸ್ತುತ ಅರ್ಹತಾ ನಿಯಮಗಳನ್ನು ಅಧಿಕೃತ ಮೂಲದಲ್ಲಿ ನೋಡಿ.",couldMatch:"ಪರಿಶೀಲಿಸಲು ಯೋಗ್ಯವಾಗಿರಬಹುದು",notEligibility:"ಇದು ಆರಂಭಿಕ ಮಾಹಿತಿ ಮಾತ್ರ; ಅರ್ಹತೆಯ ನಿರ್ಧಾರವಲ್ಲ.",checked:"ಪರಿಶೀಲಿಸಲಾಗಿದೆ",of:"ರಲ್ಲಿ",schemePlural:"ದಾಖಲೆಗಳು",foundFor:"ಪರಿಶೀಲಿಸಬಹುದಾದ ಕೆಲವು ಯೋಜನೆಗಳು",noProfileResults:"ಆಯ್ಕೆಗಳಿಗೆ ಯೋಜನೆ ಸಿಗಲಿಲ್ಲ. ಹುಡುಕಾಟ ಅಥವಾ ವಿಭಾಗ ಬದಲಿಸಿ.",dialogClosed:"ಯೋಜನೆಯ ವಿವರ ಮುಚ್ಚಲಾಗಿದೆ.",aiAssistantTitle:"ಸ್ಕೀಮ್‌ಸಾಥಿ AI ಸಹಾಯಕ",askAssistant:"ಸರ್ಕಾರಿ ಯೋಜನೆಗಳ ಬಗ್ಗೆ ಪ್ರಶ್ನೆ ಕೇಳಿ...",askButton:"ಪ್ರಶ್ನೆ ಕೇಳಿ"},
+      hi:{navHome:"होम",navExplore:"योजनाएँ देखें",navHow:"यह कैसे काम करता है",verified:"आधिकारिक स्रोत",eyebrow:"आपके लिए मदद पाने का एक आसान रास्ता",heroTitle:"लाभ आपकी सोच से ज़्यादा करीब हैं।",heroDescription:"अपनी परिस्थिति से मेल खा सकने वाली सरकारी योजनाएँ खोजें। अगले कदम समझें—अपनी भाषा में।",trustOne:"आसान भाषा में जानकारी",trustTwo:"हमेशा आधिकारिक लिंक",trustThree:"आपकी जानकारी आपके पास",heroCta:"मेरे लिए योजनाएँ खोजें",profileTitle:"अपने बारे में थोड़ा बताएँ",profileSubtitle:"सिर्फ़ उतनी जानकारी दें जितनी साझा करने में आप सहज हैं।",stateLabel:"आपका राज्य",ageLabel:"आपकी उम्र",genderLabel:"लिंग",locationLabel:"आप कहाँ रहते हैं?",occupationLabel:"आप पर सबसे ज़्यादा क्या लागू होता है?",incomeLabel:"परिवार की अनुमानित सालाना आय",submitProfile:"संबंधित योजनाएँ दिखाएँ",privacyNote:"आपके जवाब इसी ब्राउज़र में रहते हैं। न भेजे जाते हैं, न सहेजे जाते हैं।",welcomeTitle:"आपका अगला कदम यहीं से",welcomeCaption:"कुछ लोकप्रिय योजनाएँ देखें या बेहतर शुरुआत के लिए अपनी जानकारी साझा करें।",verifiedBadge:"आधिकारिक स्रोत",schemesHeading:"देखने लायक योजनाएँ",schemesCaption:"शुरुआत के लिए जानकारी—पात्रता का फ़ैसला नहीं।",searchPlaceholder:"योजनाएँ खोजें…",allCategories:"सभी श्रेणियाँ",farmCategory:"कृषि",housingCategory:"आवास",healthCategory:"स्वास्थ्य",womenCategory:"महिलाएँ और परिवार",educationCategory:"शिक्षा",workerCategory:"कामगार व आजीविका",selfEmployedCategory:"व्यापार ऋण",howEyebrow:"अंदाज़ा नहीं। अगला कदम साफ़।",howTitle:"सवालों से आगे के रास्ते तक।",howCaption:"हर कदम पर फ़ैसला आपका।",stepOneTitle:"थोड़ी जानकारी दें",stepOneText:"कुछ वैकल्पिक जानकारियाँ आपके लिए देखने लायक योजनाएँ ढूँढ़ने में मदद करती हैं।",stepTwoTitle:"ज़रूरी बातें समझें",stepTwoText:"आसान भाषा में ज़रूरतें, दस्तावेज़ों के उदाहरण और जाँचने योग्य बातें देखें।",stepThreeTitle:"अपना अगला कदम चुनें",stepThreeText:"तैयार हों तो आधिकारिक सरकारी स्रोत पर जाएँ।",footerTag:"सार्वजनिक लाभों तक पहुँचने का आसान रास्ता।",footerDisclaimer:"यह एक मार्गदर्शिका है, सरकारी सेवा नहीं। पात्रता और ज़रूरतें आधिकारिक वेबसाइट पर ज़रूर जाँचें।",checklistTitle:"शुरुआत के लिए दस्तावेज़",stepsTitle:"आगे बढ़ने के आसान कदम",officialApply:"आधिकारिक योजना की साइट खोलें",checkSource:"आधिकारिक स्रोत देखें",allMatches:"आपके लिए संभावित योजनाएँ",matchCaption:"आपकी दी जानकारी के आधार पर। पात्रता आधिकारिक स्रोत पर जाँचें।",saved:"सहेजी गई योजनाएँ",savedCaption:"इस डिवाइस पर आपकी सहेजी योजनाएँ।",details:"योजना के बारे में जानें",source:"आधिकारिक साइट",official:"आधिकारिक योजना वेबसाइट",empty:"इस खोज से मेल खाती योजना नहीं मिली। दूसरा शब्द या श्रेणी आज़माएँ।",privacyToast:"इस डिवाइस पर सहेजा गया। आपकी जानकारी कहीं नहीं भेजी जाती।",saveToast:"इस डिवाइस पर सहेजा गया।",removeToast:"सहेजी गई योजनाओं से हटाया गया।",eligibleFarmer:"आपने अपनी प्रोफ़ाइल में किसान चुना। ज़मीन, पात्रता के नियम और अपवाद आधिकारिक साइट पर जाँचें।",eligibleRural:"आपने ग्रामीण इलाक़ा चुना। आधिकारिक आवास सर्वे सूची और योजना के नियम जाँचें।",eligibleWoman:"महिला आवेदक पात्र हो सकती हैं। परिवार के LPG कनेक्शन और योजना की शर्तें लागू होती हैं।",eligibleHealth:"आधिकारिक लाभार्थी डेटाबेस में जाँचें। सिर्फ़ आय से पात्रता तय नहीं होती।",eligibleStudent:"मौजूदा छात्रवृत्ति और पात्रता के लिए राष्ट्रीय छात्रवृत्ति पोर्टल देखें।",eligibleDefault:"यह योजना देखने लायक हो सकती है। मौजूदा शर्तें आधिकारिक साइट पर जाँचें।",couldMatch:"देखने लायक हो सकती है",notEligibility:"यह सिर्फ़ शुरुआत है—पात्रता का फ़ैसला नहीं।",checked:"जाँचे",of:"में से",schemePlural:"दस्तावेज़",foundFor:"देखने लायक कुछ योजनाएँ",noProfileResults:"इन विकल्पों से मेल खाती योजना नहीं मिली। खोज या श्रेणी बदलें।",dialogClosed:"योजना की जानकारी बंद की गई।",aiAssistantTitle:"स्कीमसाथी AI सहायक",askAssistant:"सरकारी योजनाओं के बारे में कोई सवाल पूछें...",askButton:"सवाल पूछें"}
     };
-    const categoryLabels={en:{farmer:"AGRICULTURE",housing:"HOUSING",health:"HEALTH",women:"WOMEN & FAMILIES",education:"EDUCATION"},kn:{farmer:"ಕೃಷಿ",housing:"ವಸತಿ",health:"ಆರೋಗ್ಯ",women:"ಮಹಿಳೆ ಮತ್ತು ಕುಟುಂಬ",education:"ಶಿಕ್ಷಣ"},hi:{farmer:"कृषि",housing:"आवास",health:"स्वास्थ्य",women:"महिलाएँ और परिवार",education:"शिक्षा"}};
+    const categoryLabels={
+      en:{farmer:"AGRICULTURE",housing:"HOUSING",health:"HEALTH",women:"WOMEN & FAMILIES",education:"EDUCATION",worker:"WORKERS & LIVELIHOOD","self-employed":"BUSINESS & LOANS"},
+      kn:{farmer:"ಕೃಷಿ",housing:"ವಸತಿ",health:"ಆರೋಗ್ಯ",women:"ಮಹಿಳೆ ಮತ್ತು ಕುಟುಂಬ",education:"ಶಿಕ್ಷಣ",worker:"ಕಾರ್ಮಿಕರು & ಜೀವನೋಪಾಯ","self-employed":"ವ್ಯಾಪಾರ ಸಾಲ"},
+      hi:{farmer:"कृषि",housing:"आवास",health:"स्वास्थ्य",women:"महिलाएँ और परिवार",education:"शिक्षा",worker:"कामगार व आजीविका","self-employed":"व्यापार व स्वरोजगार"}
+    };
     const profileOptionLabels={
       en:{"gender-private":"Prefer not to say","gender-woman":"Woman","gender-man":"Man","gender-other":"Other","location-empty":"Select an area","location-rural":"Rural area","location-urban":"Town or city","occupation-empty":"Select one","occupation-farmer":"Farmer or cultivator","occupation-student":"Student","occupation-worker":"Daily-wage or informal worker","occupation-self-employed":"Self-employed","occupation-other":"Something else","income-private":"Prefer not to say","income-below-1":"Under ₹1 lakh","income-1-2.5":"₹1–2.5 lakh","income-2.5-5":"₹2.5–5 lakh","income-above-5":"Above ₹5 lakh"},
       kn:{"gender-private":"ಹೇಳಲು ಇಚ್ಛೆಯಿಲ್ಲ","gender-woman":"ಮಹಿಳೆ","gender-man":"ಪುರುಷ","gender-other":"ಇತರೆ","location-empty":"ಪ್ರದೇಶ ಆಯ್ಕೆಮಾಡಿ","location-rural":"ಗ್ರಾಮೀಣ ಪ್ರದೇಶ","location-urban":"ಪಟ್ಟಣ ಅಥವಾ ನಗರ","occupation-empty":"ಒಂದನ್ನು ಆಯ್ಕೆಮಾಡಿ","occupation-farmer":"ರೈತ ಅಥವಾ ಕೃಷಿಕ","occupation-student":"ವಿದ್ಯಾರ್ಥಿ","occupation-worker":"ದಿನಗೂಲಿ ಅಥವಾ ಅಸಂಘಟಿತ ಕೆಲಸಗಾರ","occupation-self-employed":"ಸ್ವಯಂ ಉದ್ಯೋಗಿ","occupation-other":"ಬೇರೆ","income-private":"ಹೇಳಲು ಇಚ್ಛೆಯಿಲ್ಲ","income-below-1":"₹1 ಲಕ್ಷಕ್ಕಿಂತ ಕಡಿಮೆ","income-1-2.5":"₹1–2.5 ಲಕ್ಷ","income-2.5-5":"₹2.5–5 ಲಕ್ಷ","income-above-5":"₹5 ಲಕ್ಷಕ್ಕಿಂತ ಹೆಚ್ಚು"},
       hi:{"gender-private":"बताना नहीं चाहते","gender-woman":"महिला","gender-man":"पुरुष","gender-other":"अन्य","location-empty":"इलाका चुनें","location-rural":"ग्रामीण इलाक़ा","location-urban":"कस्बा या शहर","occupation-empty":"एक चुनें","occupation-farmer":"किसान या कृषक","occupation-student":"विद्यार्थी","occupation-worker":"दिहाड़ी या असंगठित कामगार","occupation-self-employed":"स्वरोज़गार","occupation-other":"कुछ और","income-private":"बताना नहीं चाहते","income-below-1":"₹1 लाख से कम","income-1-2.5":"₹1–2.5 लाख","income-2.5-5":"₹2.5–5 लाख","income-above-5":"₹5 लाख से ज़्यादा"}
     };
-    const schemes=[
-      {id:"pm-kisan",category:"farmer",url:"https://pmkisan.gov.in/",color:"#e9f2e9",icon:"leaf",name:{en:"PM-KISAN",kn:"ಪಿಎಂ-ಕಿಸಾನ್",hi:"पीएम-किसान"},description:{en:"Income support for eligible landholding farmer families.",kn:"ಅರ್ಹ ಭೂಮಿಯನ್ನು ಹೊಂದಿರುವ ರೈತ ಕುಟುಂಬಗಳಿಗೆ ಆದಾಯ ನೆರವು.",hi:"पात्र भूमिधारक किसान परिवारों के लिए आय सहायता।"},documents:{en:["Aadhaar number and identity details","Land ownership or land record documents","Bank account details linked to Aadhaar","Check the official portal for any additional documents"],kn:["ಆಧಾರ್ ಸಂಖ್ಯೆ ಮತ್ತು ಗುರುತಿನ ವಿವರಗಳು","ಭೂ ಮಾಲೀಕತ್ವ ಅಥವಾ ಭೂ ದಾಖಲೆಗಳು","ಆಧಾರ್‌ಗೆ ಜೋಡಿಸಿದ ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು","ಹೆಚ್ಚಿನ ದಾಖಲೆಗಳಿಗಾಗಿ ಅಧಿಕೃತ ಪೋರ್ಟಲ್ ಪರಿಶೀಲಿಸಿ"],hi:["आधार संख्या और पहचान का विवरण","ज़मीन के मालिकाना हक़ या भूमि रिकॉर्ड के दस्तावेज़","आधार से जुड़ी बैंक खाते की जानकारी","अन्य दस्तावेज़ों के लिए आधिकारिक पोर्टल देखें"]},steps:{en:["Check the current eligibility rules, including landholding and exclusion criteria, on the official portal.","Use the official portal to check registration status or learn how to register.","If you need help, contact an authorised local agriculture office or service centre."],kn:["ಭೂ ಮಾಲೀಕತ್ವ ಮತ್ತು ಅನರ್ಹತೆಯ ನಿಯಮಗಳೂ ಸೇರಿದಂತೆ, ಪ್ರಸ್ತುತ ಅರ್ಹತೆಯನ್ನು ಅಧಿಕೃತ ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.","ನೋಂದಣಿ ಸ್ಥಿತಿ ಪರಿಶೀಲಿಸಲು ಅಥವಾ ನೋಂದಾಯಿಸಲು ಅಧಿಕೃತ ಪೋರ್ಟಲ್ ಬಳಸಿ.","ಸಹಾಯಕ್ಕಾಗಿ ಅಧಿಕೃತ ಸ್ಥಳೀಯ ಕೃಷಿ ಕಚೇರಿ ಅಥವಾ ಸೇವಾ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ."],hi:["ज़मीन और अपात्रता के नियमों सहित, मौजूदा पात्रता आधिकारिक पोर्टल पर जाँचें।","पंजीकरण की स्थिति या पंजीकरण की जानकारी आधिकारिक पोर्टल पर देखें।","मदद के लिए अधिकृत स्थानीय कृषि कार्यालय या सेवा केंद्र से संपर्क करें।"]}},
-      {id:"pmay-g",category:"housing",url:"https://pmayg.nic.in/",color:"#edf0fa",icon:"home",name:{en:"Pradhan Mantri Awaas Yojana – Gramin",kn:"ಪ್ರಧಾನ ಮಂತ್ರಿ ಆವಾಸ್ ಯೋಜನೆ – ಗ್ರಾಮೀಣ",hi:"प्रधानमंत्री आवास योजना – ग्रामीण"},description:{en:"Support for eligible rural households to build a permanent home.",kn:"ಅರ್ಹ ಗ್ರಾಮೀಣ ಕುಟುಂಬಗಳಿಗೆ ಪಕ್ಕಾ ಮನೆ ನಿರ್ಮಿಸಲು ನೆರವು.",hi:"पात्र ग्रामीण परिवारों को पक्का घर बनाने के लिए सहायता।"},documents:{en:["Aadhaar and household identity details","Details needed to check your name on the official housing list","Bank account details","Confirm the required documents with your local Gram Panchayat"],kn:["ಆಧಾರ್ ಮತ್ತು ಕುಟುಂಬದ ಗುರುತಿನ ವಿವರಗಳು","ಅಧಿಕೃತ ವಸತಿ ಪಟ್ಟಿಯಲ್ಲಿ ಹೆಸರು ಪರಿಶೀಲಿಸಲು ಬೇಕಾದ ವಿವರಗಳು","ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು","ಸ್ಥಳೀಯ ಗ್ರಾಮ ಪಂಚಾಯಿತಿಯಲ್ಲಿ ದಾಖಲೆಗಳನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ"],hi:["आधार और परिवार की पहचान का विवरण","आधिकारिक आवास सूची में नाम जाँचने के लिए ज़रूरी जानकारी","बैंक खाते का विवरण","अपने स्थानीय ग्राम पंचायत से दस्तावेज़ों की पुष्टि करें"]},steps:{en:["Check the official website or ask your Gram Panchayat how the rural housing list is verified.","Confirm your household's status and current eligibility with your Gram Panchayat.","Use only the official programme channel for application guidance."],kn:["ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್ ಅಥವಾ ಗ್ರಾಮ ಪಂಚಾಯಿತಿಯಲ್ಲಿ ಗ್ರಾಮೀಣ ವಸತಿ ಪಟ್ಟಿ ಪರಿಶೀಲಿಸುವ ವಿಧಾನ ತಿಳಿಯಿರಿ.","ಗ್ರಾಮ ಪಂಚಾಯಿತಿಯಲ್ಲಿ ನಿಮ್ಮ ಕುಟುಂಬದ ಸ್ಥಿತಿ ಮತ್ತು ಪ್ರಸ್ತುತ ಅರ್ಹತೆ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.","ಅರ್ಜಿ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ಅಧಿಕೃತ ಯೋಜನೆ ಮೂಲವನ್ನೇ ಬಳಸಿ."],hi:["आधिकारिक वेबसाइट या ग्राम पंचायत से ग्रामीण आवास सूची की जाँच का तरीका जानें।","ग्राम पंचायत से अपने परिवार की स्थिति और मौजूदा पात्रता की पुष्टि करें।","आवेदन संबंधी जानकारी के लिए सिर्फ़ आधिकारिक योजना स्रोत का उपयोग करें।"]}},
-      {id:"ayushman-bharat",category:"health",url:"https://beneficiary.nha.gov.in/",sourceUrl:"https://pmjay.gov.in/",color:"#f3ebf5",icon:"heart",name:{en:"Ayushman Bharat PM-JAY",kn:"ಆಯುಷ್ಮಾನ್ ಭಾರತ್ PM-JAY",hi:"आयुष्मान भारत PM-JAY"},description:{en:"Health cover for families identified under the scheme's eligibility rules.",kn:"ಯೋಜನೆಯ ಅರ್ಹತಾ ನಿಯಮಗಳ ಅಡಿಯಲ್ಲಿ ಗುರುತಿಸಲಾದ ಕುಟುಂಬಗಳಿಗೆ ಆರೋಗ್ಯ ರಕ್ಷಣೆ.",hi:"योजना की पात्रता शर्तों में पहचाने गए परिवारों के लिए स्वास्थ्य कवर।"},documents:{en:["Mobile number for the official beneficiary search","Aadhaar or another government-issued identity document","Ration card or family identification details, if requested","Check the official portal for the documents accepted for your case"],kn:["ಅಧಿಕೃತ ಫಲಾನುಭವಿ ಹುಡುಕಾಟಕ್ಕಾಗಿ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ","ಆಧಾರ್ ಅಥವಾ ಇತರ ಸರ್ಕಾರಿ ಗುರುತಿನ ಚೀಟಿ","ಕೇಳಿದರೆ ಪಡಿತರ ಚೀಟಿ ಅಥವಾ ಕುಟುಂಬದ ಗುರುತಿನ ವಿವರಗಳು","ನಿಮ್ಮ ಪರಿಸ್ಥಿತಿಯಲ್ಲಿ ಸ್ವೀಕರಿಸುವ ದಾಖಲೆಗಳಿಗಾಗಿ ಅಧಿಕೃತ ಪೋರ್ಟಲ್ ನೋಡಿ"],hi:["आधिकारिक लाभार्थी खोज के लिए मोबाइल नंबर","आधार या कोई अन्य सरकारी पहचान पत्र","माँगे जाने पर राशन कार्ड या परिवार की पहचान का विवरण","आपके मामले में मान्य दस्तावेज़ आधिकारिक पोर्टल पर देखें"]},steps:{en:["Open the official beneficiary portal and check whether your household appears in the eligible database.","Follow the portal's instructions if you need to confirm your identity or household details.","For assistance, use an authorised Ayushman Mitra or the official helpline listed on the scheme website."],kn:["ಅಧಿಕೃತ ಫಲಾನುಭವಿ ಪೋರ್ಟಲ್ ತೆರೆಯಿರಿ; ಅರ್ಹರ ಡೇಟಾಬೇಸ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಕುಟುಂಬವಿದೆಯೇ ಪರಿಶೀಲಿಸಿ.","ಗುರುತು ಅಥವಾ ಕುಟುಂಬದ ವಿವರ ಖಚಿತಪಡಿಸಲು ಪೋರ್ಟಲ್ ಸೂಚನೆಗಳನ್ನು ಅನುಸರಿಸಿ.","ಸಹಾಯಕ್ಕಾಗಿ ಅಧಿಕೃತ ಆಯುಷ್ಮಾನ್ ಮಿತ್ರ ಅಥವಾ ಯೋಜನೆ ವೆಬ್‌ಸೈಟ್‌ನ ಸಹಾಯವಾಣಿಯನ್ನು ಬಳಸಿ."],hi:["आधिकारिक लाभार्थी पोर्टल खोलें और पात्र डेटाबेस में अपने परिवार की जानकारी जाँचें।","पहचान या परिवार के विवरण की पुष्टि के लिए पोर्टल के निर्देश मानें।","मदद के लिए अधिकृत आयुष्मान मित्र या आधिकारिक हेल्पलाइन से संपर्क करें।"]}},
-      {id:"pm-ujjwala",category:"women",url:"https://www.pmuy.gov.in/",color:"#fbf1e4",icon:"flame",name:{en:"Pradhan Mantri Ujjwala Yojana",kn:"ಪ್ರಧಾನ ಮಂತ್ರಿ ಉಜ್ವಲ ಯೋಜನೆ",hi:"प्रधानमंत्री उज्ज्वला योजना"},description:{en:"LPG connections for eligible adult women in households without one.",kn:"LPG ಸಂಪರ್ಕವಿಲ್ಲದ ಕುಟುಂಬದ ಅರ್ಹ ವಯಸ್ಕ ಮಹಿಳೆಯರಿಗೆ LPG ಸಂಪರ್ಕ.",hi:"LPG कनेक्शन न रखने वाले परिवारों की पात्र वयस्क महिलाओं के लिए LPG कनेक्शन।"},documents:{en:["Aadhaar of the applicant and adult household members","Ration card or other household composition proof","Bank account details and a mobile number","Confirm the current KYC requirements with an authorised LPG distributor"],kn:["ಅರ್ಜಿದಾರರು ಮತ್ತು ವಯಸ್ಕ ಕುಟುಂಬ ಸದಸ್ಯರ ಆಧಾರ್","ಪಡಿತರ ಚೀಟಿ ಅಥವಾ ಕುಟುಂಬದ ವಿವರಗಳ ಪುರಾವೆ","ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು ಮತ್ತು ಮೊಬೈಲ್ ಸಂಖ್ಯೆ","ಅಧಿಕೃತ LPG ವಿತರಕರಿಂದ ಪ್ರಸ್ತುತ KYC ಅಗತ್ಯಗಳನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ"],hi:["आवेदक और परिवार के वयस्क सदस्यों का आधार","राशन कार्ड या परिवार के सदस्यों का अन्य प्रमाण","बैंक खाते का विवरण और मोबाइल नंबर","अधिकृत LPG वितरक से मौजूदा KYC ज़रूरतों की पुष्टि करें"]},steps:{en:["Check the current eligibility conditions on the official PMUY website.","Ask an authorised LPG distributor for the current application form and KYC checklist.","Submit the application only through an authorised distributor or an official government channel."],kn:["ಅಧಿಕೃತ PMUY ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಪ್ರಸ್ತುತ ಅರ್ಹತಾ ಷರತ್ತುಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.","ಪ್ರಸ್ತುತ ಅರ್ಜಿ ನಮೂನೆ ಮತ್ತು KYC ಪಟ್ಟಿಗಾಗಿ ಅಧಿಕೃತ LPG ವಿತರಕರನ್ನು ಕೇಳಿ.","ಅಧಿಕೃತ ವಿತರಕ ಅಥವಾ ಸರ್ಕಾರಿ ಮೂಲದ ಮೂಲಕವೇ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ."],hi:["आधिकारिक PMUY वेबसाइट पर मौजूदा पात्रता शर्तें जाँचें।","आवेदन फ़ॉर्म और KYC सूची के लिए अधिकृत LPG वितरक से पूछें।","सिर्फ़ अधिकृत वितरक या सरकारी माध्यम से आवेदन करें।"]}},
-      {id:"national-scholarship",category:"education",url:"https://scholarships.gov.in/",color:"#eaf1f7",icon:"book",name:{en:"National Scholarship Portal",kn:"ರಾಷ್ಟ್ರೀಯ ವಿದ್ಯಾರ್ಥಿವೇತನ ಪೋರ್ಟಲ್",hi:"राष्ट्रीय छात्रवृत्ति पोर्टल"},description:{en:"Explore central and participating state scholarships for eligible students.",kn:"ಅರ್ಹ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ಕೇಂದ್ರ ಮತ್ತು ರಾಜ್ಯ ವಿದ್ಯಾರ್ಥಿವೇತನಗಳನ್ನು ನೋಡಿ.",hi:"पात्र विद्यार्थियों के लिए केंद्र और भाग लेने वाली राज्य छात्रवृत्तियाँ देखें।"},documents:{en:["Aadhaar or another accepted identity document","Current enrolment and institution details","Income certificate, if required by the specific scholarship","Bank account details and any scheme-specific certificates"],kn:["ಆಧಾರ್ ಅಥವಾ ಸ್ವೀಕರಿಸುವ ಇತರ ಗುರುತಿನ ಚೀಟಿ","ಪ್ರಸ್ತುತ ದಾಖಲಾತಿ ಮತ್ತು ಶಿಕ್ಷಣ ಸಂಸ್ಥೆಯ ವಿವರಗಳು","ನಿರ್ದಿಷ್ಟ ವಿದ್ಯಾರ್ಥಿವೇತನ ಕೇಳಿದರೆ ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ","ಬ್ಯಾಂಕ್ ಖಾತೆ ಮತ್ತು ಯೋಜನೆಗೆ ಬೇಕಾದ ಪ್ರಮಾಣಪತ್ರಗಳು"],hi:["आधार या अन्य मान्य पहचान पत्र","मौजूदा नामांकन और शिक्षण संस्थान का विवरण","विशेष छात्रवृत्ति माँगे तो आय प्रमाण पत्र","बैंक खाते की जानकारी और योजना-विशेष प्रमाण पत्र"]},steps:{en:["Browse current schemes on the official National Scholarship Portal.","Check each scholarship's class, income, category and application-date requirements.","Apply on the portal and ask your institution to verify your application when required."],kn:["ಅಧಿಕೃತ ರಾಷ್ಟ್ರೀಯ ವಿದ್ಯಾರ್ಥಿವೇತನ ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಪ್ರಸ್ತುತ ಯೋಜನೆಗಳನ್ನು ನೋಡಿ.","ಪ್ರತಿ ವಿದ್ಯಾರ್ಥಿವೇತನದ ತರಗತಿ, ಆದಾಯ, ವರ್ಗ ಮತ್ತು ಕೊನೆಯ ದಿನಾಂಕ ಪರಿಶೀಲಿಸಿ.","ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ; ಅಗತ್ಯವಿದ್ದರೆ ಸಂಸ್ಥೆಯಿಂದ ಪರಿಶೀಲನೆ ಮಾಡಿಸಿ."],hi:["आधिकारिक राष्ट्रीय छात्रवृत्ति पोर्टल पर मौजूदा योजनाएँ देखें।","हर छात्रवृत्ति की कक्षा, आय, श्रेणी और आवेदन की अंतिम तारीख जाँचें।","पोर्टल पर आवेदन करें और ज़रूरत होने पर अपने संस्थान से सत्यापन कराएँ।"]}}
+
+    let schemesData = [
+      {id:"pm-kisan",category:"farmer",url:"https://pmkisan.gov.in/",color:"#e9f2e9",icon:"leaf",name:{en:"PM-KISAN",kn:"ಪಿಎಂ-ಕಿಸಾನ್",hi:"पीएम-किसान"},description:{en:"Income support for eligible landholding farmer families.",kn:"ಅರ್ಹ ಭೂಮಿಯನ್ನು ಹೊಂದಿರುವ ರೈತ ಕುಟುಂಬಗಳಿಗೆ ಆದಾಯ ನೆರವು.",hi:"पात्र भूमिधारक किसान परिवारों के लिए आय सहायता।"},documents:{en:["Aadhaar number and identity details","Land ownership or land record documents","Bank account details linked to Aadhaar","Check the official portal for any additional documents"],kn:["ಆಧಾರ್ ಸಂಖ್ಯೆ ಮತ್ತು ಗುರುತಿನ ವಿವರಗಳು","ಭೂ ಮಾಲೀಕತ್ವ ಅಥವಾ ಭೂ ದಾಖಲೆಗಳು","ಆಧಾರ್‌ಗೆ ಜೋಡಿಸಿದ ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು","ಹೆಚ್ಚಿನ ದಾಖಲೆಗಳಿಗಾಗಿ ಅಧಿಕೃತ ಪೋರ್ಟಲ್ ಪರಿಶೀಲಿಸಿ"],hi:["आधार संख्या और पहचान का विवरण","ज़मीन के मालिकाना हक़ या भूमि रिकॉर्ड के दस्तावेज़","आधार से जुड़ी बैंक खाते की जानकारी","अन्य दस्तावेज़ों के लिए आधिकारिक पोर्टल देखें"]},steps:{en:["Check current eligibility rules on the official portal.","Check registration status or apply online at pmkisan.gov.in.","Contact an authorized local agriculture officer for assistance."],kn:["ಅಧಿಕೃತ ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಿ.","ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ನೋಂದಣಿ ಸ್ಥಿತಿ ತಿಳಿಯಿರಿ.","ಸಹಾಯಕ್ಕಾಗಿ ಸ್ಥಳೀಯ ಕೃಷಿ ಕಚೇರಿ ಸಂಪರ್ಕಿಸಿ."],hi:["आधिकारिक पोर्टल पर पात्रता जांचें।","pmkisan.gov.in पर पंजीकरण स्थिति देखें या नया आवेदन करें।","सहायता के लिए स्थानीय कृषि कार्यालय से संपर्क करें।"]}},
+      {id:"pmay-g",category:"housing",url:"https://pmayg.nic.in/",color:"#edf0fa",icon:"home",name:{en:"Pradhan Mantri Awaas Yojana – Gramin",kn:"ಪ್ರಧಾನ ಮಂತ್ರಿ ಆವಾಸ್ ಯೋಜನೆ – ಗ್ರಾಮೀಣ",hi:"प्रधानमंत्री आवास योजना – ग्रामीण"},description:{en:"Support for eligible rural households to build a permanent home.",kn:"ಅರ್ಹ ಗ್ರಾಮೀಣ ಕುಟುಂಬಗಳಿಗೆ ಪಕ್ಕಾ ಮನೆ ನಿರ್ಮಿಸಲು ನೆರವು.",hi:"पात्र ग्रामीण परिवारों को पक्का घर बनाने के लिए सहायता।"},documents:{en:["Aadhaar and household identity details","Details needed to check name on official housing list","Bank account details","Consent/verification from local Gram Panchayat"],kn:["ಆಧಾರ್ ಮತ್ತು ಕುಟುಂಬದ ವಿವರಗಳು","ವಸತಿ ಪಟ್ಟಿಯಲ್ಲಿ ಹೆಸರು ನೋಡಲು ಬೇಕಾದ ವಿವರ","ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು","ಗ್ರಾಮ ಪಂಚಾಯಿತಿ ಅನುಮೋದನೆ ಪತ್ರ"],hi:["आधार और परिवार का विवरण","आवास सूची में नाम जांचने की जानकारी","बैंक खाते का विवरण","ग्राम पंचायत सत्यापन"]},steps:{en:["Check the official housing survey list with Gram Panchayat.","Confirm status and eligibility.","Follow official procedure for geotagged installment release."],kn:["ಗ್ರಾಮ ಪಂಚಾಯಿತಿಯಲ್ಲಿ ವಸತಿ ಪಟ್ಟಿ ಪರಿಶೀಲಿಸಿ.","ಕುಟುಂಬದ ಅರ್ಹತೆ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.","ಹಂತ ಹಂತವಾಗಿ ಹಣ ಖಾತೆಗೆ ಜಮೆ ಆಗುತ್ತದೆ."],hi:["ग्राम पंचायत में आवास सूची जांचें।","पात्रता की पुष्टि करें।","जियोटैगिंग के बाद सीधे बैंक में किस्तें प्राप्त करें।"]}},
+      {id:"ayushman-bharat",category:"health",url:"https://beneficiary.nha.gov.in/",sourceUrl:"https://pmjay.gov.in/",color:"#f3ebf5",icon:"heart",name:{en:"Ayushman Bharat PM-JAY",kn:"ಆಯುಷ್ಮಾನ್ ಭಾರತ್ PM-JAY",hi:"आयुष्मान भारत PM-JAY"},description:{en:"Health cover of up to ₹5 lakh per family per year in empaneled hospitals.",kn:"ನೋಂದಾಯಿತ ಆಸ್ಪತ್ರೆಗಳಲ್ಲಿ ಪ್ರತಿ ಕುಟುಂಬಕ್ಕೆ ವಾರ್ಷಿಕ ₹5 ಲಕ್ಷ ನಗದುರಹಿತ ಆರೋಗ್ಯ ರಕ್ಷಣೆ.",hi:"सूचीबद्ध अस्पतालों में प्रति परिवार ₹5 लाख तक का सालाना कैशलेस इलाज।"},documents:{en:["Mobile number for beneficiary search","Aadhaar card for biometric/OTP eKYC","Ration card or family food security ID"],kn:["ಫಲಾನುಭವಿ ಹುಡುಕಾಟಕ್ಕಾಗಿ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ","ಆಧಾರ್ ಕಾರ್ಡ್","ಪಡಿತರ ಚೀಟಿ (ರೇಷನ್ ಕಾರ್ಡ್)"],hi:["मोबाइल नंबर","आधार कार्ड","राशन कार्ड"]},steps:{en:["Open beneficiary.nha.gov.in and search by Aadhaar/Ration Card.","Complete eKYC via OTP or biometric.","Download your official Ayushman Card instantly."],kn:["beneficiary.nha.gov.in ನಲ್ಲಿ ಆಧಾರ್ ಮೂಲಕ ಹುಡುಕಿ.","OTP ಮೂಲಕ ಇ-ಕೆವೈಸಿ ಮಾಡಿ.","ಆಯುಷ್ಮಾನ್ ಕಾರ್ಡ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿಕೊಳ್ಳಿ."],hi:["पोर्टल पर आधार से नाम खोजें।","ई-केवाईसी पूरी करें।","तुरंत आयुष्मान कार्ड डाउनलोड करें।"]}},
+      {id:"pm-ujjwala",category:"women",url:"https://www.pmuy.gov.in/",color:"#fbf1e4",icon:"flame",name:{en:"Pradhan Mantri Ujjwala Yojana",kn:"ಪ್ರಧಾನ ಮಂತ್ರಿ ಉಜ್ವಲ ಯೋಜನೆ",hi:"प्रधानमंत्री उज्ज्वला योजना"},description:{en:"Deposit-free LPG connection for eligible adult women in households without one.",kn:"ಗ್ಯಾಸ್ ಸಂಪರ್ಕವಿಲ್ಲದ ಕುಟುಂಬದ ಅರ್ಹ ವಯಸ್ಕ ಮಹಿಳೆಯರಿಗೆ ಉಚಿತ ಎಲ್‌ಪಿಜಿ ಸಂಪರ್ಕ.",hi:"LPG कनेक्शन न रखने वाले परिवारों की महिलाओं के लिए मुफ्त गैस कनेक्शन।"},documents:{en:["Aadhaar of woman applicant and adult family members","Ration card proving household composition","Aadhaar-linked bank passbook","Declaration form of no existing LPG"],kn:["ಮಹಿಳೆಯ ಆಧಾರ್ ಕಾರ್ಡ್","ಪಡಿತರ ಚೀಟಿ","ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್","ಗ್ಯಾಸ್ ಸಂಪರ್ಕವಿಲ್ಲದ ಘೋಷಣಾ ಪತ್ರ"],hi:["महिला का आधार","राशन कार्ड","बैंक पासबुक","घोषणा पत्र"]},steps:{en:["Download PMUY form or collect from gas distributor.","Attach KYC documents.","Submit to nearest authorized distributor."],kn:["ಅರ್ಜಿ ನಮೂನೆ ಪಡೆಯಿರಿ.","ದಾಖಲೆ ಲಗತ್ತಿಸಿ.","ಗ್ಯಾಸ್ ವಿತರಕರಿಗೆ ಸಲ್ಲಿಸಿ."],hi:["गैस एजेंसी से फॉर्म लें।","केवाईसी संलग्न करें।","वितरक के पास जमा करें।"]}},
+      {id:"national-scholarship",category:"education",url:"https://scholarships.gov.in/",color:"#eaf1f7",icon:"book",name:{en:"National Scholarship Portal",kn:"ರಾಷ್ಟ್ರೀಯ ವಿದ್ಯಾರ್ಥಿವೇತನ ಪೋರ್ಟಲ್",hi:"राष्ट्रीय छात्रवृत्ति पोर्टल"},description:{en:"Explore central and state scholarships for eligible students.",kn:"ಅರ್ಹ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ಕೇಂದ್ರ ಮತ್ತು ರಾಜ್ಯ ವಿದ್ಯಾರ್ಥಿವೇತನಗಳು.",hi:"पात्र विद्यार्थियों के लिए केंद्र और राज्य छात्रवृत्तियाँ।"},documents:{en:["Student Aadhaar card","Bonafide certificate from school/college","Previous year mark sheet","Income certificate issued by revenue authority"],kn:["ವಿದ್ಯಾರ್ಥಿಯ ಆಧಾರ್","ಬೋನಫೈಡ್ ಪ್ರಮಾಣಪತ್ರ","ಹಿಂದಿನ ವರ್ಷದ ಅಂಕಪಟ್ಟಿ","ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ"],hi:["विद्यार्थी का आधार","बोनाफाइड प्रमाणपत्र","अंकतालिका","सक्षम अधिकारी का आय प्रमाणपत्र"]},steps:{en:["Register with OTR on scholarships.gov.in.","Select eligible schemes and upload documents.","Institute verifies application before DBT disbursement."],kn:["scholarships.gov.in ನಲ್ಲಿ OTR ನೋಂದಣಿ ಮಾಡಿ.","ಯೋಜನೆ ಆಯ್ಕೆಮಾಡಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.","ಸಂಸ್ಥೆ ಪರಿಶೀಲಿಸಿದ ನಂತರ ಹಣ ಜಮೆ."],hi:["OTR पंजीकरण करें।","दस्तावेज़ अपलोड कर आवेदन करें।","सत्यापन के बाद छात्रवृत्ति सीधे खाते में आएगी।"]}},
+      {id:"pm-svanidhi",category:"worker",url:"https://pmsvanidhi.mohua.gov.in/",color:"#fff2e8",icon:"bag",name:{en:"PM SVANidhi",kn:"ಪಿಎಂ ಸ್ವನಿಧಿ",hi:"पीएम स्वनिधि"},description:{en:"Collateral-free working capital loan up to ₹50,000 for street vendors.",kn:"ಬೀದಿ ಬದಿ ವ್ಯಾಪಾರಿಗಳಿಗೆ ₹50,000 ವರೆಗೆ ಜಾಮೀನು ರಹಿತ ಸಾಲ ಮತ್ತು ಬಡ್ಡಿ ಸಬ್ಸಿಡಿ.",hi:"रेहड़ी-पटरी वालों के लिए ₹50,000 तक बिना गारंटी ऋण।"},documents:{en:["Aadhaar card linked with mobile","Vending Certificate / LoR from Municipality","Bank account details","Daily digital transaction UPI QR code"],kn:["ಆಧಾರ್ ಕಾರ್ಡ್","ಪುರಸಭೆ ನೀಡಿದ ಗುರುತಿನ ಚೀಟಿ ಅಥವಾ ಶಿಫಾರಸು ಪತ್ರ","ಬ್ಯಾಂಕ್ ವಿವರ","ಯುಪಿಐ ಕ್ಯೂಆರ್ ಕೋಡ್"],hi:["आधार कार्ड","वेंडिंग पहचान पत्र / सिफारिश पत्र","बैंक पासबुक","यूपीआई क्यूआर कोड"]},steps:{en:["Check vending status on pmsvanidhi.mohua.gov.in.","Apply online or visit CSC with Aadhaar.","Get loan disbursed to bank account."],kn:["ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.","ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಅಥವಾ ಗ್ರಾಮ ಒನ್‌ನಲ್ಲಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.","ನೇರವಾಗಿ ಸಾಲ ಪಡೆಯಿರಿ."],hi:["पोर्टल पर जांचें।","सीएससी या ऑनलाइन आवेदन करें।","ऋण खाते में प्राप्त करें।"]}},
+      {id:"gruha-lakshmi",category:"women",url:"https://sevasindhugs.karnataka.gov.in/",color:"#f7effa",icon:"heart",name:{en:"Gruha Lakshmi Scheme (Karnataka)",kn:"ಗೃಹಲಕ್ಷ್ಮಿ ಯೋಜನೆ (ಕರ್ನಾಟಕ)",hi:"गृह लक्ष्मी योजना (कर्नाटक)"},description:{en:"₹2,000 monthly assistance to woman head of family in Karnataka.",kn:"ಕರ್ನಾಟಕದ ಕುಟುಂಬದ ಮಹಿಳಾ ಯಜಮಾನಿಗೆ ಪ್ರತಿ ತಿಂಗಳು ₹2,000 ನೇರ ಆರ್ಥಿಕ ನೆರವು.",hi:"कर्नाटक में परिवार की महिला मुखिया को ₹2,000 मासिक सीधी सहायता।"},documents:{en:["Aadhaar card of woman head","Ration card (BPL/APL/Antyodaya)","Bank passbook linked to NPCI DBT"],kn:["ಮಹಿಳೆಯ ಆಧಾರ್ ಕಾರ್ಡ್","ಪಡಿತರ ಚೀಟಿ","ಆಧಾರ್ ಲಿಂಕ್ ಆದ ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್"],hi:["महिला का आधार","राशन कार्ड","डीबीटी-लिंक्ड बैंक खाता"]},steps:{en:["Visit Grama One or Karnataka One centre.","Biometric / OTP verification.","Monthly ₹2,000 transfer directly to bank."],kn:["ಗ್ರಾಮ ಒನ್ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.","ಬಯೋಮೆಟ್ರಿಕ್ ದೃಢೀಕರಣ ಮಾಡಿಸಿ.","ತಿಂಗಳ ಹಣ ಖಾತೆಗೆ ಜಮೆ."],hi:["ग्राम वन केंद्र पर जाएँ।","बायोमेट्रिक सत्यापन कराएँ।","हर महीने ₹2,000 बैंक खाते में।"]}}
     ];
-    const state={language:"en",profile:null,query:"",category:"all",saved:new Set(JSON.parse(localStorage.getItem("accessbridge-saved")||"[]")),activeScheme:null,toastTimer:null,lastFocus:null};
+
+    const state={
+      language:"en",
+      profile:null,
+      query:"",
+      category:"all",
+      saved:new Set(JSON.parse(localStorage.getItem("schemesaathi-saved")||localStorage.getItem("accessbridge-saved")||"[]")),
+      activeScheme:null,
+      toastTimer:null,
+      lastFocus:null,
+      apiActive:false,
+      eligibilityMap:new Map()
+    };
+
     const $=id=>document.getElementById(id);
     const icons={
       leaf:'<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 4c-8 0-14 4-14 11a5 5 0 0 0 5 5c7 0 11-6 9-16Z" stroke="#44895a" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 21c2-5 5-8 11-11" stroke="#44895a" stroke-width="1.7" stroke-linecap="round"/></svg>',
@@ -285,12 +413,77 @@
       heart:'<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.8 8.5c0 4.2-8.8 10-8.8 10s-8.8-5.8-8.8-10a4.5 4.5 0 0 1 8.8-1.3 4.5 4.5 0 0 1 8.8 1.3Z" stroke="#9c6bb0" stroke-width="1.7" stroke-linejoin="round"/></svg>',
       flame:'<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.5 3c.7 4-3.5 5.3-2.4 9.2.6-1.3 1.8-2.1 3.1-2.3 2.1 2 3.3 4 3.3 6A5.5 5.5 0 0 1 12 21a5.5 5.5 0 0 1-5.5-5.5c0-3.7 3.1-5.9 4.8-8.7.7-1.1 1.1-2.4.9-3.8 0 0 .7-.1 1.3 0Z" stroke="#d08736" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       book:'<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z" stroke="#6288b0" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 17.5A2.5 2.5 0 0 1 6.5 15H20M8 7h7" stroke="#6288b0" stroke-width="1.7" stroke-linecap="round"/></svg>',
+      bag:'<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 7V5a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v2m-17 0h20v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="#d97706" stroke-width="1.7" stroke-linejoin="round"/></svg>',
       bookmark:'<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-4-6 4V4.8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
       external:'<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 5h5v5m-9 4 9-9m0 7v7H5V5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
       sparkle:'<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Zm7 11 .9 2.1L22 17l-2.1.9L19 20l-.9-2.1L16 17l2.1-.9L19 14Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>'
     };
+
     function t(key){return translations[state.language][key]||translations.en[key]||key}
-    function langText(value){return value[state.language]||value.en}
+    function langText(value){
+      if(!value)return "";
+      if(typeof value==="string")return value;
+      return value[state.language]||value.en||"";
+    }
+
+    async function checkApiConnection(){
+      try{
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 1600);
+        const r = await fetch(`${API_BASE}/api/health`, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if(r.ok){
+          state.apiActive=true;
+          const statusEl = $("api-status");
+          if(statusEl){
+            statusEl.style.display="inline-flex";
+            statusEl.style.background="#edf5ee";
+            statusEl.style.borderColor="#dbead9";
+            statusEl.style.color="#356e4c";
+            statusEl.innerHTML='<span class="api-status-dot"></span><span>API Connected</span>';
+          }
+          await loadSchemesFromBackend();
+          return;
+        }
+      }catch(e){}
+      
+      // Graceful offline mode
+      state.apiActive=false;
+      const statusEl = $("api-status");
+      if(statusEl){
+        statusEl.style.display="inline-flex";
+        statusEl.style.background="#fff7eb";
+        statusEl.style.borderColor="#f3e0c0";
+        statusEl.style.color="#8d6318";
+        statusEl.innerHTML='<span class="api-status-dot" style="background:#d97706"></span><span>Offline Ready</span>';
+      }
+      renderSchemes();
+    }
+
+    async function loadSchemesFromBackend(){
+      try{
+        const r=await fetch(`${API_BASE}/api/schemes?language=${state.language}&category=${state.category}`);
+        if(r.ok){
+          const data=await r.json();
+          if(data&&data.length>0){
+            schemesData=data.map(item=>({
+              id:item.id,
+              category:item.category,
+              url:item.url,
+              sourceUrl:item.sourceUrl,
+              color:item.color,
+              icon:item.icon,
+              name:item.names||{en:item.name},
+              description:item.descriptions||{en:item.description},
+              documents:item.documents_all||{en:item.documents||[]},
+              steps:item.steps_all||{en:item.steps||[]}
+            }));
+            renderSchemes();
+          }
+        }
+      }catch(err){}
+    }
+
     function applyLanguage(){
       document.documentElement.lang=state.language;
       document.querySelectorAll("[data-i18n]").forEach(node=>{const value=t(node.dataset.i18n);if(value)node.textContent=value});
@@ -302,33 +495,50 @@
       renderSchemes();
       if(state.activeScheme)openScheme(state.activeScheme,false);
     }
+
     function reasonFor(scheme){
+      if(state.eligibilityMap.has(scheme.id)){
+        return state.eligibilityMap.get(scheme.id).relevance_reason;
+      }
       if(!state.profile)return t("eligibleDefault");
       if(scheme.id==="pm-kisan"&&state.profile.occupation==="farmer")return t("eligibleFarmer");
       if(scheme.id==="pmay-g"&&state.profile.location==="rural")return t("eligibleRural");
-      if(scheme.id==="pm-ujjwala"&&state.profile.gender==="woman")return t("eligibleWoman");
+      if((scheme.id==="pm-ujjwala"||scheme.id==="gruha-lakshmi")&&state.profile.gender==="woman")return t("eligibleWoman");
       if(scheme.id==="ayushman-bharat")return t("eligibleHealth");
       if(scheme.id==="national-scholarship"&&state.profile.occupation==="student")return t("eligibleStudent");
       return t("eligibleDefault");
     }
+
     function matchesProfile(scheme){
       if(!state.profile)return true;
+      if(state.eligibilityMap.has(scheme.id)){
+        return state.eligibilityMap.get(scheme.id).match_status!=="not_eligible";
+      }
       if(scheme.id==="pm-kisan")return state.profile.occupation==="farmer"||state.profile.occupation==="";
       if(scheme.id==="pmay-g")return state.profile.location==="rural"||state.profile.location==="";
-      if(scheme.id==="pm-ujjwala")return state.profile.gender==="woman"||state.profile.gender==="";
+      if(scheme.id==="pm-ujjwala"||scheme.id==="gruha-lakshmi")return state.profile.gender==="woman"||state.profile.gender==="";
       if(scheme.id==="national-scholarship")return state.profile.occupation==="student"||state.profile.occupation==="";
       return true;
     }
+
     function renderSchemes(){
       const query=state.query.trim().toLocaleLowerCase();
-      const matches=schemes.filter(scheme=>(!state.profile||matchesProfile(scheme))&&(state.category==="all"||scheme.category===state.category)&&(!query||[langText(scheme.name),langText(scheme.description),...Object.values(scheme.name),...Object.values(scheme.description)].join(" ").toLocaleLowerCase().includes(query)));
+      const matches=schemesData.filter(scheme=>(!state.profile||matchesProfile(scheme))&&(state.category==="all"||scheme.category===state.category)&&(!query||[langText(scheme.name),langText(scheme.description),...Object.values(scheme.name),...Object.values(scheme.description)].join(" ").toLocaleLowerCase().includes(query)));
       const list=$("scheme-list");
       if(!matches.length){list.innerHTML='<div class="empty-state">'+icons.sparkle+'<br>'+escapeHtml(t(state.profile?"noProfileResults":"empty"))+'</div>';return}
+      
       list.innerHTML=matches.map(scheme=>{
         const saved=state.saved.has(scheme.id);
+        const iconSvg=icons[scheme.icon]||icons.sparkle;
+        let matchPill="";
+        if(state.eligibilityMap.has(scheme.id)){
+          const el=state.eligibilityMap.get(scheme.id);
+          const cls=el.match_status==="eligible"?"match-high":el.match_status==="likely_eligible"?"match-likely":"match-check";
+          matchPill=`<span class="match-badge ${cls}">${Math.round(el.match_score)}% Match</span>`;
+        }
         return '<article class="scheme-card" data-scheme="'+scheme.id+'">'+
-          '<div class="card-top"><span class="scheme-icon" style="background:'+scheme.color+'">'+icons[scheme.icon]+'</span><button class="save-button'+(saved?" saved":"")+'" type="button" data-save="'+scheme.id+'" aria-label="'+escapeHtml(saved?t("removeToast"):t("saved"))+'" aria-pressed="'+saved+'">'+icons.bookmark+'</button></div>'+
-          '<p class="card-category">'+escapeHtml(categoryLabels[state.language][scheme.category])+'</p>'+
+          '<div class="card-top"><span class="scheme-icon" style="background:'+(scheme.color||'#edf4eb')+'">'+iconSvg+'</span>'+matchPill+'<button class="save-button'+(saved?" saved":"")+'" type="button" data-save="'+scheme.id+'" aria-label="'+escapeHtml(saved?t("removeToast"):t("saved"))+'" aria-pressed="'+saved+'">'+icons.bookmark+'</button></div>'+
+          '<p class="card-category">'+escapeHtml((categoryLabels[state.language]||categoryLabels.en)[scheme.category]||scheme.category)+'</p>'+
           '<h3 class="card-name">'+escapeHtml(langText(scheme.name))+'</h3>'+
           '<p class="card-description">'+escapeHtml(langText(scheme.description))+'</p>'+
           '<div class="relevance">'+icons.sparkle+'<span>'+escapeHtml(reasonFor(scheme))+'</span></div>'+
@@ -336,78 +546,284 @@
         '</article>';
       }).join("");
     }
-    function escapeHtml(value){return String(value).replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]))}
+
+    function escapeHtml(value){return String(value||"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]))}
     function showToast(message){
       const toast=$("toast");toast.textContent=message;toast.hidden=false;
       clearTimeout(state.toastTimer);state.toastTimer=setTimeout(()=>{toast.hidden=true},2400);
     }
-    function toggleSaved(id){
-      if(state.saved.has(id)){state.saved.delete(id);showToast(t("removeToast"))}
-      else{state.saved.add(id);showToast(t("saveToast"))}
-      localStorage.setItem("accessbridge-saved",JSON.stringify([...state.saved]));renderSchemes();
+
+    async function toggleSaved(id){
+      if(state.saved.has(id)){
+        state.saved.delete(id);
+        showToast(t("removeToast"));
+        if(state.apiActive){
+          fetch(`${API_BASE}/api/bookmarks/${encodeURIComponent(id)}?session_id=default_citizen`,{method:"DELETE"}).catch(()=>{});
+        }
+      }else{
+        state.saved.add(id);
+        showToast(t("saveToast"));
+        if(state.apiActive){
+          fetch(`${API_BASE}/api/bookmarks`,{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({scheme_id:id,session_id:"default_citizen"})
+          }).catch(()=>{});
+        }
+      }
+      localStorage.setItem("schemesaathi-saved",JSON.stringify([...state.saved]));
+      renderSchemes();
     }
-    function openScheme(id,focus=true){
-      const scheme=schemes.find(item=>item.id===id);if(!scheme)return;
+
+    async function openScheme(id,focus=true){
+      let scheme=schemesData.find(item=>item.id===id);
+      if(!scheme)return;
       state.activeScheme=id;
       if(focus)state.lastFocus=document.activeElement;
-      $("modal-category").textContent=categoryLabels[state.language][scheme.category];
+
+      // Try fetching richer details from backend if connected
+      if(state.apiActive){
+        try{
+          const r=await fetch(`${API_BASE}/api/schemes/${encodeURIComponent(id)}?language=${state.language}`);
+          if(r.ok){
+            const d=await r.json();
+            scheme.documents=d.documents_all||scheme.documents;
+            scheme.steps=d.steps_all||scheme.steps;
+          }
+        }catch(e){}
+      }
+
+      $("modal-category").textContent=(categoryLabels[state.language]||categoryLabels.en)[scheme.category]||scheme.category;
       $("modal-title").textContent=langText(scheme.name);
       $("modal-description").textContent=langText(scheme.description);
       $("modal-notice").textContent=reasonFor(scheme)+" "+t("notEligibility");
-      const list=langText(scheme.documents).map((document,index)=>'<label class="check-item"><input type="checkbox" data-check="'+index+'"><span>'+escapeHtml(document)+'</span></label>').join("");
+
+      const docList=scheme.documents[state.language]||scheme.documents.en||[];
+      const list=docList.map((doc,index)=>'<label class="check-item"><input type="checkbox" data-check="'+index+'"><span>'+escapeHtml(doc)+'</span></label>').join("");
       $("modal-checklist").innerHTML=list;
-      $("check-progress").textContent="0 "+t("checked")+" · "+scheme.documents[state.language].length+" "+t("of")+" "+scheme.documents[state.language].length+" "+t("schemePlural");
-      $("modal-steps").innerHTML=langText(scheme.steps).map(step=>"<li>"+escapeHtml(step)+"</li>").join("");
+      $("check-progress").textContent="0 "+t("checked")+" · "+docList.length+" "+t("of")+" "+docList.length+" "+t("schemePlural");
+
+      // Load saved checklist progress from backend if active
+      if(state.apiActive){
+        try{
+          const progRes=await fetch(`${API_BASE}/api/checklist/progress?scheme_id=${encodeURIComponent(id)}&session_id=default_citizen`);
+          if(progRes.ok){
+            const progData=await progRes.json();
+            if(progData.checked_indices&&progData.checked_indices.length){
+              progData.checked_indices.forEach(idx=>{
+                const cb=$("modal-checklist").querySelector(`input[data-check="${idx}"]`);
+                if(cb)cb.checked=true;
+              });
+              const checkedCount=progData.checked_indices.length;
+              $("check-progress").textContent=checkedCount+" "+t("checked")+" · "+docList.length+" "+t("of")+" "+docList.length+" "+t("schemePlural");
+            }
+          }
+        }catch(e){}
+      }
+
+      const stepList=scheme.steps[state.language]||scheme.steps.en||[];
+      $("modal-steps").innerHTML=stepList.map(step=>"<li>"+escapeHtml(step)+"</li>").join("");
       $("modal-apply").href=scheme.url;
       $("modal-source").href=scheme.sourceUrl||scheme.url;
       $("modal-backdrop").hidden=false;
       if(focus)$("modal-close").focus();
     }
+
     function closeScheme(){
-      $("modal-backdrop").hidden=true;state.activeScheme=null;
+      $("modal-backdrop").hidden=true;
+      state.activeScheme=null;
       if(state.lastFocus&&typeof state.lastFocus.focus==="function")state.lastFocus.focus();
     }
-    $("language").addEventListener("change",event=>{state.language=event.target.value;applyLanguage()});
+
+    $("language").addEventListener("change",event=>{
+      state.language=event.target.value;
+      applyLanguage();
+      if(state.apiActive)loadSchemesFromBackend();
+    });
     $("search").addEventListener("input",event=>{state.query=event.target.value;renderSchemes()});
     $("category-filter").addEventListener("change",event=>{state.category=event.target.value;renderSchemes()});
-    $("profile-form").addEventListener("submit",event=>{
+
+    $("profile-form").addEventListener("submit",async event=>{
       event.preventDefault();
       const form=new FormData(event.currentTarget);
       const ageValue=form.get("age");
-      if(ageValue&&(Number(ageValue)<1||Number(ageValue)>120)){ $("age").setCustomValidity(state.language==="kn"?"ದಯವಿಟ್ಟು 1 ಮತ್ತು 120 ನಡುವಿನ ವಯಸ್ಸು ನಮೂದಿಸಿ.":state.language==="hi"?"कृपया 1 से 120 के बीच की उम्र दर्ज करें।":"Please enter an age between 1 and 120.");$("age").reportValidity();return }
+      if(ageValue&&(Number(ageValue)<1||Number(ageValue)>120)){
+        $("age").setCustomValidity(state.language==="kn"?"ದಯವಿಟ್ಟು 1 ಮತ್ತು 120 ನಡುವಿನ ವಯಸ್ಸು ನಮೂದಿಸಿ.":state.language==="hi"?"कृपया 1 से 120 के बीच की उम्र दर्ज करें।":"Please enter an age between 1 and 120.");
+        $("age").reportValidity();
+        return;
+      }
       $("age").setCustomValidity("");
-      state.profile={age:ageValue?Number(ageValue):null,gender:form.get("gender"),location:form.get("location"),occupation:form.get("occupation"),income:form.get("income"),state:form.get("state")};
+      state.profile={
+        age:ageValue?Number(ageValue):null,
+        gender:form.get("gender"),
+        location:form.get("location"),
+        occupation:form.get("occupation"),
+        income:form.get("income"),
+        state:form.get("state")
+      };
+
+      // Call smart eligibility engine on backend if available
+      if(state.apiActive){
+        try{
+          $("submit-btn").disabled=true;
+          const r=await fetch(`${API_BASE}/api/schemes/check-eligibility`,{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({profile:state.profile,language:state.language})
+          });
+          if(r.ok){
+            const res=await r.json();
+            state.eligibilityMap=new Map(res.matching_schemes.map(s=>[s.scheme_id,s]));
+          }
+        }catch(e){}
+        finally{$("submit-btn").disabled=false}
+      }
+
       $("results-heading").textContent=t("allMatches");
       $("results-caption").textContent=t("matchCaption");
       renderSchemes();
       $("results-heading").scrollIntoView({behavior:"smooth",block:"center"});
     });
-    $("scheme-list").addEventListener("click",event=>{
-      const save=event.target.closest("[data-save]");
-      const details=event.target.closest("[data-details]");
-      if(save)toggleSaved(save.dataset.save);
-      else if(details)openScheme(details.dataset.details);
-    });
+
+    $("scheme-list").addEventListener("click", event => {
+  const save = event.target.closest("[data-save]");
+  const details = event.target.closest("[data-details]");
+
+  if (save) {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleSaved(save.dataset.save);
+    return;
+  }
+
+  if (details) {
+    event.preventDefault();
+    openScheme(details.dataset.details);
+  }
+});
+
     $("modal-close").addEventListener("click",closeScheme);
     $("modal-backdrop").addEventListener("click",event=>{if(event.target===$("modal-backdrop"))closeScheme()});
+    
     $("modal-checklist").addEventListener("change",()=>{
       if(!state.activeScheme)return;
       const total=$("modal-checklist").querySelectorAll('input[type="checkbox"]').length;
-      const checked=$("modal-checklist").querySelectorAll('input[type="checkbox"]:checked').length;
-      $("check-progress").textContent=checked+" "+t("checked")+" · "+total+" "+t("of")+" "+total+" "+t("schemePlural");
-    });
-    document.addEventListener("keydown",event=>{
-      if(event.key==="Escape"&&!$("modal-backdrop").hidden)closeScheme();
-      if(event.key==="Tab"&&!$("modal-backdrop").hidden){
-        const modal=$("scheme-modal");
-        const focusable=[...modal.querySelectorAll('a[href],button:not([disabled]),input:not([disabled])')].filter(el=>el.offsetParent!==null);
-        if(!focusable.length)return;
-        const first=focusable[0],last=focusable[focusable.length-1];
-        if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
-        else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+      const checkedBoxes=$("modal-checklist").querySelectorAll('input[type="checkbox"]:checked');
+      const checkedIndices=[...checkedBoxes].map(cb=>parseInt(cb.dataset.check));
+      $("check-progress").textContent=checkedBoxes.length+" "+t("checked")+" · "+total+" "+t("of")+" "+total+" "+t("schemePlural");
+
+      // Save checklist progress to backend
+      if(state.apiActive){
+        fetch(`${API_BASE}/api/checklist/progress`,{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({
+            scheme_id:state.activeScheme,
+            checked_indices:checkedIndices,
+            session_id:"default_citizen"
+          })
+        }).catch(()=>{});
       }
     });
+
+    // AI Citizen Assistant Drawer Logic
+    const drawer=$("ai-drawer");
+    const aiMessages=$("ai-messages");
+    function toggleAiDrawer(){
+      drawer.hidden=!drawer.hidden;
+      if(!drawer.hidden)$("ai-input").focus();
+    }
+    $("ai-fab-btn").addEventListener("click",toggleAiDrawer);
+    $("open-assistant-hero").addEventListener("click",()=>{
+      drawer.hidden=false;
+      $("ai-input").focus();
+    });
+    $("ai-close").addEventListener("click",()=>drawer.hidden=true);
+
+    async function sendAiMessage(query){
+      if(!query||!query.trim())return;
+      // Add user message
+      const userDiv=document.createElement("div");
+      userDiv.className="ai-msg ai-msg-user";
+      userDiv.textContent=query;
+      aiMessages.appendChild(userDiv);
+      aiMessages.scrollTop=aiMessages.scrollHeight;
+      $("ai-input").value="";
+
+      // Loading state
+      const loadDiv=document.createElement("div");
+      loadDiv.className="ai-msg ai-msg-assistant";
+      loadDiv.textContent="Thinking...";
+      aiMessages.appendChild(loadDiv);
+      aiMessages.scrollTop=aiMessages.scrollHeight;
+
+      try{
+        const r=await fetch(`${API_BASE}/api/assistant/chat`,{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({
+            query:query,
+            language:state.language,
+            session_id:"default_citizen",
+            profile:state.profile
+          })
+        });
+        if(r.ok){
+          const data=await r.json();
+          loadDiv.innerHTML=escapeHtml(data.reply).replace(/\n/g,"<br>").replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>");
+          if(data.suggested_schemes&&data.suggested_schemes.length){
+            const recBox=document.createElement("div");
+            recBox.style.marginTop="8px";
+            recBox.innerHTML=data.suggested_schemes.map(s=>`<a href="#" onclick="openScheme('${s.id}');return false;" style="display:inline-block;margin:3px 4px 3px 0;padding:3px 8px;background:#e2eee4;color:#1d663e;border-radius:10px;font-size:10px;font-weight:700;text-decoration:none;">🔗 ${escapeHtml(s.name)}</a>`).join("");
+            loadDiv.appendChild(recBox);
+          }
+          aiMessages.scrollTop=aiMessages.scrollHeight;
+          return;
+        }
+      }catch(err){}
+
+      // Offline Assistant Fallback
+      const q = query.toLowerCase();
+      const matched = schemesData.filter(s =>
+        q.includes(s.id) ||
+        q.includes(s.category) ||
+        (langText(s.name) && q.includes(langText(s.name).toLowerCase())) ||
+        (q.includes("farmer") && s.id === "pm-kisan") ||
+        (q.includes("kisan") && s.id === "pm-kisan") ||
+        (q.includes("ayushman") && s.id === "ayushman-bharat") ||
+        (q.includes("health") && s.id === "ayushman-bharat") ||
+        (q.includes("house") && s.id === "pmay-g") ||
+        (q.includes("gas") && s.id === "pm-ujjwala") ||
+        (q.includes("scholarship") && s.id === "national-scholarship") ||
+        (q.includes("loan") && s.id === "pm-svanidhi") ||
+        (q.includes("vendor") && s.id === "pm-svanidhi")
+      );
+      const top = matched[0] || schemesData[0];
+      const name = langText(top.name);
+      const desc = langText(top.description);
+      loadDiv.innerHTML = `<strong>${escapeHtml(name)}</strong><br>${escapeHtml(desc)}<br><br><a href="${top.url}" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700;text-decoration:none">Visit Official Portal &rarr;</a>`;
+      aiMessages.scrollTop=aiMessages.scrollHeight;
+    }
+
+    $("ai-form").addEventListener("submit",e=>{
+      e.preventDefault();
+      sendAiMessage($("ai-input").value);
+    });
+
+    $("ai-quick-pills").addEventListener("click",e=>{
+      const pill=e.target.closest("[data-prompt]");
+      if(pill)sendAiMessage(pill.dataset.prompt);
+    });
+
+    document.addEventListener("keydown",event=>{
+      if(event.key==="Escape"){
+        if(!$("modal-backdrop").hidden)closeScheme();
+        if(!drawer.hidden)drawer.hidden=true;
+      }
+    });
+
     applyLanguage();
+    checkApiConnection();
   </script>
 </body>
 </html>

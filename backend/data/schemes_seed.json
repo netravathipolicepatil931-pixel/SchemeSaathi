@@ -1,0 +1,838 @@
+[
+  {
+    "id": "pm-kisan",
+    "category": "farmer",
+    "color": "#e9f2e9",
+    "icon": "leaf",
+    "url": "https://pmkisan.gov.in/",
+    "sourceUrl": "https://pmkisan.gov.in/",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "name": {
+      "en": "PM-KISAN (Pradhan Mantri Kisan Samman Nidhi)",
+      "kn": "ಪಿಎಂ-ಕಿಸಾನ್ (ಪ್ರಧಾನ ಮಂತ್ರಿ ಕಿಸಾನ್ ಸಮ್ಮಾನ್ ನಿಧಿ)",
+      "hi": "पीएम-किसान (प्रधानमंत्री किसान सम्मान निधि)"
+    },
+    "tagline": {
+      "en": "₹6,000 per year direct income support for farmer families",
+      "kn": "ರೈತ ಕುಟುಂಬಗಳಿಗೆ ವರ್ಷಕ್ಕೆ ₹6,000 ನೇರ ಆದಾಯ ನೆರವು",
+      "hi": "किसान परिवारों को ₹6,000 प्रति वर्ष सीधी आय सहायता"
+    },
+    "description": {
+      "en": "Direct income support of ₹6,000 per year in three equal installments to eligible landholding farmer families across India, transferred directly into bank accounts via DBT.",
+      "kn": "ಅರ್ಹ ಭೂ ಮಾಲೀಕತ್ವ ಹೊಂದಿರುವ ರೈತ ಕುಟುಂಬಗಳಿಗೆ ವರ್ಷಕ್ಕೆ ₹6,000 ಮೊತ್ತವನ್ನು ಮೂರು ಕಂತುಗಳಲ್ಲಿ ನೇರ ನಗದು ವರ್ಗಾವಣೆ (DBT) ಮೂಲಕ ಬ್ಯಾಂಕ್ ಖಾತೆಗೆ ಜಮೆ ಮಾಡಲಾಗುತ್ತದೆ.",
+      "hi": "पात्र भूमिधारक किसान परिवारों को ₹6,000 प्रति वर्ष तीन समान किस्तों में सीधे उनके बैंक खातों में डीबीटी के ज़रिये वित्तीय सहायता।"
+    },
+    "benefit": {
+      "en": "₹6,000 / year (₹2,000 every 4 months via Direct Benefit Transfer)",
+      "kn": "ವರ್ಷಕ್ಕೆ ₹6,000 (ಪ್ರತಿ 4 ತಿಂಗಳಿಗೊಮ್ಮೆ ₹2,000 ನೇರ ವರ್ಗಾವಣೆ)",
+      "hi": "₹6,000 प्रति वर्ष (हर 4 महीने में ₹2,000 डीबीटी द्वारा)"
+    },
+    "eligibility": {
+      "min_age": 18,
+      "max_age": 100,
+      "genders": ["woman", "man", "other"],
+      "locations": ["rural", "urban"],
+      "occupations": ["farmer"],
+      "income_tiers": ["below-1", "1-2.5", "2.5-5", "above-5"],
+      "states": ["all"],
+      "criteria": {
+        "en": "Must own cultivable agricultural land registered in applicant's name. Institutional landholders and high-income taxpayers (income tax payees, constitutional post holders) are excluded.",
+        "kn": "ಅರ್ಜಿದಾರರ ಹೆಸರಿನಲ್ಲಿ ನೋಂದಾಯಿತ ಕೃಷಿ ಭೂಮಿ ಇರಬೇಕು. ಸಾಂಸ್ಥಿಕ ಭೂಮಾಲೀಕರು ಮತ್ತು ಆದಾಯ ತೆರಿಗೆ ಪಾವತಿದಾರರಿಗೆ ಅನ್ವಯಿಸುವುದಿಲ್ಲ.",
+        "hi": "आवेदक के नाम पर खेती योग्य ज़मीन दर्ज होनी चाहिए। संस्थागत भूमिधारक और आयकर दाता इस योजना के पात्र नहीं हैं।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Aadhaar card linked with active mobile number",
+        "Updated Land Record / Record of Rights (Pahani / 7/12 extract / Patta)",
+        "Bank account passbook (Aadhaar-seeded & NPCI mapped for DBT)",
+        "Self-declaration certificate on exclusion criteria"
+      ],
+      "kn": [
+        "ಸಕ್ರಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಗೆ ಲಿಂಕ್ ಮಾಡಲಾದ ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ನವೀಕರಿಸಿದ ಜಮೀನು ಪಹಣಿ / ಆರ್‌ಟಿಸಿ (RTC / 7/12 ಪಟ್ಟಾ)",
+        "ಆಧಾರ್ ಜೋಡಿಸಲಾದ ಮತ್ತು NPCI ಮ್ಯಾಪ್ ಮಾಡಿದ ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್",
+        "ಅನರ್ಹತಾ ಷರತ್ತುಗಳ ಕುರಿತ ಸ್ವಯಂ ಘೋಷಣಾ ಪತ್ರ"
+      ],
+      "hi": [
+        "सक्रिय मोबाइल नंबर से जुड़ा आधार कार्ड",
+        "अद्यतन भूमि रिकॉर्ड / खतौनी / 7/12 या पट्टा नकल",
+        "आधार-सीडेड और एनपीसीआई मैप किया हुआ बैंक खाता",
+        "अपात्रता शर्तों पर स्व-घोषणा पत्र"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Visit the official portal at pmkisan.gov.in and click 'New Farmer Registration'.",
+        "Enter your Aadhaar number, state, and mobile number to receive OTP verification.",
+        "Fill in land details (survey number, khata number, area in hectares) as per your Pahani / 7/12 record.",
+        "Submit the form and track application status online or through your local Gram Panchayat / Agriculture Officer."
+      ],
+      "kn": [
+        "ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್ pmkisan.gov.in ಗೆ ಭೇಟಿ ನೀಡಿ 'New Farmer Registration' ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ.",
+        "ಆಧಾರ್ ಸಂಖ್ಯೆ, ರಾಜ್ಯ ಮತ್ತು ಮೊಬೈಲ್ ನಮೂದಿಸಿ OTP ಪರಿಶೀಲನೆ ಪೂರ್ಣಗೊಳಿಸಿ.",
+        "ನಿಮ್ಮ ಪಹಣಿಯ ಪ್ರಕಾರ ಭೂ ವಿವರಗಳನ್ನು (ಸರ್ವೇ ಸಂಖ್ಯೆ, ಖಾತಾ ಸಂಖ್ಯೆ, ವಿಸ್ತೀರ್ಣ) ನಮೂದಿಸಿ.",
+        "ಅರ್ಜಿ ಸಲ್ಲಿಸಿ ಗ್ರಾಮ ಪಂಚಾಯಿತಿ ಅಥವಾ ಸ್ಥಳೀಯ ಕೃಷಿ ಅಧಿಕಾರಿಯ ಬಳಿ ಸ್ಥಿತಿಯನ್ನು ಪರಿಶೀಲಿಸಿ."
+      ],
+      "hi": [
+        "आधिकारिक पोर्टल pmkisan.gov.in पर जाएँ और 'New Farmer Registration' पर क्लिक करें।",
+        "अपना आधार नंबर, राज्य और मोबाइल नंबर दर्ज कर ओटीपी सत्यापन करें।",
+        "अपनी खतौनी/भूलेख के अनुसार भूमि का विवरण (सर्वे नंबर, खाता नंबर, क्षेत्रफल) भरें।",
+        "फॉर्म जमा करें और ऑनलाइन या स्थानीय कृषि कार्यालय/ग्राम पंचायत में स्थिति ट्रैक करें।"
+      ]
+    }
+  },
+  {
+    "id": "pmay-g",
+    "category": "housing",
+    "color": "#edf0fa",
+    "icon": "home",
+    "url": "https://pmayg.nic.in/",
+    "sourceUrl": "https://pmayg.nic.in/",
+    "ministry": "Ministry of Rural Development",
+    "name": {
+      "en": "Pradhan Mantri Awaas Yojana – Gramin (PMAY-G)",
+      "kn": "ಪ್ರಧಾನ ಮಂತ್ರಿ ಆವಾಸ್ ಯೋಜನೆ – ಗ್ರಾಮೀಣ",
+      "hi": "प्रधानमंत्री आवास योजना – ग्रामीण"
+    },
+    "tagline": {
+      "en": "Financial assistance up to ₹1.3 lakh to construct a pucca house in rural areas",
+      "kn": "ಗ್ರಾಮೀಣ ಪ್ರದೇಶದಲ್ಲಿ ಪಕ್ಕಾ ಮನೆ ನಿರ್ಮಾಣಕ್ಕಾಗಿ ₹1.3 ಲಕ್ಷದವರೆಗೆ ಆರ್ಥಿಕ ನೆರವು",
+      "hi": "ग्रामीण क्षेत्रों में पक्का मकान निर्माण हेतु ₹1.3 लाख तक की वित्तीय सहायता"
+    },
+    "description": {
+      "en": "Provides financial grant assistance to houseless households and families living in kutcha or dilapidated houses in rural areas to construct a durable pucca house with basic amenities.",
+      "kn": "ಗ್ರಾಮೀಣ ಪ್ರದೇಶದ ವಸತಿ ರಹಿತ ಹಾಗೂ ಕಚ್ಚಾ ಮನೆಗಳಲ್ಲಿ ವಾಸಿಸುವ ಕುಟುಂಬಗಳಿಗೆ ಮೂಲಭೂತ ಸೌಕರ್ಯವುಳ್ಳ ಪಕ್ಕಾ ಮನೆ ನಿರ್ಮಿಸಲು ಅನುದಾನ ನೀಡಲಾಗುತ್ತದೆ.",
+      "hi": "ग्रामीण क्षेत्रों में बेघर या कच्चे व जर्जर मकानों में रहने वाले परिवारों को बुनियादी सुविधाओं से युक्त पक्का मकान बनाने के लिए अनुदान सहायता दी जाती है।"
+    },
+    "benefit": {
+      "en": "₹1,20,000 (Plains) / ₹1,30,000 (Hilly/Difficult areas) plus 90-95 days of MGNREGA wages and toilet assistance",
+      "kn": "₹1,20,000 (ಬಯಲು ಸೀಮೆ) / ₹1,30,000 (ಮಲೆನಾಡು/ಗುಡ್ಡಗಾಡು) ಜೊತೆಗೆ ನರೇಗಾ ಕೂಲಿ ಮತ್ತು ಶೌಚಾಲಯ ನೆರವು",
+      "hi": "₹1,20,000 (मैदानी क्षेत्र) / ₹1,30,000 (पहाड़ी/दुर्गम क्षेत्र) और मनरेगा मजदूरी व शौचालय सहायता"
+    },
+    "eligibility": {
+      "min_age": 18,
+      "max_age": 100,
+      "genders": ["woman", "man", "other"],
+      "locations": ["rural"],
+      "occupations": ["farmer", "worker", "self-employed", "other"],
+      "income_tiers": ["below-1", "1-2.5"],
+      "states": ["all"],
+      "criteria": {
+        "en": "Rural households listed in SECC 2011 / Awaas+ priority list, living in kutcha houses (0, 1, or 2 rooms with kutcha roof/walls), with no pucca house in India.",
+        "kn": "ಗ್ರಾಮೀಣ SECC 2011 / ಆವಾಸ್+ ಪಟ್ಟಿಯಲ್ಲಿರುವ, ಕಚ್ಚಾ ಮನೆಗಳಲ್ಲಿ ವಾಸಿಸುವ ಮತ್ತು ದೇಶದಲ್ಲಿ ಎಲ್ಲಿಯೂ ಪಕ್ಕಾ ಮನೆ ಹೊಂದಿರದ ಕುಟುಂಬಗಳು.",
+        "hi": "SECC 2011 / आवास+ प्राथमिकता सूची में शामिल ग्रामीण परिवार, जो कच्चे मकान में रहते हैं और जिनका भारत में कहीं कोई पक्का मकान नहीं है।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Aadhaar cards of all family members",
+        "Ration card (BPL / Antyodaya / Priority Household)",
+        "MGNREGA Job Card number",
+        "Bank account passbook linked with Aadhaar",
+        "Site / land possession certificate or consent letter from Gram Panchayat"
+      ],
+      "kn": [
+        "ಕುಟುಂಬದ ಎಲ್ಲಾ ಸದಸ್ಯರ ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ಪಡಿತರ ಚೀಟಿ (BPL / ಅಂತ್ಯೋದಯ ಕಾರ್ಡ್)",
+        "ನರೇಗಾ ಜಾಬ್ ಕಾರ್ಡ್ ಸಂಖ್ಯೆ",
+        "ಆಧಾರ್ ಜೋಡಿಸಲಾದ ಬ್ಯಾಂಕ್ ಖಾತೆ ಪಾಸ್‌ಬುಕ್",
+        "ನಿವೇಶನದ ಹಕ್ಕುಪತ್ರ ಅಥವಾ ಗ್ರಾಮ ಪಂಚಾಯಿತಿ ಅನುಮೋದನೆ ಪತ್ರ"
+      ],
+      "hi": [
+        "परिवार के सभी सदस्यों के आधार कार्ड",
+        "राशन कार्ड (बीपीएल / अंत्योदय / प्राथमिकता राशन कार्ड)",
+        "मनरेगा जॉब कार्ड संख्या",
+        "आधार से जुड़ा बैंक पासबुक",
+        "भूमि/आवास स्थल का पट्टा या ग्राम पंचायत सहमति प्रमाण पत्र"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Check if your household is enumerated in the Awaas+ list via your local Gram Panchayat.",
+        "The Gram Sabha verifies beneficiary names, housing status, and geotags the existing site.",
+        "Upon registration by the block official, your sanction order will be issued online via AwaasSoft.",
+        "Direct installment payments are released in stages based on geotagged foundation, lintel, and roof completion."
+      ],
+      "kn": [
+        "ನಿಮ್ಮ ಗ್ರಾಮ ಪಂಚಾಯಿತಿಯಲ್ಲಿ ಆವಾಸ್+ ಸಮೀಕ್ಷಾ ಪಟ್ಟಿಯಲ್ಲಿ ಹೆಸರು ಇದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.",
+        "ಗ್ರಾಮ ಸಭೆಯು ಫಲಾನುಭವಿಯ ಅರ್ಹತೆಯನ್ನು ಪರಿಶೀಲಿಸಿ ಪ್ರಸ್ತುತ ಸ್ಥಳವನ್ನು ಜಿಯೋಟ್ಯಾಗ್ ಮಾಡುತ್ತದೆ.",
+        "ತಾಲೂಕು ಅಧಿಕಾರಿ ನೋಂದಾಯಿಸಿದ ನಂತರ ಆವಾಸ್‌ಸಾಫ್ಟ್ ಮೂಲಕ ಮಂಜೂರಾತಿ ಆದೇಶ ನೀಡಲಾಗುತ್ತದೆ.",
+        "ಮನೆಯ ಅಡಿಪಾಯ, ಲಿಂಟಲ್ ಮತ್ತು ಮೇಲ್ಛಾವಣಿಯ ಜಿಯೋಟ್ಯಾಗ್ ಆಧಾರದ ಮೇಲೆ ಹಂತ ಹಂತವಾಗಿ ಹಣ ಖಾತೆಗೆ ಜಮೆ ಆಗುತ್ತದೆ."
+      ],
+      "hi": [
+        "अपनी स्थानीय ग्राम पंचायत में आवास+ सूची में परिवार का नाम जांचें।",
+        "ग्राम सभा लाभार्थी की पात्रता और वर्तमान स्थल का सत्यापन व जियोटैगिंग करती है।",
+        "प्रखंड/ब्लॉक स्तर पर पंजीकरण के बाद AwaasSoft पोर्टल पर स्वीकृति आदेश जारी होता है।",
+        "नींव, लेंटर और छत के चरणबद्ध जियोटैगिंग के बाद सीधे बैंक खाते में किस्तें जारी होती हैं।"
+      ]
+    }
+  },
+  {
+    "id": "ayushman-bharat",
+    "category": "health",
+    "color": "#f3ebf5",
+    "icon": "heart",
+    "url": "https://beneficiary.nha.gov.in/",
+    "sourceUrl": "https://pmjay.gov.in/",
+    "ministry": "National Health Authority (Ministry of Health & Family Welfare)",
+    "name": {
+      "en": "Ayushman Bharat PM-JAY",
+      "kn": "ಆಯುಷ್ಮಾನ್ ಭಾರತ್ PM-JAY",
+      "hi": "आयुष्मान भारत PM-JAY"
+    },
+    "tagline": {
+      "en": "₹5 lakh annual cashless health cover per family in empaneled hospitals",
+      "kn": "ನೋಂದಾಯಿತ ಆಸ್ಪತ್ರೆಗಳಲ್ಲಿ ಪ್ರತಿ ಕುಟುಂಬಕ್ಕೆ ವಾರ್ಷಿಕ ₹5 ಲಕ್ಷ ನಗದುರಹಿತ ಚಿಕಿತ್ಸಾ ರಕ್ಷಣೆ",
+      "hi": "सूचीबद्ध अस्पतालों में प्रति परिवार ₹5 लाख तक का सालाना कैशलेस इलाज"
+    },
+    "description": {
+      "en": "World's largest government-funded healthcare assurance scheme offering ₹5,00,000 per family per year for secondary and tertiary hospitalization across 27,000+ public and private empaneled hospitals.",
+      "kn": "ವಿಶ್ವದ ಅತಿ ದೊಡ್ಡ ಆರೋಗ್ಯ ರಕ್ಷಣಾ ಯೋಜನೆ. 27,000ಕ್ಕೂ ಹೆಚ್ಚು ಸರ್ಕಾರಿ ಮತ್ತು ಖಾಸಗಿ ನೋಂದಾಯಿತ ಆಸ್ಪತ್ರೆಗಳಲ್ಲಿ ಪ್ರತಿ ಕುಟುಂಬಕ್ಕೆ ವರ್ಷಕ್ಕೆ ₹5 ಲಕ್ಷದವರೆಗೆ ಸಂಪೂರ್ಣ ನಗದುರಹಿತ ಚಿಕಿತ್ಸೆ ಒದಗಿಸುತ್ತದೆ.",
+      "hi": "दुनिया की सबसे बड़ी स्वास्थ्य आश्वासन योजना, जिसमें 27,000 से अधिक सरकारी व निजी सूचीबद्ध अस्पतालों में प्रति परिवार प्रति वर्ष ₹5 लाख का कैशलेस इलाज मिलता है।"
+    },
+    "benefit": {
+      "en": "Up to ₹5,00,000 per family per year, cashless & paperless across India (plus free health cover for all seniors aged 70+)",
+      "kn": "ವರ್ಷಕ್ಕೆ ₹5,00,000 ವರೆಗೆ ಉಚಿತ ನಗದುರಹಿತ ಚಿಕಿತ್ಸೆ (70 ವರ್ಷ ಮೇಲ್ಪಟ್ಟ ಎಲ್ಲಾ ಹಿರಿಯ ನಾಗರಿಕರಿಗೂ ವಿಸ್ತರಿಸಲಾಗಿದೆ)",
+      "hi": "प्रति परिवार प्रति वर्ष ₹5,00,000 तक कैशलेस उपचार (70 वर्ष से अधिक उम्र के सभी वरिष्ठ नागरिकों के लिए भी)"
+    },
+    "eligibility": {
+      "min_age": 0,
+      "max_age": 120,
+      "genders": ["woman", "man", "other"],
+      "locations": ["rural", "urban"],
+      "occupations": ["farmer", "worker", "student", "self-employed", "other"],
+      "income_tiers": ["below-1", "1-2.5", "2.5-5"],
+      "states": ["all"],
+      "criteria": {
+        "en": "Targeted bottom 40% vulnerable population defined by SECC deprivation criteria, NFSA ration card holders, and recently all citizens aged 70 years and above irrespective of income.",
+        "kn": "SECC ಫಲಾನುಭವಿಗಳು, NFSA ಪಡಿತರ ಚೀಟಿ ಹೊಂದಿರುವ ಕುಟುಂಬಗಳು ಮತ್ತು ಆದಾಯ ಮಿತಿ ಇಲ್ಲದೆ 70 ವರ್ಷ ಮೇಲ್ಪಟ್ಟ ಎಲ್ಲಾ ಹಿರಿಯ ನಾಗರಿಕರು.",
+        "hi": "एसईसीसी 2011 के तहत पात्र परिवार, एनएफएसए राशन कार्ड धारक, और आय सीमा के बिना 70 वर्ष या उससे अधिक आयु के सभी वरिष्ठ नागरिक।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Aadhaar card of the applicant",
+        "Ration card or State Family Food Security ID",
+        "Active mobile number linked with Aadhaar for eKYC OTP"
+      ],
+      "kn": [
+        "ಅರ್ಜಿದಾರರ ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ಪಡಿತರ ಚೀಟಿ (ರೇಷನ್ ಕಾರ್ಡ್)",
+        "ಇ-ಕೆವೈಸಿ ಒಟಿಪಿಗಾಗಿ ಆಧಾರ್ ಲಿಂಕ್ ಆಗಿರುವ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+      ],
+      "hi": [
+        "आवेदक का आधार कार्ड",
+        "राशन कार्ड या राज्य खाद्य सुरक्षा पहचान पत्र",
+        "ई-केवाईसी ओटीपी हेतु आधार से लिंक मोबाइल नंबर"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Open beneficiary.nha.gov.in and login using your mobile number and OTP.",
+        "Select your state, scheme, and search by Aadhaar Number or Family Ration Card ID.",
+        "If your name appears, click 'eKYC', verify with Aadhaar OTP or facial recognition.",
+        "Download your official Ayushman Card instantly on your phone or print at a CSC center."
+      ],
+      "kn": [
+        "beneficiary.nha.gov.in ತೆರೆದು ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಮತ್ತು OTP ಬಳಸಿ ಲಾಗಿನ್ ಆಗಿ.",
+        "ರಾಜ್ಯ, ಯೋಜನೆ ಆಯ್ಕೆಮಾಡಿ ನಿಮ್ಮ ಆಧಾರ್ ಅಥವಾ ರೇಷನ್ ಕಾರ್ಡ್ ಸಂಖ್ಯೆ ಮೂಲಕ ಹುಡುಕಿ.",
+        "ಹೆಸರು ಕಂಡುಬಂದಾಗ 'eKYC' ಕ್ಲಿಕ್ ಮಾಡಿ ಆಧಾರ್ OTP ಮೂಲಕ ದೃಢೀಕರಿಸಿ.",
+        "ತಕ್ಷಣವೇ ನಿಮ್ಮ ಆಯುಷ್ಮಾನ್ ಕಾರ್ಡ್ ಮೊಬೈಲ್‌ನಲ್ಲಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿಕೊಳ್ಳಿ."
+      ],
+      "hi": [
+        "beneficiary.nha.gov.in खोलें और मोबाइल नंबर व ओटीपी से लॉगिन करें।",
+        "अपना राज्य चुनें और आधार नंबर या राशन कार्ड संख्या द्वारा परिवार को खोजें।",
+        "नाम दिखने पर 'eKYC' पर क्लिक करें और आधार ओटीपी या फेस रिकग्निशन से पुष्टि करें।",
+        "अपना आयुष्मान कार्ड तुरंत डाउनलोड करें या नजदीकी सीएससी केंद्र से प्राप्त करें।"
+      ]
+    }
+  },
+  {
+    "id": "pm-ujjwala",
+    "category": "women",
+    "color": "#fbf1e4",
+    "icon": "flame",
+    "url": "https://www.pmuy.gov.in/",
+    "sourceUrl": "https://www.pmuy.gov.in/",
+    "ministry": "Ministry of Petroleum and Natural Gas",
+    "name": {
+      "en": "Pradhan Mantri Ujjwala Yojana (PMUY)",
+      "kn": "ಪ್ರಧಾನ ಮಂತ್ರಿ ಉಜ್ವಲ ಯೋಜನೆ",
+      "hi": "प्रधानमंत्री उज्ज्वला योजना"
+    },
+    "tagline": {
+      "en": "Deposit-free LPG connection with free first cylinder and stove for women",
+      "kn": "ಮಹಿಳೆಯರಿಗೆ ಠೇವಣಿ ರಹಿತ ಉಚಿತ ಗ್ಯಾಸ್ ಸಂಪರ್ಕ ಮತ್ತು ಮೊದಲ ಸಿಲಿಂಡರ್ ಹಾಗೂ ಒಲೆ",
+      "hi": "महिलाओं के लिए बिना सुरक्षा राशि मुफ्त एलपीजी गैस कनेक्शन, पहला सिलेंडर व चूल्हा"
+    },
+    "description": {
+      "en": "Provides deposit-free LPG gas connections to adult women from poor and underprivileged households without an existing LPG connection, promoting clean cooking fuel and better respiratory health.",
+      "kn": "ಮನೆಯಲ್ಲಿ ಗ್ಯಾಸ್ ಸಂಪರ್ಕವಿಲ್ಲದ ಬಡ ಕುಟುಂಬಗಳ ವಯಸ್ಕ ಮಹಿಳೆಯರಿಗೆ ಉಚಿತ ಎಲ್‌ಪಿಜಿ ಸಂಪರ್ಕ, ಸಿಲಿಂಡರ್ ಮತ್ತು ಸ್ಟವ್ ನೀಡುವ ಯೋಜನೆ.",
+      "hi": "गरीब और वंचित परिवारों की वयस्क महिलाओं को बिना सुरक्षा जमा के मुफ्त गैस कनेक्शन, भरा हुआ सिलेंडर और चूल्हा प्रदान करने की योजना।"
+    },
+    "benefit": {
+      "en": "Free connection (₹1,600 security waiver), free first 14.2kg cylinder, free gas stove, plus ₹300 refill subsidy per cylinder",
+      "kn": "ಉಚಿತ ಕನೆಕ್ಷನ್ (₹1,600 ಠೇವಣಿ ಮನ್ನಾ), ಮೊದಲ ಉಚಿತ ಸಿಲಿಂಡರ್ ಮತ್ತು ಒಲೆ, ಹಾಗೂ ಪ್ರತಿ ಸಿಲಿಂಡರ್‌ಗೆ ₹300 ಸಬ್ಸಿಡಿ",
+      "hi": "मुफ्त कनेक्शन (₹1,600 सुरक्षा राशि छूट), पहला भरा सिलेंडर व चूल्हा मुफ्त, साथ ही प्रति सिलेंडर ₹300 सब्सिडी"
+    },
+    "eligibility": {
+      "min_age": 18,
+      "max_age": 100,
+      "genders": ["woman"],
+      "locations": ["rural", "urban"],
+      "occupations": ["farmer", "worker", "student", "self-employed", "other"],
+      "income_tiers": ["below-1", "1-2.5"],
+      "states": ["all"],
+      "criteria": {
+        "en": "Applicant must be an adult woman (18+) from a BPL / SC / ST / PMAY / Antyodaya household, with no existing LPG connection in the same household.",
+        "kn": "ಅರ್ಜಿದಾರರು 18 ವರ್ಷ ತುಂಬಿದ ಮಹಿಳೆಯಾಗಿರಬೇಕು. ಕುಟುಂಬದ ಹೆಸರಿನಲ್ಲಿ ಯಾವುದೇ ಎಲ್‌ಪಿಜಿ ಸಂಪರ್ಕ ಇರಬಾರದು. ಬಿಪಿಎಲ್ ಅಥವಾ ಅಂತ್ಯೋದಯ ಪಡಿತರ ಚೀಟಿ ಹೊಂದಿರಬೇಕು.",
+        "hi": "आवेदक 18 वर्ष या उससे अधिक आयु की महिला होनी चाहिए। घर में पहले से कोई गैस कनेक्शन नहीं होना चाहिए और बीपीएल/अंत्योदय परिवार से होनी चाहिए।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Aadhaar card of woman applicant and all adult family members",
+        "Ration card showing household composition / family tree",
+        "Bank account passbook in applicant's name with Aadhaar linkage",
+        "14-point declaration form of no prior LPG connection"
+      ],
+      "kn": [
+        "ಮಹಿಳಾ ಅರ್ಜಿದಾರರು ಮತ್ತು ಮನೆಯ ಎಲ್ಲಾ ವಯಸ್ಕ ಸದಸ್ಯರ ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ಕುಟುಂಬದ ಸದಸ್ಯರ ವಿವರ ಹೊಂದಿರುವ ಪಡಿತರ ಚೀಟಿ (ರೇಷನ್ ಕಾರ್ಡ್)",
+        "ಅರ್ಜಿದಾರರ ಹೆಸರಿನ ಆಧಾರ್ ಲಿಂಕ್ ಆಗಿರುವ ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್",
+        "ಮನೆಯಲ್ಲಿ ಗ್ಯಾಸ್ ಸಂಪರ್ಕವಿಲ್ಲ ಎಂದು ದೃಢೀಕರಿಸುವ 14 ಅಂಶಗಳ ಘೋಷಣಾ ಪತ್ರ"
+      ],
+      "hi": [
+        "महिला आवेदक व परिवार के सभी वयस्क सदस्यों का आधार कार्ड",
+        "परिवार की संरचना दर्शाने वाला राशन कार्ड",
+        "आवेदक के नाम से आधार-लिंक्ड बैंक पासबुक",
+        "घर में कोई गैस कनेक्शन न होने का 14-सूत्रीय घोषणा पत्र"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Download the PMUY 2.0 application form online or collect from the nearest authorized LPG distributor (Indane, Bharatgas, or HP Gas).",
+        "Fill out applicant details, family composition, and attach required KYC documents.",
+        "Submit the form to your local gas distributor for field verification.",
+        "Upon verification, receive your LPG connection, gas stove, and regulator free of charge."
+      ],
+      "kn": [
+        "pmuy.gov.in ನಲ್ಲಿ ಅರ್ಜಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ ಅಥವಾ ಹತ್ತಿರದ ಇಂಡೇನ್/ಭಾರತ್ ಗ್ಯಾಸ್/ಎಚ್‌ಪಿ ಗ್ಯಾಸ್ ಏಜೆನ್ಸಿಯಿಂದ ಪಡೆಯಿರಿ.",
+        "ಅರ್ಜಿಯಲ್ಲಿ ಕುಟುಂಬದ ಸದಸ್ಯರ ಮಾಹಿತಿ ಭರ್ತಿ ಮಾಡಿ ಅಗತ್ಯ ದಾಖಲೆಗಳನ್ನು ಲಗತ್ತಿಸಿ.",
+        "ದಾಖಲೆಗಳನ್ನು ಸ್ಥಳೀಯ ಗ್ಯಾಸ್ ವಿತರಕರಿಗೆ ನೀಡಿ ಪರಿಶೀಲನೆ ಮಾಡಿಸಿ.",
+        "ದೃಢೀಕರಣದ ನಂತರ ಉಚಿತ ಸಿಲಿಂಡರ್, ಸ್ಟವ್ ಮತ್ತು ರೆಗ್ಯುಲೇಟರ್ ಪಡೆಯಿರಿ."
+      ],
+      "hi": [
+        "pmuy.gov.in से आवेदन फॉर्म डाउनलोड करें या नजदीकी गैस एजेंसी (इण्डेन, भारतगैस या एचपी) से प्राप्त करें।",
+        "फॉर्म भरकर परिवार का विवरण व केवाईसी दस्तावेज संलग्न करें।",
+        "अपने नजदीकी अधिकृत एलपीजी वितरक के पास फॉर्म जमा करें।",
+        "सत्यापन के बाद मुफ्त कनेक्शन, भरा हुआ सिलेंडर व चूल्हा प्राप्त करें।"
+      ]
+    }
+  },
+  {
+    "id": "national-scholarship",
+    "category": "education",
+    "color": "#eaf1f7",
+    "icon": "book",
+    "url": "https://scholarships.gov.in/",
+    "sourceUrl": "https://scholarships.gov.in/",
+    "ministry": "Ministry of Electronics and Information Technology & Ministry of Education",
+    "name": {
+      "en": "National Scholarship Portal (NSP Schemes)",
+      "kn": "ರಾಷ್ಟ್ರೀಯ ವಿದ್ಯಾರ್ಥಿವೇತನ ಪೋರ್ಟಲ್ (NSP)",
+      "hi": "राष्ट्रीय छात्रवृत्ति पोर्टल (NSP योजनाएँ)"
+    },
+    "tagline": {
+      "en": "Pre-matric, post-matric and higher education scholarships for students",
+      "kn": "ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಪ್ರೀ-ಮೆಟ್ರಿಕ್, ಪೋಸ್ಟ್-ಮೆಟ್ರಿಕ್ ಹಾಗೂ ಉನ್ನತ ಶಿಕ್ಷಣ ವಿದ್ಯಾರ್ಥಿವೇತನಗಳು",
+      "hi": "विद्यार्थियों के लिए प्री-मैट्रिक, पोस्ट-मैट्रिक और उच्च शिक्षा छात्रवृत्तियाँ"
+    },
+    "description": {
+      "en": "One-stop digital platform offering central sector, UGC, AICTE, and state-sponsored scholarships for minority, SC/ST, OBC, and economically disadvantaged students from class 1 up to PhD levels.",
+      "kn": "ಅಲ್ಪಸಂಖ್ಯಾತ, ಎಸ್ಸಿ/ಎಸ್ಟಿ, ಒಬಿಸಿ ಹಾಗೂ ಆರ್ಥಿಕವಾಗಿ ಹಿಂದುಳಿದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ 1ನೇ ತರಗತಿಯಿಂದ ಪಿಎಚ್‌ಡಿ ವರೆಗಿನ ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಕೇಂದ್ರ ಹಾಗೂ ರಾಜ್ಯ ವಿದ್ಯಾರ್ಥಿವೇತನಗಳ ಏಕಗವಾಕ್ಷಿ ವೇದಿಕೆ.",
+      "hi": "कक्षा 1 से लेकर पीएचडी तक के अल्पसंख्यक, एससी/एसटी, ओबीसी और आर्थिक रूप से कमजोर छात्रों के लिए केंद्र और राज्य प्रायोजित छात्रवृत्तियों का एकीकृत मंच।"
+    },
+    "benefit": {
+      "en": "Direct bank transfer of ₹5,000 to ₹50,000+ per year covering tuition fees, book allowances, and hostel maintenance",
+      "kn": "ಬೋಧನಾ ಶುಲ್ಕ, ಪುಸ್ತಕ ಭತ್ಯೆ ಮತ್ತು ಹಾಸ್ಟೆಲ್ ನಿರ್ವಹಣೆಗೆ ವರ್ಷಕ್ಕೆ ₹5,000 ದಿಂದ ₹50,000+ ವರೆಗೆ ನೇರ ವಿದ್ಯಾರ್ಥಿವೇತನ",
+      "hi": "ट्यूशन फीस, पुस्तक भत्ते और छात्रावास खर्च हेतु सीधे खाते में ₹5,000 से ₹50,000+ प्रति वर्ष"
+    },
+    "eligibility": {
+      "min_age": 5,
+      "max_age": 35,
+      "genders": ["woman", "man", "other"],
+      "locations": ["rural", "urban"],
+      "occupations": ["student"],
+      "income_tiers": ["below-1", "1-2.5", "2.5-5"],
+      "states": ["all"],
+      "criteria": {
+        "en": "Regular student studying in an AISHE/UDISE recognized school, college, or university, with household income generally under ₹2.5 lakh (some schemes up to ₹8 lakh). Minimum 50% marks in previous exam for most merit schemes.",
+        "kn": "ಮಾನ್ಯತೆ ಪಡೆದ ಶಾಲೆ/ಕಾಲೇಜುಗಳಲ್ಲಿ ಓದುತ್ತಿರುವ ನಿಯಮಿತ ವಿದ್ಯಾರ್ಥಿಗಳು. ಕುಟುಂಬದ ವಾರ್ಷಿಕ ಆದಾಯ ಸಾಮಾನ್ಯವಾಗಿ ₹2.5 ಲಕ್ಷಕ್ಕಿಂತ ಕಡಿಮೆ ಇರಬೇಕು (ಕೆಲವು ಯೋಜನೆಗಳಲ್ಲಿ ₹8 ಲಕ್ಷದವರೆಗೆ).",
+        "hi": "मान्यता प्राप्त विद्यालय, कॉलेज या विश्वविद्यालय में नियमित अध्ययनरत छात्र। पारिवारिक वार्षिक आय आमतौर पर ₹2.5 लाख से कम होनी चाहिए।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Aadhaar card / Aadhaar Enrolment Slip of student",
+        "Bonafide student certificate from current school/college with UDISE/AISHE code",
+        "Previous year mark sheet / academic transcript",
+        "Valid Income Certificate issued by Revenue Authority (Tahsildar/SDM)",
+        "Caste / Category / Minority certificate (if applying under specific quota)",
+        "Student's personal bank passbook (Aadhaar linked)"
+      ],
+      "kn": [
+        "ವಿದ್ಯಾರ್ಥಿಯ ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ಪ್ರಸ್ತುತ ಶಾಲೆ/ಕಾಲೇಜಿನ ಬೋನಫೈಡ್ ಪ್ರಮಾಣಪತ್ರ (Bonafide Certificate)",
+        "ಹಿಂದಿನ ವರ್ಷದ ಅಂಕಪಟ್ಟಿ",
+        "ಕಂದಾಯ ಪ್ರಾಧಿಕಾರ ನೀಡಿದ ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ (Income Certificate)",
+        "ಜಾತಿ / ಪ್ರವರ್ಗ ಪ್ರಮಾಣಪತ್ರ (ಅಗತ್ಯವಿದ್ದರೆ)",
+        "ವಿದ್ಯಾರ್ಥಿಯ ವೈಯಕ್ತಿಕ ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್ (ಆಧಾರ್ ಲಿಂಕ್ ಆಗಿರಬೇಕು)"
+      ],
+      "hi": [
+        "विद्यार्थी का आधार कार्ड",
+        "वर्तमान शिक्षण संस्थान का बोनाफाइड प्रमाणपत्र (AISHE/UDISE कोड सहित)",
+        "पिछली कक्षा की अंकतालिका",
+        "सक्षम प्राधिकारी द्वारा जारी वैध आय प्रमाणपत्र",
+        "जाति / श्रेणी प्रमाणपत्र (यदि लागू हो)",
+        "विद्यार्थी का आधार-सीडेड बैंक पासबुक"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Register on scholarships.gov.in using OTR (One Time Registration) via Aadhaar Face RD or OTP.",
+        "Complete your student profile with academic and demographic details.",
+        "Browse eligible scholarship schemes, upload supporting documents, and submit before deadlines.",
+        "Your application is digitally verified by your Institute Nodal Officer (INO) and District/State Officer before DBT disbursement."
+      ],
+      "kn": [
+        "scholarships.gov.in ನಲ್ಲಿ ಆಧಾರ್ ಒಟಿಪಿ ಅಥವಾ ಫೇಸ್ ಆರ್‌ಡಿ ಮೂಲಕ ಒನ್ ಟೈಮ್ ರಿಜಿಸ್ಟ್ರೇಷನ್ (OTR) ಮಾಡಿ.",
+        "ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ ಮತ್ತು ವೈಯಕ್ತಿಕ ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ ಪ್ರೊಫೈಲ್ ಪೂರ್ಣಗೊಳಿಸಿ.",
+        "ನಿಮಗೆ ಲಭ್ಯವಿರುವ ವಿದ್ಯಾರ್ಥಿವೇತನ ಆಯ್ಕೆಮಾಡಿ ದಾಖಲೆಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.",
+        "ನಿಮ್ಮ ಶಿಕ್ಷಣ ಸಂಸ್ಥೆಯು ಅರ್ಜಿಯನ್ನು ಪರಿಶೀಲಿಸಿ ಅನುಮೋದಿಸಿದ ನಂತರ ವಿದ್ಯಾರ್ಥಿವೇತನ ಜಮೆ ಆಗುತ್ತದೆ."
+      ],
+      "hi": [
+        "scholarships.gov.in पर आधार फेस आरडी या ओटीपी के जरिए वन-टाइम रजिस्ट्रेशन (OTR) करें।",
+        "अपनी शैक्षणिक और व्यक्तिगत जानकारी भरकर प्रोफाइल पूरी करें।",
+        "उपलब्ध छात्रवृत्ति योजनाओं में से उपयुक्त योजना चुनें और दस्तावेज अपलोड कर आवेदन जमा करें।",
+        "संस्थान नोडल अधिकारी और जिला अधिकारी द्वारा सत्यापन के बाद छात्रवृत्ति सीधे बैंक खाते में आएगी।"
+      ]
+    }
+  },
+  {
+    "id": "pm-svanidhi",
+    "category": "worker",
+    "color": "#fff2e8",
+    "icon": "bag",
+    "url": "https://pmsvanidhi.mohua.gov.in/",
+    "sourceUrl": "https://pmsvanidhi.mohua.gov.in/",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "name": {
+      "en": "PM SVANidhi (Street Vendor's AtmaNirbhar Nidhi)",
+      "kn": "ಪಿಎಂ ಸ್ವನಿಧಿ (ಬೀದಿ ಬದಿ ವ್ಯಾಪಾರಿಗಳ ಆತ್ಮನಿರ್ಭರ ನಿಧಿ)",
+      "hi": "पीएम स्वनिधि (स्ट्रीट वेंडर्स आत्मनिर्भर निधि)"
+    },
+    "tagline": {
+      "en": "Collateral-free working capital loan up to ₹50,000 with 7% interest subsidy",
+      "kn": "ಬೀದಿ ಬದಿ ವ್ಯಾಪಾರಿಗಳಿಗೆ ₹50,000 ವರೆಗೆ ಜಾಮೀನು ರಹಿತ ದುಡಿಯುವ ಬಂಡವಾಳ ಸಾಲ ಮತ್ತು 7% ಬಡ್ಡಿ ಸಬ್ಸಿಡಿ",
+      "hi": "रेहड़ी-पटरी वालों के लिए ₹50,000 तक बिना गारंटी कार्यशील पूंजी ऋण व 7% ब्याज सब्सिडी"
+    },
+    "description": {
+      "en": "A special micro-credit facility providing urban and peri-urban street vendors collateral-free loans in tranches of ₹10,000, ₹20,000, and ₹50,000 to restart or expand their livelihood, along with digital cashback rewards.",
+      "kn": "ನಗರ ಹಾಗೂ ಅರೆನಗರ ಪ್ರದೇಶದ ಬೀದಿ ಬದಿ ವ್ಯಾಪಾರಿಗಳಿಗೆ ಜಾಮೀನು ರಹಿತವಾಗಿ ಹಂತ ಹಂತವಾಗಿ ₹10,000, ₹20,000 ಹಾಗೂ ₹50,000 ಸಾಲ ನೀಡುವ ಮಹತ್ವದ ಕಿರು ಸಾಲ ಯೋಜನೆ.",
+      "hi": "शहरी व अर्ध-शहरी रेहड़ी-पटरी विक्रेताओं को अपना व्यापार बढ़ाने के लिए बिना किसी गारंटी के ₹10,000, ₹20,000 और ₹50,000 की किस्तों में ऋण और 7% ब्याज अनुदान की सुविधा।"
+    },
+    "benefit": {
+      "en": "1st tranche ₹10,000 -> 2nd tranche ₹20,000 -> 3rd tranche ₹50,000 with 7% annual interest subsidy and up to ₹1,200 annual digital transaction cashback",
+      "kn": "1ನೇ ಹಂತ ₹10,000, ನಂತರ ₹20,000 ಹಾಗೂ ₹50,000 ಸಾಲ; 7% ಬಡ್ಡಿ ಸಬ್ಸಿಡಿ ಮತ್ತು ವಾರ್ಷಿಕ ₹1,200 ಡಿಜಿಟಲ್ ಕ್ಯಾಶ್‌ಬ್ಯಾಕ್",
+      "hi": "पहली बार ₹10,000, दूसरी बार ₹20,000 और तीसरी बार ₹50,000 तक का ऋण; समय पर भुगतान पर 7% ब्याज सब्सिडी व डिजिटल लेनदेन पर ₹1,200 कैशबैक"
+    },
+    "eligibility": {
+      "min_age": 18,
+      "max_age": 75,
+      "genders": ["woman", "man", "other"],
+      "locations": ["urban"],
+      "occupations": ["worker", "self-employed"],
+      "income_tiers": ["below-1", "1-2.5", "2.5-5"],
+      "states": ["all"],
+      "criteria": {
+        "en": "Street vendors vending in urban areas possessing a Certificate of Vending / Identity Card issued by Urban Local Bodies (ULB), or Letter of Recommendation (LoR) from Town Vending Committee.",
+        "kn": "ನಗರ ಪಾಲಿಕೆ ಅಥವಾ ಸ್ಥಳೀಯ ಸಂಸ್ಥೆಗಳು ನೀಡಿದ ವ್ಯಾಪಾರ ಗುರುತಿನ ಚೀಟಿ (Vending ID) ಅಥವಾ ಪುರಸಭೆಯ ಶಿಫಾರಸು ಪತ್ರ (LoR) ಹೊಂದಿರುವ ಬೀದಿ ವ್ಯಾಪಾರಿಗಳು.",
+        "hi": "शहरी स्थानीय निकाय (नगर निगम/पालिका) द्वारा जारी वेंडिंग प्रमाणपत्र / पहचान पत्र या वेंडिंग कमेटी का अनुशंसा पत्र (LoR) रखने वाले स्ट्रीट वेंडर।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Aadhaar card linked with active mobile number",
+        "Vending Certificate / Identity Card issued by ULB/Municipality OR Letter of Recommendation (LoR)",
+        "Bank account details (IFSC and account number)",
+        "QR code / UPI ID used for daily digital transactions"
+      ],
+      "kn": [
+        "ಮೊಬೈಲ್ ಲಿಂಕ್ ಆಗಿರುವ ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ನಗರಸಭೆ ನೀಡಿದ ಬೀದಿ ವ್ಯಾಪಾರ ಪ್ರಮಾಣಪತ್ರ ಅಥವಾ ಶಿಫಾರಸು ಪತ್ರ (LoR)",
+        "ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರ (ಖಾತೆ ಸಂಖ್ಯೆ ಮತ್ತು IFSC ಕೋಡ್)",
+        "ವ್ಯಾಪಾರದಲ್ಲಿ ಬಳಸುವ ಯುಪಿಐ ಕ್ಯೂಆರ್ ಕೋಡ್ (UPI QR Code)"
+      ],
+      "hi": [
+        "मोबाइल नंबर से जुड़ा आधार कार्ड",
+        "नगर निकाय द्वारा जारी वेंडिंग प्रमाणपत्र / पहचान पत्र या सिफारिश पत्र (LoR)",
+        "बैंक खाता पासबुक या चेक की प्रति",
+        "डिजिटल लेन-देन हेतु उपयोग किया जाने वाला यूपीआई क्यूआर कोड"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Check your vending status or request a Letter of Recommendation (LoR) on pmsvanidhi.mohua.gov.in.",
+        "Apply online or visit your nearest Common Service Centre (CSC) or municipal office with your Aadhaar.",
+        "Select your preferred lending institution (public bank, regional rural bank, or microfinance institution).",
+        "Loan is disbursed directly to your bank account; on timely repayment, unlock the next higher credit limit automatically."
+      ],
+      "kn": [
+        "pmsvanidhi.mohua.gov.in ನಲ್ಲಿ ನಿಮ್ಮ ವ್ಯಾಪಾರಿ ಸ್ಥಿತಿಯನ್ನು ಪರಿಶೀಲಿಸಿ ಅಥವಾ ಪುರಸಭೆಯಲ್ಲಿ ಶಿಫಾರಸು ಪತ್ರ (LoR) ಪಡೆಯಿರಿ.",
+        "ಆನ್‌ಲೈನ್ ಮೂಲಕ ಅಥವಾ ಹತ್ತಿರದ ಗ್ರಾಮ್ ಒನ್/ಸಿಎಸ್‌ಸಿ ಕೇಂದ್ರದಲ್ಲಿ ಆಧಾರ್ ಬಳಸಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.",
+        "ನಿಮ್ಮ ಅನುಕೂಲಕರ ಬ್ಯಾಂಕ್ ಆಯ್ಕೆಮಾಡಿ.",
+        "ಸಾಲದ ಮೊತ್ತ ನೇರವಾಗಿ ನಿಮ್ಮ ಬ್ಯಾಂಕ್ ಖಾತೆಗೆ ಜಮೆ ಆಗುತ್ತದೆ. ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ ಮರುಪಾವತಿಸಿದರೆ ಹೆಚ್ಚಿನ ಸಾಲ ಲಭ್ಯವಾಗುತ್ತದೆ."
+      ],
+      "hi": [
+        "pmsvanidhi.mohua.gov.in पर अपनी वेंडिंग स्थिति जांचें या सिफारिश पत्र (LoR) हेतु आवेदन करें।",
+        "नजदीकी सीएससी केंद्र या स्वयं ऑनलाइन आधार के जरिए ऋण के लिए आवेदन करें।",
+        "अपनी सुविधानुसार बैंक या वित्तीय संस्थान का चयन करें।",
+        "ऋण राशि सीधे बैंक खाते में जमा होती है; समय पर अदायगी करने पर अगली बार दोगुनी ऋण सीमा अनलॉक हो जाती है।"
+      ]
+    }
+  },
+  {
+    "id": "sukanya-samriddhi",
+    "category": "women",
+    "color": "#fdf0f4",
+    "icon": "sparkle",
+    "url": "https://www.indiapost.gov.in/",
+    "sourceUrl": "https://www.nsiindia.gov.in/",
+    "ministry": "Ministry of Finance",
+    "name": {
+      "en": "Sukanya Samriddhi Yojana (SSY)",
+      "kn": "ಸುಕನ್ಯಾ ಸಮೃದ್ಧಿ ಯೋಜನೆ",
+      "hi": "सुकन्या समृद्धि योजना"
+    },
+    "tagline": {
+      "en": "High-interest (8.2%) government savings scheme for girl child with tax exemption",
+      "kn": "ಹೆಣ್ಣು ಮಗುವಿನ ಭವಿಷ್ಯಕ್ಕಾಗಿ 8.2% ಗರಿಷ್ಠ ಬಡ್ಡಿ ಮತ್ತು ತೆರಿಗೆ ವಿನಾಯಿತಿ ನೀಡುವ ಸರ್ಕಾರಿ ಉಳಿತಾಯ ಯೋಜನೆ",
+      "hi": "बालिकाओं के उज्ज्वल भविष्य के लिए 8.2% ब्याज और कर-मुक्त सरकारी बचत योजना"
+    },
+    "description": {
+      "en": "A flagship small-deposit savings scheme backed by the Government of India designed exclusively for the education and marriage expenses of girl children, offering the highest post-office interest rate (8.2% p.a.) and EEE tax-exempt status.",
+      "kn": "ಹೆಣ್ಣು ಮಕ್ಕಳ ಉನ್ನತ ಶಿಕ್ಷಣ ಹಾಗೂ ವಿವಾಹದ ಆರ್ಥಿಕ ಭದ್ರತೆಗಾಗಿ ಭಾರತ ಸರ್ಕಾರ ರೂಪಿಸಿರುವ ಅತ್ಯುನ್ನತ ಬಡ್ಡಿ ದರದ (8.2%) ಅಂಚೆ ಉಳಿತಾಯ ಯೋಜನೆ.",
+      "hi": "बालिकाओं की उच्च शिक्षा और विवाह की जरूरतों को पूरा करने के लिए भारत सरकार की सर्वाधिक ब्याज (8.2% वार्षिक) और पूर्ण कर-छूट वाली विशेष बचत योजना।"
+    },
+    "benefit": {
+      "en": "8.2% p.a. sovereign guaranteed compounded interest, minimum deposit ₹250/year, up to ₹1.5 lakh 80C tax deduction and tax-free maturity",
+      "kn": "ವಾರ್ಷಿಕ 8.2% ಚಕ್ರಬಡ್ಡಿ, ಕನಿಷ್ಠ ವಾರ್ಷಿಕ ಠೇವಣಿ ಕೇವಲ ₹250, ಹಾಗೂ ಆದಾಯ ತೆರಿಗೆ 80C ಅಡಿಯಲ್ಲಿ ಸಂಪೂರ್ಣ ತೆರಿಗೆ ವಿನಾಯಿತಿ",
+      "hi": "8.2% वार्षिक चक्रवृद्धि ब्याज, न्यूनतम वार्षिक जमा मात्र ₹250, धारा 80C के तहत ₹1.5 लाख तक कर छूट और परिपक्वता पर कर-मुक्त राशि"
+    },
+    "eligibility": {
+      "min_age": 0,
+      "max_age": 10,
+      "genders": ["woman"],
+      "locations": ["rural", "urban"],
+      "occupations": ["farmer", "student", "worker", "self-employed", "other"],
+      "income_tiers": ["below-1", "1-2.5", "2.5-5", "above-5"],
+      "states": ["all"],
+      "criteria": {
+        "en": "Account can be opened by natural/legal parents or guardians in the name of a girl child from her birth up to the age of 10 years (maximum 2 girl children per family).",
+        "kn": "ಹೆಣ್ಣು ಮಗುವಿನ ಜನನದಿಂದ 10 ವರ್ಷದ ಒಳಗಿನ ಅವಧಿಯಲ್ಲಿ ಪೋಷಕರು ಖಾತೆಯನ್ನು ತೆರೆಯಬಹುದು (ಒಂದು ಕುಟುಂಬದಲ್ಲಿ ಗರಿಷ್ಠ ಇಬ್ಬರು ಹೆಣ್ಣು ಮಕ್ಕಳಿಗೆ).",
+        "hi": "माता-पिता या कानूनी अभिभावक द्वारा बालिका के जन्म से लेकर 10 वर्ष की आयु तक खाता खोला जा सकता है (प्रति परिवार अधिकतम दो बालिकाओं के लिए)।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Official Birth Certificate of the girl child issued by hospital/municipal registrar",
+        "Identity & Address Proof of parent/guardian (Aadhaar Card / Voter ID / Passport)",
+        "PAN card of parent/guardian",
+        "Recent passport-sized photographs of parent and girl child"
+      ],
+      "kn": [
+        "ಹೆಣ್ಣು ಮಗುವಿನ ಅಧಿಕೃತ ಜನನ ಪ್ರಮಾಣಪತ್ರ (Birth Certificate)",
+        "ಪೋಷಕರ ಆಧಾರ್ ಕಾರ್ಡ್ ಮತ್ತು ವಿಳಾಸ ಪುರಾವೆ",
+        "ಪೋಷಕರ ಪ್ಯಾನ್ ಕಾರ್ಡ್ (PAN Card)",
+        "ಪೋಷಕರು ಮತ್ತು ಮಗುವಿನ ಇತ್ತೀಚಿನ ಪಾಸ್‌ಪೋರ್ಟ್ ಅಳತೆಯ ಭಾವಚಿತ್ರಗಳು"
+      ],
+      "hi": [
+        "बालिका का आधिकारिक जन्म प्रमाण पत्र",
+        "माता-पिता / अभिभावक का पहचान व निवास प्रमाण (आधार कार्ड / वोटर आईडी)",
+        "अभिभावक का पैन कार्ड",
+        "अभिभावक व बालिका की पासपोर्ट साइज फोटो"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Obtain the Sukanya Samriddhi Account Opening Form from any Post Office or authorized commercial bank branch.",
+        "Attach the girl's birth certificate, guardian's KYC documents, and initial opening deposit (minimum ₹250).",
+        "Submit at the counter to receive an official SSY passbook.",
+        "Deposits can be made online via IPPB or net-banking every financial year for 15 years."
+      ],
+      "kn": [
+        "ಯಾವುದೇ ಅಂಚೆ ಕಚೇರಿ (Post Office) ಅಥವಾ ಬ್ಯಾಂಕ್ ಶಾಖೆಯಿಂದ ಸುಕನ್ಯಾ ಸಮೃದ್ಧಿ ಖಾತೆ ನಮೂನೆಯನ್ನು ಪಡೆಯಿರಿ.",
+        "ಮಗುವಿನ ಜನನ ಪ್ರಮಾಣಪತ್ರ, ಪೋಷಕರ ಆಧಾರ್ ಮತ್ತು ಆರಂಭಿಕ ಠೇವಣಿ (ಕನಿಷ್ಠ ₹250) ಲಗತ್ತಿಸಿ.",
+        "ಅಂಚೆ ಕಚೇರಿಯಲ್ಲಿ ಸಲ್ಲಿಸಿ ಅಧಿಕೃತ ಪಾಸ್‌ಬುಕ್ ಪಡೆದುಕೊಳ್ಳಿ.",
+        "ಮುಂದಿನ 15 ವರ್ಷಗಳ ಕಾಲ ಪ್ರತಿ ವರ್ಷ ಐಪಿಪಿಬಿ (IPPB) ಅಥವಾ ಬ್ಯಾಂಕಿಂಗ್ ಮೂಲಕ ಸುಲಭವಾಗಿ ಹಣ ಜಮೆ ಮಾಡಬಹುದು."
+      ],
+      "hi": [
+        "किसी भी डाकघर या अधिकृत बैंक शाखा से सुकन्या समृद्धि खाता खोलने का फॉर्म लें।",
+        "बालिका का जन्म प्रमाण पत्र, अभिभावक का आधार व पैन और न्यूनतम ₹250 की राशि के साथ जमा करें।",
+        "खाता खुलने पर पासबुक प्राप्त करें।",
+        "अगले 15 वर्षों तक प्रति वर्ष आईपीपीबी या नेट बैंकिंग द्वारा ऑनलाइन आसानी से राशि जमा कर सकते हैं।"
+      ]
+    }
+  },
+  {
+    "id": "atal-pension",
+    "category": "worker",
+    "color": "#f0f5ee",
+    "icon": "shield",
+    "url": "https://www.npscra.nsdl.co.in/",
+    "sourceUrl": "https://www.pfrda.org.in/",
+    "ministry": "Pension Fund Regulatory and Development Authority (PFRDA)",
+    "name": {
+      "en": "Atal Pension Yojana (APY)",
+      "kn": "ಅಟಲ್ ಪಿಂಚಣಿ ಯೋಜನೆ",
+      "hi": "अटल पेंशन योजना"
+    },
+    "tagline": {
+      "en": "Guaranteed lifetime monthly pension of ₹1,000 to ₹5,000 after age 60",
+      "kn": "60 ವರ್ಷದ ನಂತರ ಮಾಸಿಕ ₹1,000 ದಿಂದ ₹5,000 ವರೆಗೆ ಖಾತರಿಯ ಆಜೀವ ಪಿಂಚಣಿ",
+      "hi": "60 वर्ष की आयु के बाद ₹1,000 से ₹5,000 तक की आजीवन गारंटीड मासिक पेंशन"
+    },
+    "description": {
+      "en": "A government-guaranteed pension scheme targeted at workers in the unorganized sector, daily wage earners, domestic workers, and farmers to ensure social security with fixed lifelong pensions starting from age 60.",
+      "kn": "ಅಸಂಘಟಿತ ವಲಯದ ಕಾರ್ಮಿಕರು, ದಿನಗೂಲಿ ನೌಕರರು ಮತ್ತು ರೈತರಿಗೆ 60 ವರ್ಷ ತುಂಬಿದ ನಂತರ ಜೀವನ ಪರ್ಯಂತ ಖಾತರಿ ಮಾಸಿಕ ಪಿಂಚಣಿ ಒದಗಿಸುವ ಕೇಂದ್ರ ಸರ್ಕಾರದ ಯೋಜನೆ.",
+      "hi": "असंगठित क्षेत्र के कामगारों, दिहाड़ी मजदूरों, छोटे कारोबारियों के लिए भारत सरकार द्वारा समर्थित सामाजिक सुरक्षा पेंशन योजना, जिसमें 60 वर्ष बाद मासिक पेंशन मिलती है।"
+    },
+    "benefit": {
+      "en": "Guaranteed monthly pension of ₹1,000, ₹2,000, ₹3,000, ₹4,000, or ₹5,000 for life, continuing to spouse, and return of full corpus to nominee upon demise",
+      "kn": "ತಿಂಗಳಿಗೆ ₹1,000 ದಿಂದ ₹5,000 ವರೆಗೆ ಖಾತರಿ ಪಿಂಚಣಿ, ಪತಿ/ಪತ್ನಿಗೂ ಮುಂದುವರಿಕೆ, ನಂತರ ನಾಮಿನಿಗೆ ಪೂರ್ಣ ನಿಧಿ ವಾಪಸ್",
+      "hi": "मासिक ₹1,000 से ₹5,000 तक आजीवन गारंटीड पेंशन, पति/पत्नी को भी पेंशन, और दोनों के बाद नामांकित व्यक्ति को पूरी संचित राशि की वापसी"
+    },
+    "eligibility": {
+      "min_age": 18,
+      "max_age": 40,
+      "genders": ["woman", "man", "other"],
+      "locations": ["rural", "urban"],
+      "occupations": ["worker", "farmer", "self-employed", "other"],
+      "income_tiers": ["below-1", "1-2.5", "2.5-5"],
+      "states": ["all"],
+      "criteria": {
+        "en": "Any Indian citizen between 18 and 40 years holding a savings bank account. Applicant must not be an income-tax payer and must not be a member of any statutory social security scheme (EPFO/NPS).",
+        "kn": "18 ರಿಂದ 40 ವರ್ಷ ವಯಸ್ಸಿನ ಯಾವುದೇ ಭಾರತೀಯ ನಾಗರಿಕರು. ಅರ್ಜಿದಾರರು ಆದಾಯ ತೆರಿಗೆ ಪಾವತಿದಾರರಾಗಿರಬಾರದು ಮತ್ತು ಇಪಿಎಫ್ಒ (EPFO) ಸದಸ್ಯರಾಗಿರಬಾರದು.",
+        "hi": "18 से 40 वर्ष की आयु का कोई भी भारतीय नागरिक जिसका बैंक खाता हो। आवेदक आयकर दाता नहीं होना चाहिए और ईपीएफओ का सदस्य नहीं होना चाहिए।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Aadhaar card of applicant",
+        "Active savings bank account or Post Office savings account passbook",
+        "Aadhaar-linked mobile number for auto-debit SMS alerts",
+        "Nominee details (Aadhaar and relationship)"
+      ],
+      "kn": [
+        "ಅರ್ಜಿದಾರರ ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ಸಕ್ರಿಯ ಬ್ಯಾಂಕ್ ಅಥವಾ ಅಂಚೆ ಕಚೇರಿ ಉಳಿತಾಯ ಖಾತೆ ಪಾಸ್‌ಬುಕ್",
+        "ಸ್ವಯಂಚಾಲಿತ ಕಡಿತ (Auto-debit) ಸಂದೇಶಗಳಿಗಾಗಿ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",
+        "ನಾಮಿನಿ (Nominee) ವಿವರಗಳು"
+      ],
+      "hi": [
+        "आवेदक का आधार कार्ड",
+        "सक्रिय बचत बैंक या डाकघर खाता पासबुक",
+        "ऑटो-डेबिट संदेशों हेतु मोबाइल नंबर",
+        "नामित व्यक्ति (नॉमिनी) का विवरण व आधार"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Approach the bank or post office branch where you maintain your savings account, or log in via netbanking.",
+        "Fill out the APY Registration form and select your desired monthly pension amount (₹1,000 - ₹5,000).",
+        "Provide auto-debit authorization from your savings account for monthly/quarterly contributions.",
+        "Receive your Permanent Retirement Account Number (PRAN) card via SMS and post."
+      ],
+      "kn": [
+        "ನಿಮ್ಮ ಖಾತೆ ಇರುವ ಬ್ಯಾಂಕ್ ಅಥವಾ ಅಂಚೆ ಕಚೇರಿಗೆ ಭೇಟಿ ನೀಡಿ ಅಥವಾ ನೆಟ್ ಬ್ಯಾಂಕಿಂಗ್ ಮೂಲಕ ತೆರೆಯಿರಿ.",
+        "ನಮೂನೆ ಭರ್ತಿ ಮಾಡಿ ನೀವು ಬಯಸುವ ಪಿಂಚಣಿ ಮೊತ್ತವನ್ನು (₹1,000 ದಿಂದ ₹5,000) ಆಯ್ಕೆಮಾಡಿ.",
+        "ಮಾಸಿಕ ಅಥವಾ ತ್ರೈಮಾಸಿಕ ಕಂತುಗಳ ಸ್ವಯಂಚಾಲಿತ ಕಡಿತಕ್ಕೆ (Auto-debit) ಅನುಮತಿ ನೀಡಿ.",
+        "ನಿಮ್ಮ ಶಾಶ್ವತ ನಿವೃತ್ತಿ ಖಾತೆ ಸಂಖ್ಯೆ (PRAN) ಕಾರ್ಡ್ ಪಡೆದುಕೊಳ್ಳಿ."
+      ],
+      "hi": [
+        "अपनी बैंक या डाकघर शाखा में जाएँ जहाँ आपका बचत खाता है, या नेट बैंकिंग से ऑनलाइन आवेदन करें।",
+        "फॉर्म भरकर अपनी इच्छित मासिक पेंशन राशि (₹1,000 से ₹5,000) चुनें।",
+        "मासिक अंशदान हेतु अपने खाते से ऑटो-डेबिट की सहमति दें।",
+        "पंजीकरण के बाद अपना स्थायी सेवानिवृत्ति खाता संख्या (PRAN) कार्ड प्राप्त करें।"
+      ]
+    }
+  },
+  {
+    "id": "pm-mudra",
+    "category": "self-employed",
+    "color": "#fdf7e7",
+    "icon": "sparkle",
+    "url": "https://www.mudra.org.in/",
+    "sourceUrl": "https://www.mudra.org.in/",
+    "ministry": "Department of Financial Services, Ministry of Finance",
+    "name": {
+      "en": "Pradhan Mantri MUDRA Yojana (PMMY)",
+      "kn": "ಪ್ರಧಾನ ಮಂತ್ರಿ ಮುದ್ರಾ ಯೋಜನೆ",
+      "hi": "प्रधानमंत्री मुद्रा योजना"
+    },
+    "tagline": {
+      "en": "Collateral-free business loans up to ₹20 lakh for micro and small enterprises",
+      "kn": "ಕಿರು ಮತ್ತು ಸಣ್ಣ ಉದ್ಯಮಿಗಳಿಗೆ ₹20 ಲಕ್ಷದವರೆಗೆ ಜಾಮೀನು ರಹಿತ ವ್ಯಾಪಾರ ಸಾಲ",
+      "hi": "सूक्ष्म व लघु उद्यमों के लिए ₹20 लाख तक बिना गारंटी व्यवसाय ऋण"
+    },
+    "description": {
+      "en": "Facilitates collateral-free business loans through banks, NBFCs, and MFIs in four categories: Shishu (up to ₹50k), Kishore (₹50k to ₹5L), Tarun (₹5L to ₹10L), and Tarun Plus (up to ₹20 lakh) for non-corporate, non-farm small businesses.",
+      "kn": "ಕಾರ್ಪೊರೇಟ್ ಅಲ್ಲದ, ಕೃಷಿಯೇತರ ಸಣ್ಣ ಉದ್ದಿಮೆಗಳಿಗೆ ಶಿಶು (₹50,000 ವರೆಗೆ), ಕಿಶೋರ್ (₹50,000 ದಿಂದ ₹5 ಲಕ್ಷ), ತರುಣ್ (₹5 ಲಕ್ಷದಿಂದ ₹10 ಲಕ್ಷ) ಹಾಗೂ ತರುಣ್ ಪ್ಲಸ್ (₹20 ಲಕ್ಷದವರೆಗೆ) ಜಾಮೀನು ರಹಿತ ಸಾಲ ನೀಡುವ ಮಹತ್ವದ ಯೋಜನೆ.",
+      "hi": "गैर-कॉर्पोरेट और गैर-कृषि सूक्ष्म उद्यमों के लिए चार श्रेणियों (शिशु: ₹50 हजार तक, किशोर: ₹50 हजार से ₹5 लाख, तरुण: ₹5 से ₹10 लाख, और तरुण प्लस: ₹20 लाख तक) में बिना गारंटी ऋण।"
+    },
+    "benefit": {
+      "en": "Loans from ₹50,000 up to ₹20,00,000 with zero collateral requirement, reasonable interest rates, and Mudra Debit Card for working capital",
+      "kn": "ಯಾವುದೇ ಆಸ್ತಿ ಜಾಮೀನು ಇಲ್ಲದೆ ₹50,000 ದಿಂದ ₹20,00,000 ವರೆಗೆ ಸುಲಭ ಸಾಲ ಹಾಗೂ ಮುದ್ರಾ ಡೆಬಿಟ್ ಕಾರ್ಡ್",
+      "hi": "बिना किसी संपत्ति गारंटी के ₹50,000 से लेकर ₹20 लाख तक का सुलभ व्यापारिक ऋण और कार्यशील पूंजी हेतु मुद्रा डेबिट कार्ड"
+    },
+    "eligibility": {
+      "min_age": 18,
+      "max_age": 70,
+      "genders": ["woman", "man", "other"],
+      "locations": ["rural", "urban"],
+      "occupations": ["self-employed", "worker"],
+      "income_tiers": ["below-1", "1-2.5", "2.5-5", "above-5"],
+      "states": ["all"],
+      "criteria": {
+        "en": "Any Indian citizen having a business plan for an income-generating micro-enterprise in manufacturing, trading, retail, services, or allied agriculture, who is not a defaulter with any financial institution.",
+        "kn": "ಉತ್ಪಾದನೆ, ವ್ಯಾಪಾರ ಅಥವಾ ಸೇವಾ ವಲಯದಲ್ಲಿ ಆದಾಯ ತರುವ ಸಣ್ಣ ಉದ್ಯಮ ಆರಂಭಿಸಲು ಅಥವಾ ವಿಸ್ತರಿಸಲು ಬಯಸುವ ಯಾವುದೇ ಭಾರತೀಯ ನಾಗರಿಕರು (ಯಾವುದೇ ಬ್ಯಾಂಕ್‌ನಲ್ಲಿ ಸುಸ್ತಿದಾರರಾಗಿರಬಾರದು).",
+        "hi": "कोई भी भारतीय नागरिक जिसके पास विनिर्माण, व्यापार, खुदरा या सेवा क्षेत्र में आय उत्पन्न करने वाला सूक्ष्म उद्यम चलाने का व्यवसायिक विचार हो और जो किसी बैंक का डिफॉल्टर न हो।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Aadhaar card and PAN card of enterprise owner/partners",
+        "Proof of business address (rental agreement, trade license, or electricity bill)",
+        "Bank account statement for past 6 to 12 months",
+        "Brief Project Report / Business Proposal detailing projected income and equipment quotation"
+      ],
+      "kn": [
+        "ಅರ್ಜಿದಾರರ ಆಧಾರ್ ಕಾರ್ಡ್ ಮತ್ತು ಪ್ಯಾನ್ ಕಾರ್ಡ್",
+        "ವ್ಯಾಪಾರದ ವಿಳಾಸ ಪುರಾವೆ (ಬಾಡಿಗೆ ಕರಾರು, ಟ್ರೇಡ್ ಲೈಸೆನ್ಸ್ ಅಥವಾ ವಿದ್ಯುತ್ ಬಿಲ್)",
+        "ಕಳೆದ 6 ರಿಂದ 12 ತಿಂಗಳ ಬ್ಯಾಂಕ್ ಖಾತೆ ಸ್ಟೇಟ್‌ಮೆಂಟ್",
+        "ಯೋಜನಾ ವರದಿ / ಉದ್ದಿಮೆಯ ಅಂದಾಜು ವಿವರ"
+      ],
+      "hi": [
+        "आवेदक का आधार कार्ड और पैन कार्ड",
+        "व्यवसाय का पता प्रमाण (किरायानामा, ट्रेड लाइसेंस या बिजली बिल)",
+        "पिछले 6 से 12 महीने का बैंक खाता विवरण",
+        "प्रोजेक्ट रिपोर्ट / व्यावसायिक प्रस्ताव व कोटेशन"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Prepare your business proposal and cost estimate.",
+        "Apply online on the official Udyamimitra portal (udyamimitra.in) or visit any commercial bank branch.",
+        "Submit required identity, business address, and financial documents.",
+        "Upon sanction, the loan is disbursed and you receive a MUDRA Card for credit withdrawal."
+      ],
+      "kn": [
+        "ನಿಮ್ಮ ವ್ಯಾಪಾರ ಯೋಜನೆ ಮತ್ತು ವೆಚ್ಚದ ಅಂದಾಜನ್ನು ಸಿದ್ಧಪಡಿಸಿ.",
+        "udyamimitra.in ವೆಬ್‌ಸೈಟ್ ಮೂಲಕ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ ಅಥವಾ ಹತ್ತಿರದ ಯಾವುದೇ ಬ್ಯಾಂಕ್ ಶಾಖೆಗೆ ಭೇಟಿ ನೀಡಿ.",
+        "ದಾಖಲೆಗಳನ್ನು ಬ್ಯಾಂಕ್ ಅಧಿಕಾರಿಗೆ ಸಲ್ಲಿಸಿ ಪರಿಶೀಲನೆ ಮಾಡಿಸಿ.",
+        "ಸಾಲ ಮಂಜೂರಾದ ನಂತರ ಖಾತೆಗೆ ಹಣ ಜಮೆ ಆಗುತ್ತದೆ ಹಾಗೂ ಮುದ್ರಾ ಕಾರ್ಡ್ ನೀಡಲಾಗುತ್ತದೆ."
+      ],
+      "hi": [
+        "अपनी व्यावसायिक कार्ययोजना और बजट अनुमान तैयार करें।",
+        "udyamimitra.in पर ऑनलाइन आवेदन करें या नजदीकी किसी भी बैंक शाखा में जाएँ।",
+        "पहचान, व्यावसायिक पता और प्रोजेक्ट दस्तावेज जमा करें।",
+        "मंजूरी के बाद ऋण राशि खाते में आती है और कार्यशील पूंजी हेतु मुद्रा कार्ड जारी किया जाता है।"
+      ]
+    }
+  },
+  {
+    "id": "gruha-lakshmi",
+    "category": "women",
+    "color": "#f7effa",
+    "icon": "heart",
+    "url": "https://sevasindhugs.karnataka.gov.in/",
+    "sourceUrl": "https://sevasindhu.karnataka.gov.in/",
+    "ministry": "Department of Women and Child Development, Government of Karnataka",
+    "name": {
+      "en": "Gruha Lakshmi Scheme (Karnataka)",
+      "kn": "ಗೃಹಲಕ್ಷ್ಮಿ ಯೋಜನೆ (ಕರ್ನಾಟಕ ಸರ್ಕಾರ)",
+      "hi": "गृह लक्ष्मी योजना (कर्नाटक)"
+    },
+    "tagline": {
+      "en": "₹2,000 monthly financial assistance to the woman head of every eligible family in Karnataka",
+      "kn": "ಕರ್ನಾಟಕದ ಅರ್ಹ ಕುಟುಂಬದ ಮಹಿಳಾ ಯಜಮಾನಿಗೆ ಪ್ರತಿ ತಿಂಗಳು ₹2,000 ನೇರ ಆರ್ಥಿಕ ನೆರವು",
+      "hi": "कर्नाटक में हर पात्र परिवार की महिला मुखिया को प्रतिमाह ₹2,000 की सीधी वित्तीय सहायता"
+    },
+    "description": {
+      "en": "A transformative Direct Benefit Transfer (DBT) initiative by the Government of Karnataka providing ₹2,000 monthly directly into the bank accounts of women heads of households identified on Antyodaya, BPL, and APL ration cards.",
+      "kn": "ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಮಹತ್ವಾಕಾಂಕ್ಷೆಯ ಗ್ಯಾರಂಟಿ ಯೋಜನೆ. ಅಂತ್ಯೋದಯ, ಬಿಪಿಎಲ್ ಹಾಗೂ ಎಪಿಎಲ್ ಕಾರ್ಡ್‌ನಲ್ಲಿ ಮನೆಯ ಯಜಮಾನಿ ಎಂದು ಗುರುತಿಸಲಾದ ಮಹಿಳೆಯ ಬ್ಯಾಂಕ್ ಖಾತೆಗೆ ಪ್ರತಿ ತಿಂಗಳು ₹2,000 ನೇರ ವರ್ಗಾವಣೆ.",
+      "hi": "कर्नाटक सरकार की प्रमुख योजना जिसके अंतर्गत अंत्योदय, बीपीएल और एपीएल राशन कार्ड में दर्ज परिवार की महिला मुखिया के बैंक खाते में प्रतिमाह ₹2,000 सीधे डीबीटी द्वारा भेजे जाते हैं।"
+    },
+    "benefit": {
+      "en": "₹2,000 per month (₹24,000 annually) transferred directly via Aadhaar-enabled DBT",
+      "kn": "ತಿಂಗಳಿಗೆ ₹2,000 (ವರ್ಷಕ್ಕೆ ₹24,000) ನೇರವಾಗಿ ಮಹಿಳೆಯ ಬ್ಯಾಂಕ್ ಖಾತೆಗೆ ಜಮೆ",
+      "hi": "प्रतिमाह ₹2,000 (सालाना ₹24,000) सीधे महिला के बैंक खाते में"
+    },
+    "eligibility": {
+      "min_age": 18,
+      "max_age": 100,
+      "genders": ["woman"],
+      "locations": ["rural", "urban"],
+      "occupations": ["farmer", "worker", "student", "self-employed", "other"],
+      "income_tiers": ["below-1", "1-2.5", "2.5-5"],
+      "states": ["Karnataka"],
+      "criteria": {
+        "en": "Applicant must be a permanent resident of Karnataka and designated as the woman head of the family on an eligible BPL/APL/Antyodaya ration card. Applicant or her husband must not be an income-tax or GST payer.",
+        "kn": "ಅರ್ಜಿದಾರರು ಕರ್ನಾಟಕದ ಖಾಯಂ ನಿವಾಸಿಯಾಗಿರಬೇಕು ಮತ್ತು ಪಡಿತರ ಚೀಟಿಯಲ್ಲಿ ಮನೆಯ ಯಜಮಾನಿ ಎಂದು ನಮೂದಾಗಿರಬೇಕು. ಅರ್ಜಿದಾರರು ಅಥವಾ ಅವರ ಪತಿ ಆದಾಯ ತೆರಿಗೆ ಅಥವಾ ಜಿಎಸ್‌ಟಿ ಪಾವತಿದಾರರಾಗಿರಬಾರದು.",
+        "hi": "आवेदक कर्नाटक की स्थायी निवासी होनी चाहिए और राशन कार्ड में महिला मुखिया के रूप में दर्ज होनी चाहिए। महिला या उसके पति आयकर या जीएसटी दाता नहीं होने चाहिए।"
+      }
+    },
+    "documents": {
+      "en": [
+        "Aadhaar card of the woman head of household",
+        "Ration card (APL / BPL / Antyodaya) showing applicant as head",
+        "Husband's Aadhaar card (if married)",
+        "Bank account passbook seeded with Aadhaar and mapped for NPCI DBT"
+      ],
+      "kn": [
+        "ಮನೆಯ ಯಜಮಾನಿ ಮಹಿಳೆಯ ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ಮನೆಯ ಯಜಮಾನಿ ಎಂದು ತೋರಿಸುವ ಪಡಿತರ ಚೀಟಿ (ರೇಷನ್ ಕಾರ್ಡ್)",
+        "ಪತಿಯ ಆಧಾರ್ ಕಾರ್ಡ್ (ವಿವಾಹಿತರಾಗಿದ್ದರೆ)",
+        "ಆಧಾರ್ ಲಿಂಕ್ ಮತ್ತು NPCI DBT ಮ್ಯಾಪ್ ಆಗಿರುವ ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್"
+      ],
+      "hi": [
+        "परिवार की महिला मुखिया का आधार कार्ड",
+        "राशन कार्ड (एपीएल / बीपीएल / अंत्योदय) जिसमें महिला मुखिया दर्ज हो",
+        "पति का आधार कार्ड (यदि विवाहित हों)",
+        "आधार व एनपीसीआई से लिंक बैंक खाता पासबुक"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Visit your nearest Grama One, Karnataka One, Bangalore One, or Bapuji Seva Kendra with required documents.",
+        "The operator enters your ration card number to fetch household details from the Food Department database.",
+        "Biometric or Aadhaar OTP verification is conducted for the woman applicant.",
+        "Upon successful submission, an official acknowledgement slip is generated and monthly transfers begin."
+      ],
+      "kn": [
+        "ಹತ್ತಿರದ ಗ್ರಾಮ ಒನ್, ಕರ್ನಾಟಕ ಒನ್, ಬೆಂಗಳೂರು ಒನ್ ಅಥವಾ ಬಾಪೂಜಿ ಸೇವಾ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.",
+        "ಆಪರೇಟರ್ ನಿಮ್ಮ ರೇಷನ್ ಕಾರ್ಡ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ ವಿವರಗಳನ್ನು ಪರಿಶೀಲಿಸುತ್ತಾರೆ.",
+        "ಬಯೋಮೆಟ್ರಿಕ್ ಅಥವಾ ಆಧಾರ್ ಒಟಿಪಿ ದೃಢೀಕರಣ ಮಾಡಿಸಿ.",
+        "ಅರ್ಜಿ ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಕೆಯಾದ ನಂತರ ಸ್ವೀಕೃತಿ ರಶೀದಿ (Acknowledgement Slip) ಪಡೆಯಿರಿ."
+      ],
+      "hi": [
+        "नजदीकी ग्राम वन, कर्नाटक वन, बैंगलोर वन या बापूजी सेवा केंद्र पर जाएँ।",
+        "ऑपरेटर आपका राशन कार्ड नंबर दर्ज कर खाद्य विभाग के डेटाबेस से विवरण सत्यापित करेगा।",
+        "महिला आवेदक का बायोमेट्रिक या आधार ओटीपी सत्यापन किया जाता है।",
+        "सफलतापूर्वक जमा होने के बाद पावती पर्ची प्राप्त करें; अगले महीने से राशि आनी शुरू हो जाएगी।"
+      ]
+    }
+  }
+]
