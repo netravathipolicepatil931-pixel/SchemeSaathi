@@ -1,15 +1,61 @@
 
 import json
+import sqlite3
 from typing import Optional
 
-from backend.supabase_client import supabase
+from backend.database import get_db_connection
 from backend.models.scheme import Scheme, SchemeSummary, SchemeDetail
+from backend.supabase_client import supabase
 
 
 class SchemeService:
 
     @staticmethod
+    def _read_local_schemes() -> list[Scheme]:
+        conn = get_db_connection()
+        try:
+            rows = conn.execute(
+                'SELECT data_json FROM schemes ORDER BY id ASC'
+            ).fetchall()
+        finally:
+            conn.close()
+
+        schemes: list[Scheme] = []
+        for row in rows:
+            data = row["data_json"]
+            if isinstance(data, str):
+                data = json.loads(data)
+            schemes.append(Scheme(**data))
+        return schemes
+
+    @staticmethod
+    def _read_local_scheme_by_id(scheme_id: str) -> Optional[Scheme]:
+        conn = get_db_connection()
+        try:
+            row = conn.execute(
+                'SELECT data_json FROM schemes WHERE id = ? LIMIT 1',
+                (scheme_id,),
+            ).fetchone()
+        finally:
+            conn.close()
+
+        if row is None:
+            return None
+
+        data = row["data_json"]
+        if isinstance(data, str):
+            data = json.loads(data)
+        return Scheme(**data)
+
+    @staticmethod
     def get_all_schemes() -> list[Scheme]:
+        try:
+            local_schemes = SchemeService._read_local_schemes()
+            if local_schemes:
+                return local_schemes
+        except sqlite3.DatabaseError:
+            pass
+
         response = (
             supabase.table("schemes")
             .select("data_json")
@@ -18,20 +64,22 @@ class SchemeService:
         )
 
         schemes = []
-
         for row in response.data or []:
             data = row["data_json"]
-
-            # Supabase JSONB normally returns a Python dictionary.
             if isinstance(data, str):
                 data = json.loads(data)
-
             schemes.append(Scheme(**data))
-
         return schemes
 
     @staticmethod
     def get_scheme_by_id(scheme_id: str) -> Optional[Scheme]:
+        try:
+            local_scheme = SchemeService._read_local_scheme_by_id(scheme_id)
+            if local_scheme is not None:
+                return local_scheme
+        except sqlite3.DatabaseError:
+            pass
+
         response = (
             supabase.table("schemes")
             .select("data_json")
@@ -44,10 +92,8 @@ class SchemeService:
             return None
 
         data = response.data[0]["data_json"]
-
         if isinstance(data, str):
             data = json.loads(data)
-
         return Scheme(**data)
 
     @classmethod

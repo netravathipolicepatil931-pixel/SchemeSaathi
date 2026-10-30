@@ -25,6 +25,7 @@ SchemeSaathi/
 │   │   ├── schemes_seed.json        # Verified dataset of Central & State schemes
 │   │   └── translations_seed.json   # Multilingual UI localization strings (en, kn, hi)
 │   ├── models/
+│   │   ├── auth.py                  # Login, registration, OTP, and authenticated-user models
 │   │   ├── scheme.py                # Scheme, SchemeSummary, SchemeDetail models
 │   │   ├── profile.py               # UserProfile, EligibilityCheck models
 │   │   ├── bookmark.py              # Bookmark and ChecklistProgress models
@@ -34,8 +35,10 @@ SchemeSaathi/
 │   │   ├── eligibility_engine.py    # Multi-factor eligibility evaluation logic
 │   │   ├── checklist_service.py     # Document checklist progress persistence
 │   │   ├── bookmark_service.py      # Bookmarks management
-│   │   └── ai_assistant.py          # Multilingual AI citizen assistant
+│   │   ├── ai_assistant.py          # Multilingual AI citizen assistant
+│   │   └── auth_service.py          # Password hashing, OTP delivery, JWTs, audit history
 │   ├── routers/
+│   │   ├── auth.py                 # Registration, login, OTP, logout, login history
 │   │   ├── schemes.py               # /api/schemes endpoints
 │   │   ├── bookmarks.py             # /api/bookmarks endpoints
 │   │   ├── checklist.py             # /api/checklist endpoints
@@ -76,6 +79,95 @@ The server will start at:
 - **Web App**: [http://localhost:8000](http://localhost:8000)
 - **Interactive Swagger API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
 - **ReDoc Documentation**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+
+Open the app using the Web App URL above so the page and API share the same
+origin. If you open `index.html` directly as a file, the backend must still be
+running at `http://127.0.0.1:8000`; the login screen will show a connection
+message if it is not reachable.
+
+### Configure authentication
+
+Authentication accounts, OTPs, login history, rate limits, and revoked tokens
+are stored in the project's SQLite database at `DATABASE_PATH`. The auth tables
+are created automatically when the backend starts. Supabase remains responsible
+for the schemes catalog and does not need a service-role key for local
+registration or login.
+
+Set `JWT_SECRET_KEY` to a unique random value (for example,
+`python -c "import secrets; print(secrets.token_urlsafe(48))"`). For Gmail OTP
+delivery, enable 2-Step Verification and create a Google App Password, then set
+`SMTP_USER`, `SMTP_PASSWORD`, and optionally `SMTP_FROM`. The default SMTP
+server is Gmail on port 587 with STARTTLS. The OTP mailer uses Python's SMTP
+support because this project runs FastAPI; Nodemailer is for Node.js projects.
+For local UI testing only, set `DEBUG=True`, `AUTH_DEV_OTP=True`, and a strong
+`JWT_SECRET_KEY`; verification codes will be shown in the page only for
+loopback requests. Keep both development settings off in production.
+
+The page provides account registration, email verification, password login,
+and OTP login. OTPs expire after five minutes, are stored as bcrypt hashes,
+and are limited to five verification attempts. JWTs are held for the browser
+tab session and logout revokes the token server-side.
+
+### Private document vault
+
+The signed-in **My documents** area accepts PDF and JPEG/JPG files up to 2 MB
+each. Google Gemini classifies uploads as Aadhaar, PAN, bank passbook, 10th
+marksheet, or disability certificate; files the model cannot confidently
+identify are not saved. The full file is sent to Google's Gemini API for
+classification. SchemeSaathi does not retain the AI request. Google's current
+Gemini API policy says prompts and contextual information are retained for
+55 days for abuse monitoring, and flagged content may be reviewed by
+authorized staff; see the [Gemini API data policy](https://ai.google.dev/gemini-api/docs/usage-policies).
+The page discloses this and requires consent before each upload. AI identifies
+document type only; it does not verify authenticity or validity.
+The default model is `gemini-3.5-flash`; if Gemini returns a temporary
+service-unavailable response or times out, the classifier tries
+`gemini-3.8-flash`.
+
+After identification, the file is encrypted before it is stored in the
+project's SQLite database under its sanitized original filename. The filename
+metadata is encrypted at rest as well. The mutable upload buffer is overwritten
+and AI request payload references
+are discarded after classification and storage (or on a failed upload).
+Python and HTTP libraries may make transient internal copies that cannot be
+guaranteed to be securely erased. The encrypted saved copy remains available
+until deleted by the user. Documents require a valid sign-in and are isolated
+by account. They can be downloaded or deleted from the vault, and are also
+available in each scheme's application details. Configure `GEMINI_API_KEY`
+and a persistent `DOCUMENT_ENCRYPTION_KEY` in `.env`; generate the latter
+once with:
+
+```powershell
+.\.venv\Scripts\python.exe -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+```
+
+Keep the encryption key secret, back it up separately from the database, and
+do not rotate it without decrypting and re-encrypting existing documents.
+Changing or losing the key makes stored documents unreadable. The development
+server uses HTTP; deploy behind HTTPS before accepting documents from remote
+users, and protect both `.env` and database backups.
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/auth/register` | Create an account and send an email-verification OTP |
+| `POST` | `/api/auth/login` | Validate password and send a sign-in OTP |
+| `POST` | `/api/auth/verify-otp` | Verify registration/login OTP; returns a JWT after login verification |
+| `POST` | `/api/auth/logout` | Revoke the authenticated JWT |
+| `GET` | `/api/auth/me` | Validate the current JWT and return the user |
+| `GET` | `/api/auth/login-history/{userId}` | Return up to 100 login events for the authenticated user |
+| `GET` | `/api/documents/status` | Check whether document AI and encrypted storage are configured |
+| `GET` | `/api/documents` | List the signed-in user's saved document metadata |
+| `POST` | `/api/documents` | Classify and encrypt a PDF/JPEG upload (maximum 2 MB) |
+| `GET` | `/api/documents/{id}/file` | Download a saved document |
+| `DELETE` | `/api/documents/{id}` | Delete a saved document |
+
+Login history stores the request IP, browser user-agent, inferred device class,
+and a nullable location (null because no location provider is configured).
+SQLite rate limits are persistent and atomic across backend workers sharing the
+same database file. Registration allows up to ten attempts per IP per hour and
+five per email per hour to reduce lockouts for people sharing a network. When a
+limit is reached, the response includes a `Retry-After` header and the page
+shows the approximate wait.
 
 ---
 

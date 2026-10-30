@@ -1,6 +1,9 @@
 import json
 import sqlite3
 from pathlib import Path
+
+from cryptography.fernet import Fernet
+
 from backend.config import settings
 
 def get_db_connection() -> sqlite3.Connection:
@@ -11,6 +14,7 @@ def get_db_connection() -> sqlite3.Connection:
 def init_db():
     conn = get_db_connection()
     cursor = conn.cursor()
+    cursor.execute("PRAGMA secure_delete = ON")
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS schemes (
@@ -55,6 +59,125 @@ def init_db():
         response TEXT NOT NULL,
         language TEXT DEFAULT 'en',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS "User" (
+        id TEXT PRIMARY KEY,
+        email TEXT NOT NULL UNIQUE,
+        password TEXT NOT NULL,
+        verified INTEGER NOT NULL DEFAULT 0,
+        "createdAt" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+    """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS "OTP" (
+        id TEXT PRIMARY KEY,
+        "userId" TEXT NOT NULL REFERENCES "User"(id) ON DELETE CASCADE,
+        otp TEXT NOT NULL,
+        purpose TEXT NOT NULL CHECK (purpose IN ('login', 'registration')),
+        "expiresAt" TIMESTAMP NOT NULL,
+        "usedAt" TIMESTAMP,
+        attempts INTEGER NOT NULL DEFAULT 0 CHECK (attempts BETWEEN 0 AND 5),
+        "createdAt" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+    """)
+    cursor.execute("""
+    CREATE INDEX IF NOT EXISTS otp_user_created_idx
+    ON "OTP" ("userId", "createdAt" DESC);
+    """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS "LoginHistory" (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        "userId" TEXT NOT NULL REFERENCES "User"(id) ON DELETE CASCADE,
+        email TEXT NOT NULL,
+        "loginTime" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "ipAddress" TEXT,
+        "userAgent" TEXT,
+        device TEXT,
+        location TEXT
+    );
+    """)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS user_documents (
+        id TEXT PRIMARY KEY,
+        user_id TEXT NOT NULL REFERENCES "User"(id) ON DELETE CASCADE,
+        document_type TEXT NOT NULL CHECK (
+            document_type IN (
+                'aadhaar', 'pan_card', 'bank_passbook',
+                'class_10_marksheet', 'disability_certificate'
+            )
+        ),
+        encrypted_filename BLOB NOT NULL,
+        media_type TEXT NOT NULL CHECK (
+            media_type IN ('application/pdf', 'image/jpeg')
+        ),
+        size_bytes INTEGER NOT NULL CHECK (size_bytes BETWEEN 1 AND 2097152),
+        encrypted_content BLOB NOT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+    """)
+    document_columns = {
+        row["name"]
+        for row in cursor.execute("PRAGMA table_info(user_documents)").fetchall()
+    }
+    if "encrypted_filename" not in document_columns:
+        cursor.execute(
+            "ALTER TABLE user_documents ADD COLUMN encrypted_filename BLOB"
+        )
+    if "original_filename" in document_columns:
+        legacy_names = cursor.execute(
+            """
+            SELECT id, original_filename, encrypted_filename
+            FROM user_documents
+            WHERE original_filename != '' AND encrypted_filename IS NULL
+            """
+        ).fetchall()
+        if legacy_names:
+            if not settings.document_encryption_key:
+                raise RuntimeError(
+                    "DOCUMENT_ENCRYPTION_KEY is required to encrypt existing "
+                    "document filenames."
+                )
+            fernet = Fernet(settings.document_encryption_key.encode("ascii"))
+            for row in legacy_names:
+                encrypted_filename = fernet.encrypt(
+                    row["original_filename"].encode("utf-8")
+                )
+                cursor.execute(
+                    """
+                    UPDATE user_documents SET encrypted_filename = ?
+                    WHERE id = ?
+                    """,
+                    (encrypted_filename, row["id"]),
+                )
+        cursor.execute(
+            "ALTER TABLE user_documents DROP COLUMN original_filename"
+        )
+    cursor.execute("""
+    CREATE INDEX IF NOT EXISTS user_documents_owner_created_idx
+    ON user_documents (user_id, created_at DESC);
+    """)
+    cursor.execute("""
+    CREATE INDEX IF NOT EXISTS login_history_user_time_idx
+    ON "LoginHistory" ("userId", "loginTime" DESC);
+    """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS revoked_tokens (
+        token_id TEXT PRIMARY KEY,
+        expires_at TIMESTAMP NOT NULL
+    );
+    """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS auth_rate_limits (
+        bucket_key TEXT PRIMARY KEY,
+        window_started_at TEXT NOT NULL,
+        attempts INTEGER NOT NULL CHECK (attempts >= 0)
     );
     """)
 

@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 
 from backend.config import settings
+from backend.database import init_db
 from backend.supabase_client import supabase
 
 from backend.routers import (
@@ -15,13 +16,14 @@ from backend.routers import (
     checklist_router,
     assistant_router,
     translations_router,
+    auth_router,
+    documents_router,
 )
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Supabase tables are already created in the dashboard.
-    # No SQLite initialization is needed here.
+    init_db()
     yield
 
 
@@ -42,6 +44,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["Retry-After"],
 )
 
 
@@ -51,6 +54,8 @@ app.include_router(bookmarks_router)
 app.include_router(checklist_router)
 app.include_router(assistant_router)
 app.include_router(translations_router)
+app.include_router(auth_router)
+app.include_router(documents_router)
 
 
 @app.get("/health", tags=["System"])

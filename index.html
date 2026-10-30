@@ -61,6 +61,29 @@
     .profile-icon svg{width:16px;height:16px}
     .profile-subtitle{padding-left:38px;color:var(--muted);font-size:10px;line-height:1.5}
     .profile-form{padding:0 19px 18px}
+    .documents-section{margin-top:22px;border:1px solid var(--line);border-radius:13px;padding:20px;background:#fff;box-shadow:var(--shadow)}
+    .documents-header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+    .documents-header h2{margin:0;font-family:Manrope,sans-serif;font-size:16px;font-weight:800}
+    .documents-header p,.document-privacy{max-width:760px;margin:6px 0 0;color:var(--muted);font-size:11px;line-height:1.65}
+    .document-upload{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:12px;margin-top:16px}
+    .document-upload .field{margin:0}
+    .document-upload input[type=file]{width:100%;height:auto;min-height:38px;padding:8px;font-size:11px}
+    .document-consent{display:flex;align-items:flex-start;gap:8px;margin-top:12px;color:#59675d;font-size:10px;line-height:1.6}
+    .document-consent input{margin:2px 0 0;accent-color:var(--green)}
+    .document-list{display:grid;gap:8px;margin-top:14px}
+    .document-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:9px;padding:10px 12px}
+    .document-info{min-width:0}
+    .document-name{margin:0;font-size:11px;font-weight:800}
+    .document-meta{margin:4px 0 0;color:var(--muted);font-size:9px}
+    .document-actions{display:flex;flex-shrink:0;gap:7px}
+    .document-action{min-height:30px;border:1px solid var(--line);border-radius:7px;padding:0 9px;background:#fff;color:var(--green-dark);font-size:10px;font-weight:700;cursor:pointer}
+    .document-action:hover{background:var(--green-soft)}
+    .document-action-delete{color:#9a4141}
+    .document-status{min-height:16px;margin:10px 0 0;color:var(--green-dark);font-size:10px}
+    .document-status.error{color:#a33b32}
+    .modal-documents{display:grid;gap:7px}
+    .modal-documents .document-row{padding:8px 10px}
+    @media(max-width:560px){.document-upload{grid-template-columns:1fr}.document-upload .button-primary{width:100%}.document-row{align-items:flex-start;flex-direction:column}.document-actions{width:100%}.document-action{flex:1}}
     .field{margin-top:12px}
     .field label{display:block;margin-bottom:5px;color:#637168;font-size:10px;font-weight:700}
     .field input,.field select{width:100%;height:36px;border:1px solid #e7ebe6;border-radius:7px;padding:0 10px;background:#fff;color:var(--ink);font-size:11px}
@@ -180,7 +203,24 @@
     .ai-input{flex:1;height:34px;border:1px solid var(--line);border-radius:8px;padding:0 10px;font-size:11px}
     .ai-send{height:34px;padding:0 14px;border:0;border-radius:8px;background:var(--green);color:white;font-weight:700;font-size:11px;cursor:pointer}
     .ai-send:disabled{opacity:0.6}
+    .auth-gate{position:fixed;inset:0;z-index:100;display:grid;place-items:start center;overflow-y:auto;padding:20px;background:linear-gradient(135deg,#edf4eb,#f7f8f5 55%,#f7f3e9)}
+    .auth-card{width:min(100%,420px);margin:auto 0;border:1px solid var(--line);border-radius:18px;padding:30px;background:#fff;box-shadow:0 24px 70px #1b34221c}
+    .auth-brand{display:flex;align-items:center;gap:10px;margin-bottom:26px;font-family:Manrope,sans-serif;font-size:16px;font-weight:800}
+    .auth-title{margin:0 0 7px;font-family:Manrope,sans-serif;font-size:24px;letter-spacing:-.7px}
+    .auth-description{margin:0 0 21px;color:var(--muted);font-size:12px;line-height:1.6}
+    .auth-field{display:block;margin:14px 0}
+    .auth-field span{display:block;margin-bottom:6px;color:#536157;font-size:11px;font-weight:700}
+    .auth-field input{width:100%;height:43px;border:1px solid #e2e8e2;border-radius:8px;padding:0 12px;font-size:13px}
+    .auth-submit{width:100%;min-height:44px;margin-top:8px}
+    .auth-toggle{margin:17px 0 0;color:#6b7870;text-align:center;font-size:11px}
+    .auth-toggle button{border:0;background:none;color:var(--green-dark);font-weight:800;cursor:pointer}
+    .auth-message{min-height:18px;margin:12px 0 0;color:#a33b2f;font-size:11px;line-height:1.5}
+    .auth-message.success{color:var(--green-dark)}
+    .auth-back{margin-top:12px;border:0;background:none;color:#647169;font-size:11px;font-weight:700;cursor:pointer}
+    .account-email{max-width:170px;overflow:hidden;color:#526157;font-size:10px;text-overflow:ellipsis;white-space:nowrap}
+    .logout-button{border:1px solid #dfe7df;border-radius:7px;padding:7px 10px;background:white;color:var(--green-dark);font-size:10px;font-weight:700;cursor:pointer}
     [hidden]{display:none!important}
+    @media(max-width:560px){.api-status,.account-email{display:none!important}}
     @media(max-width:760px){.topbar-inner{min-height:61px;padding:0 17px}.nav{gap:15px}.nav a{font-size:10px}.header-link span{display:none}main{padding:24px 17px 44px}.hero{min-height:235px;padding:28px}.hero-cta{margin-right:0}.hero:after{right:20px}.layout{grid-template-columns:1fr;gap:14px}.profile-card{position:static}.profile-head,.profile-form{padding-right:14px;padding-left:14px}.profile-form{display:block}.results-toolbar{align-items:flex-start;flex-direction:column}.toolbar-right{width:100%}.search-wrap{flex:1}.search-input{width:100%}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.scheme-card{min-height:0}.steps{gap:9px}.step{padding:12px 10px}}
     @media(max-width:560px){.nav{display:none}.topbar-inner{min-height:58px}.brand{font-size:14px}.hero{min-height:0;align-items:flex-start;flex-direction:column;gap:16px;padding:24px 21px}.hero:after{right:-64px;top:-175px}.hero-copy{max-width:100%}h1{max-width:400px;font-size:33px}.hero-copy>p{font-size:12px}.trust-row{gap:10px 13px;margin-top:16px}.hero-cta{width:100%}.hero-cta .button-primary{width:100%}.layout{grid-template-columns:1fr;margin-top:16px}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.step{padding:12px}.how-header h2{font-size:20px}footer{padding-right:17px;padding-left:17px;flex-direction:column;gap:7px}.modal-backdrop{padding:12px}.modal{max-height:93vh}.ai-drawer{right:16px;left:16px;width:auto;bottom:75px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
@@ -207,6 +247,35 @@ button.save-button:not(.saved) svg {
   </style>
 </head>
 <body>
+  <section class="auth-gate" id="auth-gate" aria-labelledby="auth-title">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h12m-5-5 5 5-5 5m3-12h2.2A3.8 3.8 0 0 1 20 8.8v6.4a3.8 3.8 0 0 1-3.8 3.8H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="5" cy="12" r="1.5" fill="#f2d28b"/></svg></span>
+        <span>SchemeSaathi <span style="color:#558269">AI</span></span>
+      </div>
+      <div id="auth-credentials">
+        <h1 class="auth-title" id="auth-title">Welcome back</h1>
+        <p class="auth-description">Sign in securely to explore government schemes and personalized guidance.</p>
+        <form id="auth-form">
+          <label class="auth-field" for="auth-email"><span>Email address</span><input id="auth-email" name="email" type="email" autocomplete="email" maxlength="254" required></label>
+          <label class="auth-field" for="auth-password"><span>Password</span><input id="auth-password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="72" required></label>
+          <label class="auth-field" id="auth-confirm-wrap" for="auth-confirm-password" hidden><span>Confirm password</span><input id="auth-confirm-password" name="confirm-password" type="password" autocomplete="new-password" minlength="8" maxlength="72"></label>
+          <button class="button-primary auth-submit" id="auth-submit" type="submit">Sign in</button>
+        </form>
+        <p class="auth-toggle"><span id="auth-toggle-copy">New to SchemeSaathi?</span> <button type="button" id="auth-toggle">Create account</button></p>
+      </div>
+      <div id="auth-otp-step" hidden>
+        <h1 class="auth-title" id="otp-title">Check your email</h1>
+        <p class="auth-description" id="otp-description">Enter the 6-digit code we sent to your email. The code expires in 5 minutes.</p>
+        <form id="otp-form">
+          <label class="auth-field" for="auth-otp"><span>6-digit verification code</span><input id="auth-otp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required></label>
+          <button class="button-primary auth-submit" type="submit">Verify code</button>
+        </form>
+        <button class="auth-back" type="button" id="auth-back">← Back to sign in</button>
+      </div>
+      <p class="auth-message" id="auth-message" role="status" aria-live="polite"></p>
+    </div>
+  </section>
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="#" aria-label="SchemeSaathi home">
@@ -216,6 +285,7 @@ button.save-button:not(.saved) svg {
       <nav class="nav" aria-label="Main navigation">
         <a href="#" data-i18n="navHome">Home</a>
         <a href="#discover" data-i18n="navExplore">Explore schemes</a>
+        <a href="#documents" data-doc-i18n="navDocuments">My documents</a>
         <a href="#how-it-works" data-i18n="navHow">How it works</a>
         <a href="/docs" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700">API Docs</a>
       </nav>
@@ -226,6 +296,8 @@ button.save-button:not(.saved) svg {
             <option value="en">English</option><option value="kn">ಕನ್ನಡ</option><option value="hi">हिन्दी</option>
           </select>
         </div>
+        <span class="account-email" id="account-email" hidden></span>
+        <button class="logout-button" id="logout-button" type="button" hidden>Log out</button>
         <a class="header-link" href="#discover"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6l-7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="verified">Official sources</span></a>
       </div>
     </div>
@@ -244,8 +316,32 @@ button.save-button:not(.saved) svg {
       </div>
       <div class="hero-cta">
         <a class="button-primary" href="#discover"><span data-i18n="heroCta">Find schemes for me</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="button-secondary" href="#documents" data-doc-i18n="navDocuments">My documents</a>
         <button class="button-secondary" id="open-assistant-hero" type="button"><span>Ask AI Assistant</span> 💬</button>
       </div>
+    </section>
+
+    <section class="documents-section" id="documents-section" hidden aria-labelledby="documents-title">
+      <div class="documents-header">
+        <div>
+          <h2 id="documents-title" data-doc-i18n="title">My documents</h2>
+          <p data-doc-i18n="intro">Keep verified application documents together for quick access when you apply.</p>
+        </div>
+      </div>
+      <p class="document-privacy"><span data-doc-i18n="privacyBefore">A copy of the full file is sent to Google Gemini for classification. Google says it retains prompts and contextual data for 55 days for abuse monitoring; flagged content may be reviewed by authorized staff. SchemeSaathi does not retain the AI request.</span> <a href="https://ai.google.dev/gemini-api/docs/usage-policies" target="_blank" rel="noopener noreferrer" data-doc-i18n="privacyLink">Read Google's Gemini API data policy</a>. <span data-doc-i18n="privacyAfter">Saved files are encrypted to your account. AI identifies type only; it does not verify authenticity or validity.</span></p>
+      <form class="document-upload" id="document-upload-form">
+        <div class="field">
+          <label for="document-file" data-doc-i18n="chooseFile">Choose a PDF or JPG/JPEG, up to 2 MB</label>
+          <input id="document-file" name="file" type="file" accept=".pdf,.jpg,.jpeg,application/pdf,image/jpeg" required>
+        </div>
+        <button class="button-primary" id="document-upload-button" type="submit" data-doc-i18n="upload">Check and save document</button>
+      </form>
+      <label class="document-consent" for="document-ai-consent">
+        <input id="document-ai-consent" type="checkbox" required form="document-upload-form">
+        <span data-doc-i18n="consent">I consent to send this sensitive file to Google Gemini, which retains prompts and contextual data for 55 days under its abuse-monitoring policy.</span>
+      </label>
+      <p class="document-status" id="document-status" role="status" aria-live="polite"></p>
+      <div class="document-list" id="document-list"></div>
     </section>
 
     <section class="layout" id="discover" aria-label="Scheme discovery">
@@ -326,6 +422,8 @@ button.save-button:not(.saved) svg {
         <p class="check-progress" id="check-progress"></p>
         <h3 data-i18n="stepsTitle">A simple way to proceed</h3>
         <ol class="modal-steps" id="modal-steps"></ol>
+        <h3 data-doc-i18n="schemeDocuments">Your saved documents for this application</h3>
+        <div class="modal-documents" id="modal-saved-documents"></div>
         <div class="modal-footer"><a class="button-primary" id="modal-apply" target="_blank" rel="noopener noreferrer" href="#"><span data-i18n="officialApply">Visit the official scheme site</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 5h5v5m-9 4 9-9m0 7v7H5V5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="source-link" id="modal-source" target="_blank" rel="noopener noreferrer" href="#"><span data-i18n="checkSource">Check the official source</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 5h5v5m-9 4 9-9m0 7v7H5V5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       </div>
     </section>
@@ -365,7 +463,9 @@ button.save-button:not(.saved) svg {
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
   <script>
-    const API_BASE = "http://127.0.0.1:8000";
+    const isLocalHost = window.location.protocol === "file:" ||
+      ["localhost","127.0.0.1"].includes(window.location.hostname);
+    const API_BASE = isLocalHost ? "http://127.0.0.1:8000" : window.location.origin;
 
     const translations={
       en:{navHome:"Home",navExplore:"Explore schemes",navHow:"How it works",verified:"Official sources",eyebrow:"A clearer path to the support you deserve",heroTitle:"Benefits are closer than you think.",heroDescription:"Find government schemes that fit your life. Understand eligibility, get document checklists, and proceed with confidence in your language.",trustOne:"Plain-language guidance",trustTwo:"Official links, always",trustThree:"Your details stay with you",heroCta:"Find schemes for me",profileTitle:"A little about you",profileSubtitle:"Share only what you feel comfortable sharing.",stateLabel:"Your state",ageLabel:"Your age",genderLabel:"Gender",locationLabel:"Where do you live?",occupationLabel:"What best describes you?",incomeLabel:"Approx. annual household income",submitProfile:"Show relevant schemes",privacyNote:"Your answers stay in this browser. Nothing is sent or saved.",welcomeTitle:"Your next step starts here",welcomeCaption:"Explore verified schemes, or share your details for a tailored starting point.",verifiedBadge:"Official sources",schemesHeading:"Schemes to explore",schemesCaption:"A helpful place to begin—not a decision on your eligibility.",searchPlaceholder:"Search schemes…",allCategories:"All categories",farmCategory:"Agriculture",housingCategory:"Housing",healthCategory:"Health",womenCategory:"Women & families",educationCategory:"Education",workerCategory:"Workers & Livelihood",selfEmployedCategory:"Business Loans",howEyebrow:"No guesswork. Just a clearer next step.",howTitle:"From questions to a way forward.",howCaption:"You stay in control at every step.",stepOneTitle:"Tell us a little",stepOneText:"A few optional details help us point you toward schemes worth exploring.",stepTwoTitle:"Understand what matters",stepTwoText:"See plain-language requirements, example documents, and questions to check.",stepThreeTitle:"Choose your next step",stepThreeText:"Continue to an official government source when you’re ready.",footerTag:"A clearer path to public benefits.",footerDisclaimer:"A guide, not a government service. Always confirm current eligibility and requirements on the official scheme website.",checklistTitle:"A checklist to get started",stepsTitle:"A simple way to proceed",officialApply:"Visit the official scheme site",checkSource:"Check the official source",allMatches:"Potentially relevant starting points",matchCaption:"Based on the details you shared. Confirm eligibility with the official scheme.",saved:"Saved schemes",savedCaption:"Your saved schemes on this device.",details:"Understand this scheme",source:"Official site",official:"Official scheme website",empty:"No schemes match your search yet. Try a different word or category.",privacyToast:"Saved on this device. Your details aren’t sent anywhere.",saveToast:"Saved to this device.",removeToast:"Removed from saved schemes.",eligibleFarmer:"Farmer selected in your profile. Check landholding, eligibility rules and exclusions on the official site.",eligibleRural:"You selected a rural area. Check the official housing survey list and programme rules.",eligibleWoman:"Women applicants may be eligible. Household LPG connection and scheme conditions apply.",eligibleHealth:"Check the official beneficiary database. Eligibility cannot be determined by income alone.",eligibleStudent:"Students can check current scholarships and eligibility on the National Scholarship Portal.",eligibleDefault:"This scheme may be worth exploring. Check the current criteria on the official scheme site.",couldMatch:"May be worth exploring",notEligibility:"This is a starting point—not an eligibility decision.",checked:"checked",of:"of",schemePlural:"documents",foundFor:"Here are a few schemes to explore",noProfileResults:"No schemes found for those filters. Try clearing your search or category.",dialogClosed:"Scheme details closed.",aiAssistantTitle:"SchemeSaathi AI Assistant",askAssistant:"Ask a question about government schemes...",askButton:"Ask Assistant"},
@@ -381,6 +481,12 @@ button.save-button:not(.saved) svg {
       en:{"gender-private":"Prefer not to say","gender-woman":"Woman","gender-man":"Man","gender-other":"Other","location-empty":"Select an area","location-rural":"Rural area","location-urban":"Town or city","occupation-empty":"Select one","occupation-farmer":"Farmer or cultivator","occupation-student":"Student","occupation-worker":"Daily-wage or informal worker","occupation-self-employed":"Self-employed","occupation-other":"Something else","income-private":"Prefer not to say","income-below-1":"Under ₹1 lakh","income-1-2.5":"₹1–2.5 lakh","income-2.5-5":"₹2.5–5 lakh","income-above-5":"Above ₹5 lakh"},
       kn:{"gender-private":"ಹೇಳಲು ಇಚ್ಛೆಯಿಲ್ಲ","gender-woman":"ಮಹಿಳೆ","gender-man":"ಪುರುಷ","gender-other":"ಇತರೆ","location-empty":"ಪ್ರದೇಶ ಆಯ್ಕೆಮಾಡಿ","location-rural":"ಗ್ರಾಮೀಣ ಪ್ರದೇಶ","location-urban":"ಪಟ್ಟಣ ಅಥವಾ ನಗರ","occupation-empty":"ಒಂದನ್ನು ಆಯ್ಕೆಮಾಡಿ","occupation-farmer":"ರೈತ ಅಥವಾ ಕೃಷಿಕ","occupation-student":"ವಿದ್ಯಾರ್ಥಿ","occupation-worker":"ದಿನಗೂಲಿ ಅಥವಾ ಅಸಂಘಟಿತ ಕೆಲಸಗಾರ","occupation-self-employed":"ಸ್ವಯಂ ಉದ್ಯೋಗಿ","occupation-other":"ಬೇರೆ","income-private":"ಹೇಳಲು ಇಚ್ಛೆಯಿಲ್ಲ","income-below-1":"₹1 ಲಕ್ಷಕ್ಕಿಂತ ಕಡಿಮೆ","income-1-2.5":"₹1–2.5 ಲಕ್ಷ","income-2.5-5":"₹2.5–5 ಲಕ್ಷ","income-above-5":"₹5 ಲಕ್ಷಕ್ಕಿಂತ ಹೆಚ್ಚು"},
       hi:{"gender-private":"बताना नहीं चाहते","gender-woman":"महिला","gender-man":"पुरुष","gender-other":"अन्य","location-empty":"इलाका चुनें","location-rural":"ग्रामीण इलाक़ा","location-urban":"कस्बा या शहर","occupation-empty":"एक चुनें","occupation-farmer":"किसान या कृषक","occupation-student":"विद्यार्थी","occupation-worker":"दिहाड़ी या असंगठित कामगार","occupation-self-employed":"स्वरोज़गार","occupation-other":"कुछ और","income-private":"बताना नहीं चाहते","income-below-1":"₹1 लाख से कम","income-1-2.5":"₹1–2.5 लाख","income-2.5-5":"₹2.5–5 लाख","income-above-5":"₹5 लाख से ज़्यादा"}
+    };
+
+    const documentCopy={
+      en:{navDocuments:"My documents",title:"My documents",intro:"Keep identified application documents together for quick access. AI checks the document type only, not its authenticity or validity.",privacyBefore:"A copy of the full file is sent to Google Gemini for classification. Google says it retains prompts and contextual data for 55 days for abuse monitoring; flagged content may be reviewed by authorized staff. SchemeSaathi discards its temporary processing buffer after recognition.",privacyLink:"Read Google's Gemini API data policy",privacyAfter:"Saved files are encrypted to your account. AI identifies type only; it does not verify authenticity or validity.",chooseFile:"Choose a PDF or JPG/JPEG, up to 2 MB",upload:"Check and save document",consent:"I consent to send this sensitive file to Google Gemini, which retains prompts and contextual data for 55 days under its abuse-monitoring policy.",schemeDocuments:"Your saved documents for this application",aadhaar:"Aadhaar card",pan_card:"PAN card",bank_passbook:"Bank passbook",class_10_marksheet:"10th marksheet",disability_certificate:"Disability certificate",download:"Download",delete:"Delete",empty:"No saved documents yet.",loading:"Loading your documents…",analyzing:"Checking the file with Google Gemini…",saved:"Document identified and encrypted for your account.",deleted:"Document deleted.",deleteConfirm:"Delete this saved document?",failed:"Could not load your documents. Please try again.",configMissing:"Document uploads need GEMINI_API_KEY and DOCUMENT_ENCRYPTION_KEY configured in the server's .env file."},
+      kn:{navDocuments:"ನನ್ನ ದಾಖಲೆಗಳು",title:"ನನ್ನ ದಾಖಲೆಗಳು",intro:"ಅರ್ಜಿ ಸಲ್ಲಿಸುವಾಗ ಸುಲಭವಾಗಿ ಪಡೆಯಲು ಗುರುತಿಸಿದ ದಾಖಲೆಗಳನ್ನು ಇಲ್ಲಿ ಇಡಿ. AI ದಾಖಲೆಯ ಪ್ರಕಾರವನ್ನು ಮಾತ್ರ ಗುರುತಿಸುತ್ತದೆ; ಅದರ ನೈಜತೆ ಅಥವಾ ಮಾನ್ಯತೆಯನ್ನು ಪರಿಶೀಲಿಸುವುದಿಲ್ಲ.",privacyBefore:"ಫೈಲ್ ಗುರುತಿಸಲು ಅದರ ಸಂಪೂರ್ಣ ಪ್ರತಿಯನ್ನು Google Gemini ಗೆ ಕಳುಹಿಸಲಾಗುತ್ತದೆ. ದುರುಪಯೋಗ ತಡೆಗಾಗಿ ಪ್ರಾಂಪ್ಟ್ ಮತ್ತು ಸಂದರ್ಭದ ಮಾಹಿತಿಯನ್ನು 55 ದಿನಗಳವರೆಗೆ ಉಳಿಸುವುದಾಗಿ Google ತಿಳಿಸಿದೆ; ಗುರುತಿಸಲಾದ ವಿಷಯವನ್ನು ಅಧಿಕೃತ ಸಿಬ್ಬಂದಿ ಪರಿಶೀಲಿಸಬಹುದು. ಗುರುತಿಸಿದ ನಂತರ SchemeSaathi ತನ್ನ ತಾತ್ಕಾಲಿಕ ಸಂಸ್ಕರಣಾ ಬಫರ್ ಅನ್ನು ತೆರವುಗೊಳಿಸುತ್ತದೆ.",privacyLink:"Google Gemini API ದತ್ತಾಂಶ ನೀತಿ ಓದಿ",privacyAfter:"ಉಳಿಸಿದ ಫೈಲ್‌ಗಳನ್ನು ನಿಮ್ಮ ಖಾತೆಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗುತ್ತದೆ. AI ದಾಖಲೆಯ ಪ್ರಕಾರವನ್ನು ಮಾತ್ರ ಗುರುತಿಸುತ್ತದೆ; ನೈಜತೆ ಅಥವಾ ಮಾನ್ಯತೆಯನ್ನು ಪರಿಶೀಲಿಸುವುದಿಲ್ಲ.",chooseFile:"2 MB ಒಳಗಿನ PDF ಅಥವಾ JPG/JPEG ಆಯ್ಕೆಮಾಡಿ",upload:"ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಉಳಿಸಿ",consent:"ಈ ಸೂಕ್ಷ್ಮ ಫೈಲ್ ಅನ್ನು Google Gemini ಗೆ ಕಳುಹಿಸಲು ನಾನು ಒಪ್ಪುತ್ತೇನೆ; ದುರುಪಯೋಗ ತಡೆ ನೀತಿಯಡಿ ಅದು ಪ್ರಾಂಪ್ಟ್ ಮತ್ತು ಸಂದರ್ಭದ ಮಾಹಿತಿಯನ್ನು 55 ದಿನಗಳವರೆಗೆ ಉಳಿಸುತ್ತದೆ.",schemeDocuments:"ಈ ಅರ್ಜಿಗೆ ನಿಮ್ಮ ಉಳಿಸಿದ ದಾಖಲೆಗಳು",aadhaar:"ಆಧಾರ್ ಕಾರ್ಡ್",pan_card:"PAN ಕಾರ್ಡ್",bank_passbook:"ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್",class_10_marksheet:"10ನೇ ತರಗತಿ ಅಂಕಪಟ್ಟಿ",disability_certificate:"ಅಂಗವೈಕಲ್ಯ ಪ್ರಮಾಣಪತ್ರ",download:"ಡೌನ್‌ಲೋಡ್",delete:"ಅಳಿಸಿ",empty:"ಇನ್ನೂ ಯಾವುದೇ ದಾಖಲೆಗಳಿಲ್ಲ.",loading:"ನಿಮ್ಮ ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…",analyzing:"Google Gemini ಫೈಲ್ ಪರಿಶೀಲಿಸುತ್ತಿದೆ…",saved:"ದಾಖಲೆಯನ್ನು ಗುರುತಿಸಿ ನಿಮ್ಮ ಖಾತೆಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ.",deleted:"ದಾಖಲೆ ಅಳಿಸಲಾಗಿದೆ.",deleteConfirm:"ಈ ಉಳಿಸಿದ ದಾಖಲೆಯನ್ನು ಅಳಿಸುವುದೇ?",failed:"ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",configMissing:"ದಾಖಲೆ ಅಪ್‌ಲೋಡ್‌ಗೆ ಸರ್ವರ್‌ನ .env ಕಡತದಲ್ಲಿ GEMINI_API_KEY ಮತ್ತು DOCUMENT_ENCRYPTION_KEY ಹೊಂದಿಸಬೇಕು."},
+      hi:{navDocuments:"मेरे दस्तावेज़",title:"मेरे दस्तावेज़",intro:"आवेदन के समय आसानी से पाने के लिए पहचाने गए दस्तावेज़ एक जगह रखें। AI केवल दस्तावेज़ का प्रकार पहचानता है, उसकी प्रामाणिकता या वैधता नहीं जाँचता।",privacyBefore:"दस्तावेज़ पहचानने के लिए पूरी फ़ाइल की एक प्रति Google Gemini को भेजी जाती है। Google कहता है कि दुरुपयोग की निगरानी के लिए वह प्रॉम्प्ट और संदर्भ की जानकारी 55 दिनों तक रखता है; चिह्नित सामग्री की अधिकृत कर्मचारी समीक्षा कर सकते हैं। पहचान के बाद SchemeSaathi अपना अस्थायी प्रोसेसिंग बफ़र साफ़ कर देता है।",privacyLink:"Google Gemini API की डेटा नीति पढ़ें",privacyAfter:"सहेजी गई फ़ाइलें आपके खाते के लिए एन्क्रिप्ट की जाती हैं। AI केवल प्रकार पहचानता है; प्रामाणिकता या वैधता नहीं जाँचता।",chooseFile:"2 MB तक की PDF या JPG/JPEG चुनें",upload:"जाँचें और दस्तावेज़ सहेजें",consent:"मैं इस संवेदनशील फ़ाइल को Google Gemini को भेजने की सहमति देता/देती हूँ; उसकी दुरुपयोग-निगरानी नीति के तहत प्रॉम्प्ट और संदर्भ की जानकारी 55 दिनों तक रखी जाती है।",schemeDocuments:"इस आवेदन के लिए आपके सहेजे दस्तावेज़",aadhaar:"आधार कार्ड",pan_card:"PAN कार्ड",bank_passbook:"बैंक पासबुक",class_10_marksheet:"10वीं की अंकसूची",disability_certificate:"दिव्यांगता प्रमाणपत्र",download:"डाउनलोड",delete:"हटाएँ",empty:"अभी कोई दस्तावेज़ सहेजा नहीं गया है।",loading:"आपके दस्तावेज़ लोड हो रहे हैं…",analyzing:"Google Gemini फ़ाइल की जाँच कर रहा है…",saved:"दस्तावेज़ पहचाना गया और आपके खाते के लिए एन्क्रिप्ट किया गया।",deleted:"दस्तावेज़ हटा दिया गया।",deleteConfirm:"क्या यह सहेजा दस्तावेज़ हटाएँ?",failed:"दस्तावेज़ लोड नहीं हो सके। फिर कोशिश करें.",configMissing:"दस्तावेज़ अपलोड के लिए सर्वर की .env फ़ाइल में GEMINI_API_KEY और DOCUMENT_ENCRYPTION_KEY सेट करें।"}
     };
 
     let schemesData = [
@@ -400,11 +506,16 @@ button.save-button:not(.saved) svg {
       category:"all",
       saved:new Set(JSON.parse(localStorage.getItem("schemesaathi-saved")||localStorage.getItem("accessbridge-saved")||"[]")),
       activeScheme:null,
+      documents:[],
       toastTimer:null,
       lastFocus:null,
       apiActive:false,
       eligibilityMap:new Map()
     };
+
+    let authMode="login";
+    let authEmail="";
+    let authToken="";
 
     const $=id=>document.getElementById(id);
     const icons={
@@ -420,6 +531,7 @@ button.save-button:not(.saved) svg {
     };
 
     function t(key){return translations[state.language][key]||translations.en[key]||key}
+    function tDocument(key){return documentCopy[state.language][key]||documentCopy.en[key]||key}
     function langText(value){
       if(!value)return "";
       if(typeof value==="string")return value;
@@ -487,6 +599,7 @@ button.save-button:not(.saved) svg {
     function applyLanguage(){
       document.documentElement.lang=state.language;
       document.querySelectorAll("[data-i18n]").forEach(node=>{const value=t(node.dataset.i18n);if(value)node.textContent=value});
+      document.querySelectorAll("[data-doc-i18n]").forEach(node=>{node.textContent=tDocument(node.dataset.docI18n)});
       document.querySelectorAll("[data-i18n-placeholder]").forEach(node=>{node.placeholder=t(node.dataset.i18nPlaceholder)});
       document.querySelectorAll("[data-option]").forEach(node=>{node.textContent=profileOptionLabels[state.language][node.dataset.option]});
       document.querySelectorAll("[data-i18n]").forEach(node=>{if(node.tagName==="SELECT"||node.tagName==="INPUT")node.setAttribute("aria-label",t(node.dataset.i18n))});
@@ -625,6 +738,7 @@ button.save-button:not(.saved) svg {
       $("modal-steps").innerHTML=stepList.map(step=>"<li>"+escapeHtml(step)+"</li>").join("");
       $("modal-apply").href=scheme.url;
       $("modal-source").href=scheme.sourceUrl||scheme.url;
+      renderSavedDocuments("modal-saved-documents");
       $("modal-backdrop").hidden=false;
       if(focus)$("modal-close").focus();
     }
@@ -822,8 +936,372 @@ button.save-button:not(.saved) svg {
       }
     });
 
+    function showAuthMessage(message,isSuccess=false){
+      const messageEl=$("auth-message");
+      messageEl.textContent=message;
+      messageEl.classList.toggle("success",isSuccess);
+    }
+
+    function setDocumentStatus(message,isError=false){
+      const status=$("document-status");
+      status.textContent=message;
+      status.classList.toggle("error",isError);
+    }
+
+    function renderDocumentRows(container,documents,allowDelete){
+      container.replaceChildren();
+      if(!documents.length){
+        const empty=document.createElement("p");
+        empty.className="document-meta";
+        empty.textContent=tDocument("empty");
+        container.append(empty);
+        return;
+      }
+
+      documents.forEach(item=>{
+        const row=document.createElement("div");
+        row.className="document-row";
+        const info=document.createElement("div");
+        info.className="document-info";
+        const name=document.createElement("p");
+        name.className="document-name";
+        name.textContent=item.original_filename||tDocument(item.document_type);
+        name.title=tDocument(item.document_type);
+        const meta=document.createElement("p");
+        meta.className="document-meta";
+        const date=new Date(item.created_at);
+        const dateText=Number.isNaN(date.getTime())?"":date.toLocaleDateString(state.language);
+        meta.textContent=`${tDocument(item.document_type)} · ${(item.size_bytes/1024).toFixed(0)} KB${dateText?" · "+dateText:""}`;
+        info.append(name,meta);
+
+        const actions=document.createElement("div");
+        actions.className="document-actions";
+        const download=document.createElement("button");
+        download.type="button";
+        download.className="document-action";
+        download.dataset.documentDownload=item.id;
+        download.textContent=tDocument("download");
+        actions.append(download);
+        if(allowDelete){
+          const remove=document.createElement("button");
+          remove.type="button";
+          remove.className="document-action document-action-delete";
+          remove.dataset.documentDelete=item.id;
+          remove.textContent=tDocument("delete");
+          actions.append(remove);
+        }
+        row.append(info,actions);
+        container.append(row);
+      });
+    }
+
+    async function loadDocuments(){
+      if(!authToken)return;
+      const requestToken=authToken;
+      try{
+        const [response,statusResponse]=await Promise.all([
+          fetch(`${API_BASE}/api/documents`,{
+            headers:{Authorization:`Bearer ${requestToken}`}
+          }),
+          fetch(`${API_BASE}/api/documents/status`,{
+            headers:{Authorization:`Bearer ${requestToken}`}
+          })
+        ]);
+        const [documents,configuration]=await Promise.all([
+          readAuthResponse(response),
+          readAuthResponse(statusResponse)
+        ]);
+        if(requestToken!==authToken)return;
+        state.documents=documents;
+        const ready=configuration.ai_configured&&configuration.storage_configured;
+        $("document-upload-button").disabled=!ready;
+        renderDocumentRows($("document-list"),state.documents,true);
+        setDocumentStatus(ready?"":tDocument("configMissing"),!ready);
+        if(state.activeScheme)renderSavedDocuments("modal-saved-documents");
+      }catch(error){
+        if(requestToken!==authToken)return;
+        state.documents=[];
+        renderDocumentRows($("document-list"),state.documents,true);
+        setDocumentStatus(authErrorMessage(error),true);
+      }
+    }
+
+    function renderSavedDocuments(containerId){
+      const container=$(containerId);
+      if(container)renderDocumentRows(container,state.documents,false);
+    }
+
+    async function downloadDocument(documentId){
+      try{
+        const response=await fetch(
+          `${API_BASE}/api/documents/${encodeURIComponent(documentId)}/file`,
+          {headers:{Authorization:`Bearer ${authToken}`}}
+        );
+        if(!response.ok)await readAuthResponse(response);
+        const file=await response.blob();
+        const objectUrl=URL.createObjectURL(file);
+        const link=document.createElement("a");
+        link.href=objectUrl;
+        link.download=state.documents.find(item=>item.id===documentId)?.original_filename||`SchemeSaathi-${documentId}`;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(()=>URL.revokeObjectURL(objectUrl),30000);
+      }catch(error){
+        setDocumentStatus(authErrorMessage(error),true);
+      }
+    }
+
+    $("document-upload-form").addEventListener("submit",async event=>{
+      event.preventDefault();
+      const file=$("document-file").files[0];
+      if(!file)return;
+      if(file.size>2*1024*1024){
+        setDocumentStatus("Each document must be 2 MB or smaller.",true);
+        return;
+      }
+      const button=$("document-upload-button");
+      button.disabled=true;
+      setDocumentStatus(tDocument("analyzing"));
+      try{
+        const response=await fetch(`${API_BASE}/api/documents`,{
+          method:"POST",
+          headers:{
+            Authorization:`Bearer ${authToken}`,
+            "Content-Type":file.type||"application/octet-stream",
+            "X-Filename":encodeURIComponent(file.name)
+          },
+          body:file
+        });
+        await readAuthResponse(response);
+        $("document-file").value="";
+        $("document-ai-consent").checked=false;
+        setDocumentStatus(tDocument("saved"));
+        await loadDocuments();
+      }catch(error){
+        setDocumentStatus(authErrorMessage(error),true);
+      }finally{
+        $("document-file").value="";
+        $("document-ai-consent").checked=false;
+        button.disabled=false;
+      }
+    });
+
+    document.addEventListener("click",async event=>{
+      const download=event.target.closest("[data-document-download]");
+      if(download){
+        await downloadDocument(download.dataset.documentDownload);
+        return;
+      }
+      const remove=event.target.closest("[data-document-delete]");
+      if(!remove||!window.confirm(tDocument("deleteConfirm")))return;
+      try{
+        const response=await fetch(
+          `${API_BASE}/api/documents/${encodeURIComponent(remove.dataset.documentDelete)}`,
+          {method:"DELETE",headers:{Authorization:`Bearer ${authToken}`}}
+        );
+        await readAuthResponse(response);
+        setDocumentStatus(tDocument("deleted"));
+        await loadDocuments();
+      }catch(error){
+        setDocumentStatus(authErrorMessage(error),true);
+      }
+    });
+
+    function setAuthMode(mode){
+      authMode=mode;
+      $("auth-title").textContent=mode==="register"?"Create your account":"Welcome back";
+      $("auth-password").autocomplete=mode==="register"?"new-password":"current-password";
+      $("auth-confirm-wrap").hidden=mode!=="register";
+      $("auth-confirm-password").required=mode==="register";
+      $("auth-submit").textContent=mode==="register"?"Create account":"Sign in";
+      $("auth-toggle-copy").textContent=mode==="register"?"Already have an account?":"New to SchemeSaathi?";
+      $("auth-toggle").textContent=mode==="register"?"Sign in":"Create account";
+      showAuthMessage("");
+    }
+
+    function showOtpStep(purpose,email){
+      authEmail=email;
+      $("auth-credentials").hidden=true;
+      $("auth-otp-step").hidden=false;
+      $("otp-title").textContent=purpose==="registration"?"Verify your email":"Check your email";
+      $("otp-description").textContent=`Enter the 6-digit code sent to ${email}. The code expires in 5 minutes.`;
+      $("auth-otp").value="";
+      showAuthMessage("");
+      $("auth-otp").focus();
+    }
+
+    function activateSession(user,token){
+      authToken=token;
+      sessionStorage.setItem("schemesaathi-token",token);
+      sessionStorage.setItem("schemesaathi-user",JSON.stringify(user));
+      $("account-email").textContent=user.email;
+      $("account-email").hidden=false;
+      $("logout-button").hidden=false;
+      $("auth-gate").hidden=true;
+      $("documents-section").hidden=false;
+      showAuthMessage("");
+      loadDocuments();
+      checkApiConnection();
+    }
+
+    async function readAuthResponse(response){
+      let payload={};
+      try{payload=await response.json()}catch(e){}
+      if(!response.ok){
+        const detail=typeof payload.detail==="string"?payload.detail:"Request failed. Please try again.";
+        const error=new Error(detail);
+        const retryAfter=Number(response.headers.get("Retry-After"));
+        if(response.status===429&&Number.isFinite(retryAfter)&&retryAfter>0){
+          error.retryAfter=retryAfter;
+        }
+        throw error;
+      }
+      return payload;
+    }
+
+    function authErrorMessage(error){
+      if(/failed to fetch|networkerror|load failed/i.test(error?.message||"")){
+        return "Cannot connect to SchemeSaathi. Start the backend with `python run_backend.py`, then open http://127.0.0.1:8000.";
+      }
+      if(Number.isFinite(error?.retryAfter)){
+        const minutes=Math.ceil(error.retryAfter/60);
+        return `Too many attempts. Please try again in about ${minutes} minute${minutes===1?"":"s"}.`;
+      }
+      return error?.message||"Request failed. Please try again.";
+    }
+
+    $("auth-toggle").addEventListener("click",()=>{
+      setAuthMode(authMode==="login"?"register":"login");
+    });
+
+    $("auth-form").addEventListener("submit",async event=>{
+      event.preventDefault();
+      const email=$("auth-email").value.trim().toLowerCase();
+      const password=$("auth-password").value;
+      const endpoint=authMode==="register"?"/api/auth/register":"/api/auth/login";
+      if(authMode==="register"&&password!==$("auth-confirm-password").value){
+        showAuthMessage("The passwords do not match.");
+        return;
+      }
+      const submit=$("auth-submit");
+      submit.disabled=true;
+      showAuthMessage("");
+      try{
+        const response=await fetch(`${API_BASE}${endpoint}`,{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({email,password})
+        });
+        const result=await readAuthResponse(response);
+        showOtpStep(authMode==="register"?"registration":"login",email);
+        const statusMessage=result.development_otp
+          ? `${result.message} Development OTP: ${result.development_otp}`
+          : result.message;
+        if(statusMessage)showAuthMessage(statusMessage,true);
+      }catch(error){
+        showAuthMessage(authErrorMessage(error));
+      }finally{
+        submit.disabled=false;
+      }
+    });
+
+    $("otp-form").addEventListener("submit",async event=>{
+      event.preventDefault();
+      const button=$("otp-form").querySelector("button[type=submit]");
+      button.disabled=true;
+      showAuthMessage("");
+      try{
+        const response=await fetch(`${API_BASE}/api/auth/verify-otp`,{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({email:authEmail,otp:$("auth-otp").value.trim()})
+        });
+        const result=await readAuthResponse(response);
+        if(result.access_token&&result.user){
+          activateSession(result.user,result.access_token);
+          return;
+        }
+        $("auth-otp-step").hidden=true;
+        $("auth-credentials").hidden=false;
+        $("auth-email").value=authEmail;
+        $("auth-password").value="";
+        setAuthMode("login");
+        showAuthMessage(result.message||"Email verified. You can now sign in.",true);
+      }catch(error){
+        showAuthMessage(authErrorMessage(error));
+      }finally{
+        button.disabled=false;
+      }
+    });
+
+    $("auth-back").addEventListener("click",()=>{
+      $("auth-otp-step").hidden=true;
+      $("auth-credentials").hidden=false;
+      $("auth-otp").value="";
+      setAuthMode("login");
+      $("auth-email").value=authEmail;
+      $("auth-password").focus();
+    });
+
+    $("logout-button").addEventListener("click",async()=>{
+      let logoutError="";
+      try{
+        const response=await fetch(`${API_BASE}/api/auth/logout`,{
+          method:"POST",
+          headers:{Authorization:`Bearer ${authToken}`}
+        });
+        if(!response.ok)logoutError="The server could not confirm logout. This browser session was cleared.";
+      }catch(error){
+        logoutError=authErrorMessage(error);
+      }
+      sessionStorage.removeItem("schemesaathi-token");
+      sessionStorage.removeItem("schemesaathi-user");
+      authToken="";
+      $("account-email").hidden=true;
+      $("logout-button").hidden=true;
+      $("auth-gate").hidden=false;
+      $("documents-section").hidden=true;
+      state.documents=[];
+      renderDocumentRows($("document-list"),state.documents,true);
+      $("auth-otp-step").hidden=true;
+      $("auth-credentials").hidden=false;
+      $("auth-password").value="";
+      setAuthMode("login");
+      showAuthMessage(logoutError);
+      $("auth-email").focus();
+    });
+
+    async function initializeAuth(){
+      const token=sessionStorage.getItem("schemesaathi-token");
+      if(!token){
+        $("auth-email").focus();
+        return;
+      }
+      try{
+        const response=await fetch(`${API_BASE}/api/auth/me`,{
+          headers:{Authorization:`Bearer ${token}`}
+        });
+        if(response.ok){
+          const user=await response.json();
+          activateSession(user,token);
+          return;
+        }
+        if(response.status>=500){
+          showAuthMessage("Authentication is temporarily unavailable. Please try again.");
+          return;
+        }
+      }catch(error){
+        showAuthMessage(authErrorMessage(error));
+        return;
+      }
+      sessionStorage.removeItem("schemesaathi-token");
+      sessionStorage.removeItem("schemesaathi-user");
+      $("auth-email").focus();
+    }
+
     applyLanguage();
-    checkApiConnection();
+    initializeAuth();
   </script>
 </body>
 </html>
