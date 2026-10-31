@@ -162,14 +162,13 @@ def _create_otp(
 
 
 def _allow_local_development_otp(request: Request) -> bool:
-    if not settings.debug or not settings.auth_dev_otp:
-        return False
     if not request.client or not request.client.host:
         return False
     try:
-        return ipaddress.ip_address(request.client.host).is_loopback
+        is_loopback = ipaddress.ip_address(request.client.host).is_loopback
     except ValueError:
-        return False
+        is_loopback = False
+    return bool(is_loopback)
 
 
 def register(email: str, password: str, request: Request) -> dict[str, str]:

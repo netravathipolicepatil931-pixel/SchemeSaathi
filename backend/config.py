@@ -1,5 +1,6 @@
 
 import os
+import secrets
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -89,3 +90,6 @@ class Settings(BaseModel):
 
 
 settings = Settings()
+
+if not settings.jwt_secret_key:
+    settings.jwt_secret_key = secrets.token_urlsafe(48)
