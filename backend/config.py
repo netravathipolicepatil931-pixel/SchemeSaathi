@@ -68,6 +68,10 @@ class Settings(BaseModel):
     )
 
     cors_origins: list[str] = [
+        origin.strip().rstrip("/")
+        for origin in os.getenv("CORS_ORIGINS", "").split(",")
+        if origin.strip()
+    ] or [
         "http://localhost",
         "http://localhost:8000",
         "http://localhost:3000",
@@ -75,6 +79,7 @@ class Settings(BaseModel):
         "http://127.0.0.1",
         "http://127.0.0.1:8000",
         "http://127.0.0.1:5500",
+        "https://schemesaathi-alpha.vercel.app",
         "null",
     ]
 

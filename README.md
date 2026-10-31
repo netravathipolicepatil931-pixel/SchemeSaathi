@@ -85,6 +85,16 @@ origin. If you open `index.html` directly as a file, the backend must still be
 running at `http://127.0.0.1:8000`; the login screen will show a connection
 message if it is not reachable.
 
+For a static production deployment such as Vercel, deploy the FastAPI backend
+separately. The repository's `render.yaml` configures the backend for Render
+with persistent SQLite storage; create the service from that Blueprint and
+provide `SMTP_USER` and `SMTP_PASSWORD` privately in Render to enable OTP
+email. The frontend is configured for
+`https://schemesaathi-api.onrender.com`; if Render assigns a different service
+URL, update the `api-base` meta tag in `index.html` to that HTTPS origin,
+without an `/api` suffix. The backend's `CORS_ORIGINS` must include the Vercel
+site origin.
+
 ### Configure authentication
 
 Authentication accounts, OTPs, login history, rate limits, and revoked tokens

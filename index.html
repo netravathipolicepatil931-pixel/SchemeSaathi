@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7f8f5">
   <meta name="description" content="SchemeSaathi — Understand government schemes, check eligibility, get personalized document checklists, and access verified official guidance in your language.">
+  <meta name="api-base" content="https://schemesaathi-api.onrender.com">
   <title>SchemeSaathi — Benefits Made Accessible</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -465,7 +466,10 @@ button.save-button:not(.saved) svg {
   <script>
     const isLocalHost = window.location.protocol === "file:" ||
       ["localhost","127.0.0.1"].includes(window.location.hostname);
-    const API_BASE = isLocalHost ? "http://127.0.0.1:8000" : window.location.origin;
+    const configuredApiBase = document.querySelector('meta[name="api-base"]')?.content.trim();
+    const API_BASE = isLocalHost
+      ? "http://127.0.0.1:8000"
+      : (configuredApiBase || window.location.origin).replace(/\/+$/, "");
 
     const translations={
       en:{navHome:"Home",navExplore:"Explore schemes",navHow:"How it works",verified:"Official sources",eyebrow:"A clearer path to the support you deserve",heroTitle:"Benefits are closer than you think.",heroDescription:"Find government schemes that fit your life. Understand eligibility, get document checklists, and proceed with confidence in your language.",trustOne:"Plain-language guidance",trustTwo:"Official links, always",trustThree:"Your details stay with you",heroCta:"Find schemes for me",profileTitle:"A little about you",profileSubtitle:"Share only what you feel comfortable sharing.",stateLabel:"Your state",ageLabel:"Your age",genderLabel:"Gender",locationLabel:"Where do you live?",occupationLabel:"What best describes you?",incomeLabel:"Approx. annual household income",submitProfile:"Show relevant schemes",privacyNote:"Your answers stay in this browser. Nothing is sent or saved.",welcomeTitle:"Your next step starts here",welcomeCaption:"Explore verified schemes, or share your details for a tailored starting point.",verifiedBadge:"Official sources",schemesHeading:"Schemes to explore",schemesCaption:"A helpful place to begin—not a decision on your eligibility.",searchPlaceholder:"Search schemes…",allCategories:"All categories",farmCategory:"Agriculture",housingCategory:"Housing",healthCategory:"Health",womenCategory:"Women & families",educationCategory:"Education",workerCategory:"Workers & Livelihood",selfEmployedCategory:"Business Loans",howEyebrow:"No guesswork. Just a clearer next step.",howTitle:"From questions to a way forward.",howCaption:"You stay in control at every step.",stepOneTitle:"Tell us a little",stepOneText:"A few optional details help us point you toward schemes worth exploring.",stepTwoTitle:"Understand what matters",stepTwoText:"See plain-language requirements, example documents, and questions to check.",stepThreeTitle:"Choose your next step",stepThreeText:"Continue to an official government source when you’re ready.",footerTag:"A clearer path to public benefits.",footerDisclaimer:"A guide, not a government service. Always confirm current eligibility and requirements on the official scheme website.",checklistTitle:"A checklist to get started",stepsTitle:"A simple way to proceed",officialApply:"Visit the official scheme site",checkSource:"Check the official source",allMatches:"Potentially relevant starting points",matchCaption:"Based on the details you shared. Confirm eligibility with the official scheme.",saved:"Saved schemes",savedCaption:"Your saved schemes on this device.",details:"Understand this scheme",source:"Official site",official:"Official scheme website",empty:"No schemes match your search yet. Try a different word or category.",privacyToast:"Saved on this device. Your details aren’t sent anywhere.",saveToast:"Saved to this device.",removeToast:"Removed from saved schemes.",eligibleFarmer:"Farmer selected in your profile. Check landholding, eligibility rules and exclusions on the official site.",eligibleRural:"You selected a rural area. Check the official housing survey list and programme rules.",eligibleWoman:"Women applicants may be eligible. Household LPG connection and scheme conditions apply.",eligibleHealth:"Check the official beneficiary database. Eligibility cannot be determined by income alone.",eligibleStudent:"Students can check current scholarships and eligibility on the National Scholarship Portal.",eligibleDefault:"This scheme may be worth exploring. Check the current criteria on the official scheme site.",couldMatch:"May be worth exploring",notEligibility:"This is a starting point—not an eligibility decision.",checked:"checked",of:"of",schemePlural:"documents",foundFor:"Here are a few schemes to explore",noProfileResults:"No schemes found for those filters. Try clearing your search or category.",dialogClosed:"Scheme details closed.",aiAssistantTitle:"SchemeSaathi AI Assistant",askAssistant:"Ask a question about government schemes...",askButton:"Ask Assistant"},
@@ -1149,7 +1153,9 @@ button.save-button:not(.saved) svg {
       let payload={};
       try{payload=await response.json()}catch(e){}
       if(!response.ok){
-        const detail=typeof payload.detail==="string"?payload.detail:"Request failed. Please try again.";
+        const detail=response.status===404
+          ? "The SchemeSaathi API is not available at this address. Configure the site to use the deployed FastAPI backend URL."
+          : typeof payload.detail==="string"?payload.detail:"Request failed. Please try again.";
         const error=new Error(detail);
         const retryAfter=Number(response.headers.get("Retry-After"));
         if(response.status===429&&Number.isFinite(retryAfter)&&retryAfter>0){
@@ -1162,6 +1168,9 @@ button.save-button:not(.saved) svg {
 
     function authErrorMessage(error){
       if(/failed to fetch|networkerror|load failed/i.test(error?.message||"")){
+        if(!isLocalHost){
+          return "Cannot connect to the SchemeSaathi API. Check that the production backend is running and allows this site in CORS.";
+        }
         return "Cannot connect to SchemeSaathi. Start the backend with `python run_backend.py`, then open http://127.0.0.1:8000.";
       }
       if(Number.isFinite(error?.retryAfter)){
