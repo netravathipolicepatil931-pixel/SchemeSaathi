@@ -229,6 +229,16 @@ def register(email: str, password: str, request: Request) -> dict[str, str]:
     return response
 
 
+def _normalize_hash_bytes(value: Any) -> bytes | None:
+    if value is None:
+        return None
+    if isinstance(value, (bytes, bytearray)):
+        return bytes(value)
+    if not isinstance(value, str):
+        return None
+    return value.encode()
+
+
 def login(email: str, password: str, request: Request) -> dict[str, str]:
     ip_address = _client_ip(request)
     _check_rate_limit(f"login:ip:{ip_address}", 20, 900)
@@ -238,9 +248,15 @@ def login(email: str, password: str, request: Request) -> dict[str, str]:
     except Exception as error:
         raise _database_unavailable(error) from error
 
-    stored_hash = user.get("password", "").encode() if user else _DUMMY_PASSWORD_HASH
+    stored_hash = (
+        _normalize_hash_bytes(user.get("password")) if user else _DUMMY_PASSWORD_HASH
+    )
     try:
-        password_matches = bcrypt.checkpw(password.encode(), stored_hash)
+        password_matches = (
+            bcrypt.checkpw(password.encode(), stored_hash)
+            if stored_hash is not None
+            else False
+        )
     except (ValueError, TypeError):
         password_matches = False
     if not user or not password_matches:
@@ -315,8 +331,11 @@ def verify_otp(email: str, otp: str, request: Request) -> dict[str, Any]:
             detail="The verification code is invalid or expired.",
         )
 
+    otp_hash = _normalize_hash_bytes(otp_row["otp"])
     try:
-        code_matches = bcrypt.checkpw(otp.encode(), otp_row["otp"].encode())
+        code_matches = (
+            bcrypt.checkpw(otp.encode(), otp_hash) if otp_hash is not None else False
+        )
     except (ValueError, TypeError):
         code_matches = False
     if not code_matches:

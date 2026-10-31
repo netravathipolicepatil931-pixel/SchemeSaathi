@@ -1,5 +1,6 @@
 from uuid import uuid4
 
+import bcrypt
 import pytest
 from fastapi import HTTPException, Request
 from pydantic import ValidationError
@@ -98,6 +99,19 @@ def test_login_history_only_allows_the_authenticated_user():
     with pytest.raises(HTTPException) as error:
         auth_service.get_login_history(str(uuid4()), current_user)
     assert error.value.status_code == 403
+
+
+def test_login_rejects_users_with_missing_password_hash(auth_database, monkeypatch):
+    monkeypatch.setattr(settings, "jwt_secret_key", "s" * 32)
+    auth_database.create_user("missing@example.com", bcrypt.hashpw(b"safe-pass-123", bcrypt.gensalt()).decode())
+    with auth_database._connect() as connection:
+        connection.execute(
+            'UPDATE "User" SET password = ? WHERE email = ?',
+            (b"not-a-bcrypt-hash", "missing@example.com"),
+        )
+    with pytest.raises(HTTPException) as error:
+        auth_service.login("missing@example.com", "safe-pass-123", _request())
+    assert error.value.status_code == 401
 
 
 def test_registration_login_otp_and_logout_flow(auth_database, monkeypatch):
